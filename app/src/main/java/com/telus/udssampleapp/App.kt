@@ -10,7 +10,7 @@ class App: Application() {
         super.onCreate()
 
         //configure UDS Library with them and pallet tokens
-        UDSLibrary.configure("", "")
+        UDSLibrary.configure("{}", "{}")
     }
 
 }
