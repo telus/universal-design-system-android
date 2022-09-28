@@ -2,10 +2,13 @@ package com.telus.udsnative.components.progressbar
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import com.telus.udsnative.components.Variant
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -26,9 +29,13 @@ fun ProgressBar(
 
     LinearProgressIndicator(
         progress = progressState.value,
-        modifier = modifier.border(
-            border = BorderStroke(width = tokens.outlineWidth, color = tokens.outlineColor)
-        ),
+        modifier = modifier
+            .clip(RoundedCornerShape(tokens.borderRadius))
+            .border(
+                width = tokens.outlineWidth,
+                color = tokens.outlineColor,
+                shape = RoundedCornerShape(tokens.borderRadius)
+            ),
         color = tokens.backgroundColor,
         backgroundColor = tokens.backgroundColor.copy(alpha = 0.4f)
     )

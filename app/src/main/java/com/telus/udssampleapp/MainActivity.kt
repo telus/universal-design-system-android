@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
                 ProgressBar(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .height(10.dp)
                         .padding(horizontal = 16.dp),
                     progress = progress
                 )
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity() {
                 ProgressBar(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .height(10.dp)
                         .padding(horizontal = 16.dp),
                     progress = progress,
                     variant = ProgressBarVariant(inactive = true, negative = false)
@@ -52,6 +54,7 @@ class MainActivity : AppCompatActivity() {
                 ProgressBar(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .height(10.dp)
                         .padding(horizontal = 16.dp),
                     progress = progress,
                     variant = ProgressBarVariant(inactive = false, negative = true)
