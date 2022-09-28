@@ -1,6 +1,14 @@
 # Compiled class file
 *.class
 
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+/.idea/*
+.DS_Store
+/build
+
 # Log file
 *.log
 
