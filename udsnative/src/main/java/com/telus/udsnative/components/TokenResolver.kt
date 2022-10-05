@@ -5,5 +5,5 @@ interface Tokens
 interface Variant
 
 interface TokenResolver {
-    fun resolveTokens(variant: Variant): Tokens
+    fun resolveTokens(_variant: Variant): Tokens
 }

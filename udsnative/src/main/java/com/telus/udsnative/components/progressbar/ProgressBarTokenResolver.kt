@@ -7,6 +7,8 @@ import com.telus.udsnative.components.Tokens
 import com.telus.udsnative.components.Variant
 
 class ProgressBarTokenResolver: TokenResolver {
+
+    // Mock Tokens based off of Allium's theme.json - Temporary
     private val progressBarDefaultTokens = ProgressBarTokens()
 
     private val progressBarNegativeVariantTokens = ProgressBarTokens(
@@ -21,7 +23,8 @@ class ProgressBarTokenResolver: TokenResolver {
         outlineColor = Palette.Colors.greyThunder
     )
 
-    override fun resolveTokens(_variant: Variant): Tokens {
+    // Mock resolution - Temporary
+    override fun resolveTokens(_variant: Variant): ProgressBarTokens {
         val variant = _variant as? ProgressBarVariant ?: return progressBarDefaultTokens
 
         var tokens = progressBarDefaultTokens

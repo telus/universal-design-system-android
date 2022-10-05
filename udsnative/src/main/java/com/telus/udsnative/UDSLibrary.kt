@@ -3,6 +3,7 @@ package com.telus.udsnative
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
+// Mock Palette - Temporary
 object Palette {
     object Colors {
         val greenAccessible = Color(0xFF2b8000)
