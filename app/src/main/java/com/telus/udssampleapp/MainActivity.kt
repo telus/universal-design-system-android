@@ -8,6 +8,9 @@ import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.telus.udsnative.components.card.Background
+import com.telus.udsnative.components.card.Card
+import com.telus.udsnative.components.card.CardVariant
 import com.telus.udsnative.components.progressbar.ProgressBar
 import com.telus.udsnative.components.progressbar.ProgressBarVariant
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -59,6 +62,22 @@ class MainActivity : AppCompatActivity() {
                     progress = progress,
                     variant = ProgressBarVariant(inactive = false, negative = true)
                 )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Card(
+                    modifier = Modifier
+                        .width(300.dp)
+                        .height(200.dp)
+                        .padding(horizontal = 16.dp),
+
+                ) {
+                    Text(text = "content1")
+
+                    Spacer(modifier = Modifier.width(16.dp))
+
+                    Text(text = "content2")
+                }
 
             }
         }
