@@ -6,16 +6,20 @@ import com.telus.udsnative.ThemeResolver
 
 class App: Application() {
     override fun onCreate() {
-        val jsonString = assets.readAssetsFile("testData/${TestTheme.allium}")
-        ThemeResolver.setup(jsonString = jsonString)
+        setupTheme(theme = TestTheme.allium.fileName)
 
         super.onCreate()
     }
+
+    private fun setupTheme(theme: String) {
+        val jsonString = assets.readAssetsFile("testData/${theme}")
+        ThemeResolver.setup(jsonString = jsonString)
+    }
 }
 
-object TestTheme {
-    val allium: String = "AlliumTheme.json"
-    val koodo: String = "KoodoTheme.json"
+enum class TestTheme(val fileName: String) {
+    allium("AlliumTheme.json"),
+    koodo("KoodoTheme.json")
 }
 
 fun AssetManager.readAssetsFile(fileName : String): String = open(fileName).bufferedReader().use { it.readText() }
