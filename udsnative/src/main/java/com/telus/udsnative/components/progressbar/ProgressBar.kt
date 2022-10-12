@@ -27,21 +27,21 @@ fun ProgressBar(
 ) {
 
     val progressState = progress.collectAsState()
-    val tokensResolver = ProgressBarTokenResolver()
-    val tokens = progressBarTokens ?: tokensResolver.resolveTokens(variant)
-
-    LinearProgressIndicator(
-        progress = progressState.value,
-        modifier = modifier
-            .clip(RoundedCornerShape(tokens.borderRadius))
-            .border(
-                width = tokens.outlineWidth,
-                color = tokens.outlineColor,
-                shape = RoundedCornerShape(tokens.borderRadius)
-            ),
-        color = tokens.backgroundColor,
-        backgroundColor = tokens.backgroundColor.copy(alpha = 0.4f)
-    )
+//    val tokensResolver = ProgressBarTokenResolver()
+//    val tokens = progressBarTokens ?: tokensResolver.resolveTokens(variant)
+//
+//    LinearProgressIndicator(
+//        progress = progressState.value,
+//        modifier = modifier
+//            .clip(RoundedCornerShape(tokens.borderRadius))
+//            .border(
+//                width = tokens.outlineWidth,
+//                color = tokens.outlineColor,
+//                shape = RoundedCornerShape(tokens.borderRadius)
+//            ),
+//        color = tokens.backgroundColor,
+//        backgroundColor = tokens.backgroundColor.copy(alpha = 0.4f)
+//    )
 }
 
 @Preview

@@ -40,7 +40,7 @@ android {
 
 dependencies {
 
-    //gson to serialization
+    //gson for serialization
     implementation "com.google.code.gson:gson:$gson"
 
     //compose

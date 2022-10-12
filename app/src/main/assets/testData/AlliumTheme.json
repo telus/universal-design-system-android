@@ -35,22 +35,7 @@
     "tokens": {
       "backgroundColor": "#2B8000",
       "borderRadius": 12,
-      "gradient": {
-        "description": "Green Gradient",
-        "value": {
-          "angle": 135,
-          "stops": [
-            {
-              "color": "rgb(0, 120, 74)",
-              "hint": 0.75
-            },
-            {
-              "color": "rgb(102, 204, 0)"
-            }
-          ],
-          "type": "linear"
-        }
-      },
+      "gradient": "#2B8000",
       "outlineColor": "#2B8000",
       "outlineWidth": 1
     }

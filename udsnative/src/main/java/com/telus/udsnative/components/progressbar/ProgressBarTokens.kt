@@ -2,21 +2,40 @@ package com.telus.udsnative.components.progressbar
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
-import com.telus.udsnative.Palette
+import androidx.core.graphics.toColorInt
+import com.google.gson.*
+import com.google.gson.annotations.SerializedName
 import com.telus.udsnative.components.Tokens
+import java.lang.reflect.Type
 
 data class ProgressBarTokens (
-    var backgroundColor: Color = Palette.Colors.greenAccessible,
-    var borderRadius: Dp = Palette.Radius.radius12,
-    var gradient: Color = Palette.Colors.green,
-    var outlineColor: Color = Palette.Colors.greenAccessible,
-    var outlineWidth: Dp = Palette.Border.border1
-): Tokens {
+    var backgroundColor: Color,
+    var borderRadius: Dp,
+    var gradient: Color,
+    var outlineColor: Color,
+    var outlineWidth: Dp
+): Tokens
 
-    fun apply(tokens: ProgressBarTokens) {
-        backgroundColor = tokens.backgroundColor
-        borderRadius = tokens.borderRadius
-        gradient = tokens.gradient
-        outlineColor = tokens.outlineColor
+class ProgressBarTokensDeserializer : JsonDeserializer<ProgressBarTokens> {
+    @Throws(JsonParseException::class)
+    override fun deserialize(
+        json: JsonElement, typeOfT: Type,
+        context: JsonDeserializationContext
+    ): ProgressBarTokens {
+        val jsonObject = json as JsonObject
+
+        val backgroundColor = Color(jsonObject["backgroundColor"].asString.toColorInt())
+        val borderRadius = Dp(jsonObject["borderRadius"].asFloat)
+        val gradient = Color(jsonObject["gradient"].asString.toColorInt())
+        val outlineColor = Color(jsonObject["outlineColor"].asString.toColorInt())
+        val outlineWidth = Dp(jsonObject["outlineWidth"].asFloat)
+
+        return ProgressBarTokens(
+            backgroundColor = backgroundColor,
+            borderRadius = borderRadius,
+            gradient = gradient,
+            outlineColor = outlineColor,
+            outlineWidth = outlineWidth
+        )
     }
 }
