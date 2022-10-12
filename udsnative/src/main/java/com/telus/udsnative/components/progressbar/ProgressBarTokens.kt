@@ -25,7 +25,7 @@ class ProgressBarTokensDeserializer : JsonDeserializer<ProgressBarTokens> {
 
         val backgroundColor = toColor(json["backgroundColor"].asString)
         val borderRadius = Dp(json["borderRadius"].asFloat)
-        var gradient = if (json.has("gradient")) gradient(json.get("gradient")) else null
+        val gradient = if (json.has("gradient")) gradient(json.get("gradient")) else null
         val outlineColor = toColor(json["outlineColor"].asString)
         val outlineWidth = Dp(json["outlineWidth"].asFloat)
 
