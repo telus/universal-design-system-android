@@ -1,8 +1,5 @@
 package com.telus.udsnative
 
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.Dp
-import androidx.core.graphics.toColorInt
 import com.google.gson.*
 import com.google.gson.reflect.TypeToken
 import com.telus.udsnative.components.Tokens
@@ -16,9 +13,6 @@ object ThemeResolver {
 
     fun setup(jsonString: String) {
         themeData = jsonString
-
-        // test
-        val result = resolve<ProgressBarTokens>(component = "ProgressBar")
     }
 
     inline fun <reified T:Tokens> resolve(component: String): ComponentResolver<T>? {
@@ -38,6 +32,10 @@ object ThemeResolver {
 
             val componentTheme = gson.fromJson<ComponentResolver<T>>(componentJson, object: TypeToken<ComponentResolver<T>>(){}.type)
             storage[component] = componentTheme
+
+            val tokensJson = componentJson.asJsonObject.remove("tokens")
+
+            componentTheme.rawTokens = gson.fromJson(tokensJson, object: TypeToken<Map<String, Any>>(){}.type)
 
             return componentTheme
         }

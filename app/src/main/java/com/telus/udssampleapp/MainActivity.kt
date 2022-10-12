@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                         .height(10.dp)
                         .padding(horizontal = 16.dp),
                     progress = progress,
-                    variant = ProgressBarVariant(inactive = true, negative = false)
+                    enabled = false
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                         .height(10.dp)
                         .padding(horizontal = 16.dp),
                     progress = progress,
-                    variant = ProgressBarVariant(inactive = false, negative = true)
+                    variant = ProgressBarVariant(negative = true)
                 )
 
             }

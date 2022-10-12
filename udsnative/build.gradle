@@ -58,6 +58,10 @@ dependencies {
     // Integration with observables
     implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
 
+    // https://issuetracker.google.com/issues/227767363
+    debugImplementation "androidx.customview:customview:1.2.0-alpha01"
+    debugImplementation "androidx.customview:customview-poolingcontainer:1.0.0-alpha01"
+
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'

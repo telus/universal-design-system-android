@@ -8,6 +8,9 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
+import com.telus.udsnative.ThemeResolver
+import com.telus.udsnative.components.Appearance
+import com.telus.udsnative.model.ComponentResolver
 import kotlinx.coroutines.flow.MutableStateFlow
 
 /**
@@ -23,25 +26,45 @@ fun ProgressBar(
     modifier: Modifier = Modifier,
     progress: MutableStateFlow<Float>,
     progressBarTokens: ProgressBarTokens? = null,
-    variant: ProgressBarVariant = ProgressBarVariant(inactive = false, negative = false)
+    variant: ProgressBarVariant = ProgressBarVariant(),
+    enabled: Boolean = true
 ) {
 
     val progressState = progress.collectAsState()
-//    val tokensResolver = ProgressBarTokenResolver()
-//    val tokens = progressBarTokens ?: tokensResolver.resolveTokens(variant)
-//
-//    LinearProgressIndicator(
-//        progress = progressState.value,
-//        modifier = modifier
-//            .clip(RoundedCornerShape(tokens.borderRadius))
-//            .border(
-//                width = tokens.outlineWidth,
-//                color = tokens.outlineColor,
-//                shape = RoundedCornerShape(tokens.borderRadius)
-//            ),
-//        color = tokens.backgroundColor,
-//        backgroundColor = tokens.backgroundColor.copy(alpha = 0.4f)
-//    )
+    val componentResolver = ThemeResolver.resolve<ProgressBarTokens>(component = "ProgressBar")
+
+    if (componentResolver !is ComponentResolver<ProgressBarTokens>) { return }
+
+    val appearance = ProgressBarAppearance(variant = variant, isInactive = !enabled).asMap()
+    val tokens = componentResolver.resolve<ProgressBarTokens>(appearance = appearance) ?: return
+
+    LinearProgressIndicator(
+        progress = progressState.value,
+        modifier = modifier
+            .clip(RoundedCornerShape(tokens.borderRadius))
+            .border(
+                width = tokens.outlineWidth,
+                color = tokens.outlineColor,
+                shape = RoundedCornerShape(tokens.borderRadius)
+            ),
+        color = tokens.backgroundColor,
+        backgroundColor = tokens.backgroundColor.copy(alpha = 0.4f)
+    )
+}
+
+class ProgressBarAppearance(variant: ProgressBarVariant, isInactive: Boolean): Appearance {
+    val inactive: Boolean
+    val negative: Boolean
+
+    init {
+        inactive = isInactive
+        negative = variant.negative
+    }
+
+    override fun asMap(): Map<String, Any> = mapOf(
+        "inactive" to inactive,
+        "negative" to negative
+    )
 }
 
 @Preview
@@ -64,6 +87,6 @@ private fun ProgressBar_NegativeVariant() {
 private fun ProgressBar_InactiveVariant() {
     ProgressBar(
         progress = MutableStateFlow(0.5f),
-        variant = ProgressBarVariant(inactive = true)
+        enabled = false
     )
 }

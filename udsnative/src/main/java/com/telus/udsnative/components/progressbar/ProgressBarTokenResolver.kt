@@ -2,7 +2,7 @@ package com.telus.udsnative.components.progressbar
 
 import com.telus.udsnative.Palette
 import com.telus.udsnative.SystemValues
-import com.telus.udsnative.components.TokenResolver
+//import com.telus.udsnative.components.TokenResolver
 import com.telus.udsnative.components.Tokens
 import com.telus.udsnative.components.Variant
 
