@@ -15,6 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
@@ -48,21 +49,7 @@ fun ProgressBar(
     val appearance = ProgressBarAppearance(variant = variant, isInactive = !enabled).asMap()
     val tokens = progressBarTokens ?: componentResolver.resolve(appearance = appearance) ?: return
 
-//    LinearProgressIndicator(
-//        progress = progressState.value,
-//        modifier = modifier
-//            .clip(RoundedCornerShape(tokens.borderRadius))
-//            .border(
-//                width = tokens.outlineWidth,
-//                color = tokens.outlineColor,
-//                shape = RoundedCornerShape(tokens.borderRadius)
-//            )
-//            .background(Brush.horizontalGradient(listOf(Color(0xffFD7D20), Color(0xffFBE41A)))),
-//        color = tokens.gradient ?: tokens.backgroundColor,
-//        backgroundColor = Color(0xFFFFFFFF)
-//    )
-
-    val brush = Brush.horizontalGradient(listOf(Color(0xffFD7D20), Color(0xffFBE41A)))
+    val brush = tokens.gradient?.colors?.let { Brush.linearGradient(it) }
 
     Canvas(
         modifier
@@ -77,11 +64,16 @@ fun ProgressBar(
     ) {
         val strokeWidth = size.height
         drawLinearIndicatorBackground(Color(0xFFFFFFFF), strokeWidth)
-        drawLinearIndicator(0f, progressState.value, brush, strokeWidth)
+
+        if (brush == null) {
+            drawLinearIndicator(0f, progressState.value, tokens.backgroundColor, strokeWidth)
+        } else {
+            drawLinearIndicator(0f, progressState.value, brush, strokeWidth)
+        }
     }
 }
 
-private val LinearIndicatorHeight = ProgressIndicatorDefaults.StrokeWidth
+private val LinearIndicatorHeight = 8.dp
 private val LinearIndicatorWidth = 240.dp
 
 class ProgressBarAppearance(variant: ProgressBarVariant, isInactive: Boolean): Appearance {
@@ -127,7 +119,8 @@ private fun DrawScope.drawLinearIndicator(
     startFraction: Float,
     endFraction: Float,
     color: Color,
-    strokeWidth: Float
+    strokeWidth: Float,
+    cap: StrokeCap = StrokeCap.Round
 ) {
     val width = size.width
     val height = size.height
@@ -139,14 +132,15 @@ private fun DrawScope.drawLinearIndicator(
     val barEnd = (if (isLtr) endFraction else 1f - startFraction) * width
 
     // Progress line
-    drawLine(color, Offset(barStart, yOffset), Offset(barEnd, yOffset), strokeWidth)
+    drawLine(color, Offset(barStart, yOffset), Offset(barEnd, yOffset), strokeWidth, cap)
 }
 
 private fun DrawScope.drawLinearIndicator(
     startFraction: Float,
     endFraction: Float,
     brush: Brush,
-    strokeWidth: Float
+    strokeWidth: Float,
+    cap: StrokeCap = StrokeCap.Round
 ) {
     val width = size.width
     val height = size.height
@@ -158,7 +152,7 @@ private fun DrawScope.drawLinearIndicator(
     val barEnd = (if (isLtr) endFraction else 1f - startFraction) * width
 
     // Progress line
-    drawLine(brush, Offset(barStart, yOffset), Offset(barEnd, yOffset), strokeWidth)
+    drawLine(brush = brush, Offset(barStart, yOffset), Offset(barEnd, yOffset), strokeWidth, cap)
 }
 
 private fun DrawScope.drawLinearIndicatorBackground(

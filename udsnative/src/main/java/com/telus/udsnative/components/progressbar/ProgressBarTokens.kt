@@ -4,13 +4,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.core.graphics.toColorInt
 import com.google.gson.*
+import com.google.gson.reflect.TypeToken
 import com.telus.udsnative.components.Tokens
+import com.telus.udsnative.model.PaletteGradient
 import java.lang.reflect.Type
 
 data class ProgressBarTokens (
     var backgroundColor: Color,
     var borderRadius: Dp,
-    var gradient: Color? = null,
+    var gradient: PaletteGradient? = null,
     var outlineColor: Color,
     var outlineWidth: Dp
 ): Tokens
@@ -38,12 +40,17 @@ class ProgressBarTokensDeserializer : JsonDeserializer<ProgressBarTokens> {
         )
     }
 
-    private fun gradient(json: JsonElement): Color? {
+    private fun gradient(json: JsonElement): PaletteGradient? {
         if (json is JsonNull) {
             return null
         }
 
-        return toColor(json.asString)
+        val gson = GsonBuilder()
+            .serializeNulls()
+            .registerTypeAdapter(ProgressBarTokens::class.java, ProgressBarTokensDeserializer())
+            .create()
+
+        return gson.fromJson(json, PaletteGradient::class.java)
     }
 
     private fun toColor(colorString: String): Color {
@@ -64,6 +71,7 @@ class ProgressBarTokensDeserializer : JsonDeserializer<ProgressBarTokens> {
         val blue = list[3]?.value?.toIntOrNull() ?: 0
         val alpha = list[4]?.value?.toIntOrNull() ?: 0
 
-        return Color(red = red, green = green, blue = blue, alpha = alpha)
+        // Adding alpha is currently breaking gradients so temporarily removing it
+        return Color(red = red, green = green, blue = blue)
     }
 }

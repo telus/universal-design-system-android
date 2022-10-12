@@ -2,12 +2,11 @@ package com.telus.udssampleapp
 
 import android.app.Application
 import android.content.res.AssetManager
-import androidx.compose.ui.graphics.Color
 import com.telus.udsnative.ThemeResolver
 
 class App: Application() {
     override fun onCreate() {
-        setupTheme(theme = TestTheme.koodo.fileName)
+        setupTheme(theme = TestTheme.allium.fileName)
 
         super.onCreate()
     }
