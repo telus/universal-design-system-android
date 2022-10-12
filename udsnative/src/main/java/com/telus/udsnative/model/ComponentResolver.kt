@@ -23,6 +23,7 @@ data class ComponentResolver<T: Tokens>(
         }
 
         val gson = GsonBuilder()
+            .serializeNulls()
             .registerTypeAdapter(ProgressBarTokens::class.java, ProgressBarTokensDeserializer())
             .create()
 

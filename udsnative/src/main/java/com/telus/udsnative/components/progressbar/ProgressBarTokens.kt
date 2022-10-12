@@ -10,7 +10,7 @@ import java.lang.reflect.Type
 data class ProgressBarTokens (
     var backgroundColor: Color,
     var borderRadius: Dp,
-    var gradient: Color?,
+    var gradient: Color? = null,
     var outlineColor: Color,
     var outlineWidth: Dp
 ): Tokens
@@ -21,13 +21,13 @@ class ProgressBarTokensDeserializer : JsonDeserializer<ProgressBarTokens> {
         json: JsonElement, typeOfT: Type,
         context: JsonDeserializationContext
     ): ProgressBarTokens {
-        val jsonObject = json as JsonObject
+        json as JsonObject
 
-        val backgroundColor = Color(jsonObject["backgroundColor"].asString.toColorInt())
-        val borderRadius = Dp(jsonObject["borderRadius"].asFloat)
-        val gradient = jsonObject["gradient"]?.asString?.let { Color(it.toColorInt()) }
-        val outlineColor = Color(jsonObject["outlineColor"].asString.toColorInt())
-        val outlineWidth = Dp(jsonObject["outlineWidth"].asFloat)
+        val backgroundColor = toColor(json["backgroundColor"].asString)
+        val borderRadius = Dp(json["borderRadius"].asFloat)
+        var gradient = if (json.has("gradient")) gradient(json.get("gradient")) else null
+        val outlineColor = toColor(json["outlineColor"].asString)
+        val outlineWidth = Dp(json["outlineWidth"].asFloat)
 
         return ProgressBarTokens(
             backgroundColor = backgroundColor,
@@ -36,5 +36,34 @@ class ProgressBarTokensDeserializer : JsonDeserializer<ProgressBarTokens> {
             outlineColor = outlineColor,
             outlineWidth = outlineWidth
         )
+    }
+
+    private fun gradient(json: JsonElement): Color? {
+        if (json is JsonNull) {
+            return null
+        }
+
+        return toColor(json.asString)
+    }
+
+    private fun toColor(colorString: String): Color {
+        val pattern = """rgba?\((?<red>[0-9]{1,3}),\s?(?<green>[0-9]{1,3}),?\s?(?<blue>[0-9]{1,3}).\s?(?<alpha>[0-9]*)?\)?""".toRegex()
+
+        val result = pattern.find(colorString)
+
+        // convert hex string
+        if (result == null) {
+            return Color(colorString.toColorInt())
+        }
+
+        // convert rbga string
+        val list = result.groups.toList()
+
+        val red = list[1]?.value?.toIntOrNull() ?: 0
+        val green = list[2]?.value?.toIntOrNull() ?: 0
+        val blue = list[3]?.value?.toIntOrNull() ?: 0
+        val alpha = list[4]?.value?.toIntOrNull() ?: 0
+
+        return Color(red = red, green = green, blue = blue, alpha = alpha)
     }
 }

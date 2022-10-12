@@ -24,6 +24,7 @@ object ThemeResolver {
             throw IllegalStateException()
         } else {
             val gson = GsonBuilder()
+                .serializeNulls()
                 .registerTypeAdapter(ProgressBarTokens::class.java, ProgressBarTokensDeserializer())
                 .create()
 
