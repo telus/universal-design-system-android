@@ -3,6 +3,7 @@ package com.telus.udsnative.components.progressbar
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import com.google.gson.*
+import com.telus.udsnative.ThemeResolver
 import com.telus.udsnative.model.Tokens
 import com.telus.udsnative.model.PaletteGradient
 import com.telus.udsnative.utility.ColorUtil
@@ -44,11 +45,6 @@ class ProgressBarTokensDeserializer : JsonDeserializer<ProgressBarTokens> {
             return null
         }
 
-        val gson = GsonBuilder()
-            .serializeNulls()
-            .registerTypeAdapter(ProgressBarTokens::class.java, ProgressBarTokensDeserializer())
-            .create()
-
-        return gson.fromJson(json, PaletteGradient::class.java)
+        return ThemeResolver.gson.fromJson(json, PaletteGradient::class.java)
     }
 }

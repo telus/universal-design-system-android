@@ -1,9 +1,7 @@
 package com.telus.udsnative.model
 
-import com.google.gson.*
 import com.google.gson.reflect.TypeToken
-import com.telus.udsnative.components.progressbar.ProgressBarTokens
-import com.telus.udsnative.components.progressbar.ProgressBarTokensDeserializer
+import com.telus.udsnative.ThemeResolver
 
 data class ComponentResolver<T: Tokens>(
     val rules: List<Rule>,
@@ -21,12 +19,7 @@ data class ComponentResolver<T: Tokens>(
             }
         }
 
-        val gson = GsonBuilder()
-            .serializeNulls()
-            .registerTypeAdapter(ProgressBarTokens::class.java, ProgressBarTokensDeserializer())
-            .create()
-
-        val tokensJson = gson.toJson(finalRawTokens)
-        return gson.fromJson<T>(tokensJson, object: TypeToken<T>(){}.type)
+        val tokensJson = ThemeResolver.gson.toJson(finalRawTokens)
+        return ThemeResolver.gson.fromJson<T>(tokensJson, object: TypeToken<T>(){}.type)
     }
 }

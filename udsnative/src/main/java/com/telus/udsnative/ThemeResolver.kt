@@ -11,6 +11,11 @@ object ThemeResolver {
     var themeData: String? = null
     var storage: MutableMap<String, Any> = mutableMapOf()
 
+    val gson = GsonBuilder()
+        .serializeNulls()
+        .registerTypeAdapter(ProgressBarTokens::class.java, ProgressBarTokensDeserializer())
+        .create()
+
     fun setup(jsonString: String) {
         themeData = jsonString
     }
@@ -23,11 +28,6 @@ object ThemeResolver {
         if (themeData == null) {
             throw IllegalStateException()
         } else {
-            val gson = GsonBuilder()
-                .serializeNulls()
-                .registerTypeAdapter(ProgressBarTokens::class.java, ProgressBarTokensDeserializer())
-                .create()
-
             val jsonObject = JsonParser.parseString(themeData).asJsonObject
             val componentJson = jsonObject.remove(component)
 
