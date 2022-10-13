@@ -2,7 +2,6 @@ package com.telus.udsnative.model
 
 import com.google.gson.*
 import com.google.gson.reflect.TypeToken
-import com.telus.udsnative.components.Tokens
 import com.telus.udsnative.components.progressbar.ProgressBarTokens
 import com.telus.udsnative.components.progressbar.ProgressBarTokensDeserializer
 

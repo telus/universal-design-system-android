@@ -2,7 +2,7 @@ package com.telus.udsnative
 
 import com.google.gson.*
 import com.google.gson.reflect.TypeToken
-import com.telus.udsnative.components.Tokens
+import com.telus.udsnative.model.Tokens
 import com.telus.udsnative.components.progressbar.ProgressBarTokens
 import com.telus.udsnative.components.progressbar.ProgressBarTokensDeserializer
 import com.telus.udsnative.model.ComponentResolver
@@ -15,7 +15,7 @@ object ThemeResolver {
         themeData = jsonString
     }
 
-    inline fun <reified T:Tokens> resolve(component: String): ComponentResolver<T>? {
+    inline fun <reified T: Tokens> resolve(component: String): ComponentResolver<T>? {
         if (storage[component] is ComponentResolver<*>) {
             storage[component]
         }

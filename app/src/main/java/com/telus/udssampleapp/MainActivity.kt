@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                         .height(10.dp)
                         .padding(horizontal = 16.dp),
                     progress = progress,
-                    enabled = false
+                    inactive = true
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))

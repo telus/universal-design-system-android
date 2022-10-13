@@ -2,11 +2,10 @@ package com.telus.udsnative.components.progressbar
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
-import androidx.core.graphics.toColorInt
 import com.google.gson.*
-import com.google.gson.reflect.TypeToken
-import com.telus.udsnative.components.Tokens
+import com.telus.udsnative.model.Tokens
 import com.telus.udsnative.model.PaletteGradient
+import com.telus.udsnative.utility.ColorUtil
 import java.lang.reflect.Type
 
 data class ProgressBarTokens (
@@ -25,10 +24,10 @@ class ProgressBarTokensDeserializer : JsonDeserializer<ProgressBarTokens> {
     ): ProgressBarTokens {
         json as JsonObject
 
-        val backgroundColor = toColor(json["backgroundColor"].asString)
+        val backgroundColor = ColorUtil.toColor(json["backgroundColor"].asString)
         val borderRadius = Dp(json["borderRadius"].asFloat)
         val gradient = if (json.has("gradient")) gradient(json.get("gradient")) else null
-        val outlineColor = toColor(json["outlineColor"].asString)
+        val outlineColor = ColorUtil.toColor(json["outlineColor"].asString)
         val outlineWidth = Dp(json["outlineWidth"].asFloat)
 
         return ProgressBarTokens(
@@ -51,27 +50,5 @@ class ProgressBarTokensDeserializer : JsonDeserializer<ProgressBarTokens> {
             .create()
 
         return gson.fromJson(json, PaletteGradient::class.java)
-    }
-
-    private fun toColor(colorString: String): Color {
-        val pattern = """rgba?\((?<red>[0-9]{1,3}),\s?(?<green>[0-9]{1,3}),?\s?(?<blue>[0-9]{1,3}).\s?(?<alpha>[0-9]*)?\)?""".toRegex()
-
-        val result = pattern.find(colorString)
-
-        // convert hex string
-        if (result == null) {
-            return Color(colorString.toColorInt())
-        }
-
-        // convert rbga string
-        val list = result.groups.toList()
-
-        val red = list[1]?.value?.toIntOrNull() ?: 0
-        val green = list[2]?.value?.toIntOrNull() ?: 0
-        val blue = list[3]?.value?.toIntOrNull() ?: 0
-        val alpha = list[4]?.value?.toIntOrNull() ?: 0
-
-        // Adding alpha is currently breaking gradients so temporarily removing it
-        return Color(red = red, green = green, blue = blue)
     }
 }
