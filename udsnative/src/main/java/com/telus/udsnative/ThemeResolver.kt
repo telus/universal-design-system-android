@@ -2,10 +2,10 @@ package com.telus.udsnative
 
 import com.google.gson.*
 import com.google.gson.reflect.TypeToken
-import com.telus.udsnative.model.Tokens
+import com.telus.udsnative.models.Tokens
 import com.telus.udsnative.components.progressbar.ProgressBarTokens
 import com.telus.udsnative.components.progressbar.ProgressBarTokensDeserializer
-import com.telus.udsnative.model.ComponentResolver
+import com.telus.udsnative.models.ComponentResolver
 
 object ThemeResolver {
     var themeData: String? = null
@@ -37,6 +37,7 @@ object ThemeResolver {
             val tokensJson = componentJson.asJsonObject.remove("tokens")
 
             componentTheme.rawTokens = gson.fromJson(tokensJson, object: TypeToken<Map<String, Any>>(){}.type)
+//            componentTheme.tokenCache = TokenCache()
 
             return componentTheme
         }

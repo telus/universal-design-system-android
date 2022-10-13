@@ -1,4 +1,4 @@
-package com.telus.udsnative.model
+package com.telus.udsnative.models
 
 import com.google.gson.annotations.SerializedName
 

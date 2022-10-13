@@ -1,4 +1,4 @@
-package com.telus.udsnative.model
+package com.telus.udsnative.models
 
 import androidx.compose.ui.graphics.Color
 import com.telus.udsnative.utility.ColorUtil

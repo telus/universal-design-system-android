@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.telus.udsnative.ThemeResolver
-import com.telus.udsnative.model.ComponentResolver
+import com.telus.udsnative.models.ComponentResolver
 import com.telus.udsnative.utility.drawLinearIndicator
 import com.telus.udsnative.utility.drawLinearIndicatorBackground
 import kotlinx.coroutines.flow.MutableStateFlow

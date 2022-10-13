@@ -4,8 +4,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import com.google.gson.*
 import com.telus.udsnative.ThemeResolver
-import com.telus.udsnative.model.Tokens
-import com.telus.udsnative.model.PaletteGradient
+import com.telus.udsnative.models.Tokens
+import com.telus.udsnative.models.PaletteGradient
 import com.telus.udsnative.utility.ColorUtil
 import java.lang.reflect.Type
 

@@ -1,6 +1,6 @@
 package com.telus.udsnative.components.progressbar
 
-import com.telus.udsnative.model.Appearance
+import com.telus.udsnative.models.Appearance
 
 class ProgressBarAppearance(variant: ProgressBarVariant, inactive: Boolean): Appearance {
     val inactive: Boolean

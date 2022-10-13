@@ -1,4 +1,4 @@
-package com.telus.udsnative.model
+package com.telus.udsnative.models
 
 interface Tokens
 interface Variant
