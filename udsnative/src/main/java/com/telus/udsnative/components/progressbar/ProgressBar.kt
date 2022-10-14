@@ -19,6 +19,9 @@ import com.telus.udsnative.utility.drawLinearIndicator
 import com.telus.udsnative.utility.drawLinearIndicatorBackground
 import kotlinx.coroutines.flow.MutableStateFlow
 
+private val LinearIndicatorHeight = 8.dp
+private val LinearIndicatorWidth = 240.dp
+
 /**
  * @param modifier: Separate modifier to provide more customization of ProgressBar such as size, padding, etc.
  * @param progress: The progress value of the progress bar from 0 to 1.  Type is MutableStateFlow so view will automatically update as progress param value is changed.
@@ -56,7 +59,7 @@ fun ProgressBar(
             )
     ) {
         val strokeWidth = size.height
-        drawLinearIndicatorBackground(Color(0xFFFFFFFF), strokeWidth)
+        drawLinearIndicatorBackground(Color.Transparent, strokeWidth)
 
         if (brush == null) {
             drawLinearIndicator(0f, progressState.value, tokens.backgroundColor.color, strokeWidth)
@@ -65,9 +68,6 @@ fun ProgressBar(
         }
     }
 }
-
-private val LinearIndicatorHeight = 8.dp
-private val LinearIndicatorWidth = 240.dp
 
 @Preview
 @Composable
