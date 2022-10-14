@@ -1,7 +1,6 @@
 package com.telus.udsnative.models
 
 import com.google.gson.*
-import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
 import com.telus.udsnative.ThemeResolver
 import java.lang.reflect.Type
