@@ -20,8 +20,8 @@ data class PaletteGradient(
     )
 
     enum class GradientType {
-        linear,
-        radial
+        Linear,
+        Radial
     }
 
     val colors: List<Color>

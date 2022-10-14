@@ -3,7 +3,7 @@ package com.telus.udsnative
 import com.telus.udsnative.models.Tokens
 
 class TokensCache {
-    val storage: MutableMap<Int, Tokens> = mutableMapOf()
+    private val storage: MutableMap<Int, Tokens> = mutableMapOf()
 
     fun updateCache(key: Int, tokens: Tokens) {
         storage[key] = tokens

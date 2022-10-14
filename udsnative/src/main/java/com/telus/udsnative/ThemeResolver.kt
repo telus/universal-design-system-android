@@ -6,6 +6,8 @@ import com.telus.udsnative.models.Tokens
 import com.telus.udsnative.components.progressbar.ProgressBarTokens
 import com.telus.udsnative.components.progressbar.ProgressBarTokensDeserializer
 import com.telus.udsnative.models.ComponentResolver
+import com.telus.udsnative.models.Rule
+import com.telus.udsnative.models.RuleDeserializer
 
 object ThemeResolver {
     var themeData: String? = null
@@ -13,6 +15,7 @@ object ThemeResolver {
 
     val gson = GsonBuilder()
         .serializeNulls()
+        .registerTypeAdapter(Rule::class.java, RuleDeserializer())
         .registerTypeAdapter(ProgressBarTokens::class.java, ProgressBarTokensDeserializer())
         .create()
 
@@ -37,7 +40,6 @@ object ThemeResolver {
             val tokensJson = componentJson.asJsonObject.remove("tokens")
 
             componentTheme.rawTokens = gson.fromJson(tokensJson, object: TypeToken<Map<String, Any>>(){}.type)
-//            componentTheme.tokenCache = TokenCache()
 
             return componentTheme
         }
