@@ -3,8 +3,8 @@ package com.telus.udsnative
 import com.google.gson.*
 import com.google.gson.reflect.TypeToken
 import com.telus.udsnative.models.Tokens
-import com.telus.udsnative.components.progressbar.ProgressBarTokens
-import com.telus.udsnative.components.progressbar.ProgressBarTokensDeserializer
+import com.telus.udsnative.models.UDSColor
+import com.telus.udsnative.components.progressbar.UDSColorDeserializer
 import com.telus.udsnative.models.ComponentResolver
 import com.telus.udsnative.models.Rule
 import com.telus.udsnative.models.RuleDeserializer
@@ -16,7 +16,7 @@ object ThemeResolver {
     val gson = GsonBuilder()
         .serializeNulls()
         .registerTypeAdapter(Rule::class.java, RuleDeserializer())
-        .registerTypeAdapter(ProgressBarTokens::class.java, ProgressBarTokensDeserializer())
+        .registerTypeAdapter(UDSColor::class.java, UDSColorDeserializer())
         .create()
 
     fun setup(jsonString: String) {

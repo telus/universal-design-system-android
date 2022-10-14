@@ -51,7 +51,7 @@ fun ProgressBar(
             .clip(RoundedCornerShape(tokens.borderRadius))
             .border(
                 width = tokens.outlineWidth,
-                color = tokens.outlineColor,
+                color = tokens.outlineColor.color,
                 shape = RoundedCornerShape(tokens.borderRadius)
             )
     ) {
@@ -59,7 +59,7 @@ fun ProgressBar(
         drawLinearIndicatorBackground(Color(0xFFFFFFFF), strokeWidth)
 
         if (brush == null) {
-            drawLinearIndicator(0f, progressState.value, tokens.backgroundColor, strokeWidth)
+            drawLinearIndicator(0f, progressState.value, tokens.backgroundColor.color, strokeWidth)
         } else {
             drawLinearIndicator(0f, progressState.value, brush, strokeWidth)
         }
