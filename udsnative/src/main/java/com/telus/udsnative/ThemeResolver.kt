@@ -23,9 +23,9 @@ object ThemeResolver {
         themeData = jsonString
     }
 
-    inline fun <reified T: Tokens> resolve(component: String): ComponentResolver<T>? {
+    inline fun <reified T: Tokens> resolve(component: String): ComponentResolver<T> {
         if (storage[component] is ComponentResolver<*>) {
-            storage[component]
+            return storage[component] as ComponentResolver<T>
         }
 
         if (themeData == null) {

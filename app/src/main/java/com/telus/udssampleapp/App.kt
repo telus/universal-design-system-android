@@ -22,4 +22,4 @@ enum class TestTheme(val fileName: String) {
     koodo("KoodoTheme.json")
 }
 
-fun AssetManager.readAssetsFile(fileName : String): String = open(fileName).bufferedReader().use { it.readText() }
+fun AssetManager.readAssetsFile(fileName: String): String = open(fileName).bufferedReader().use { it.readText() }
