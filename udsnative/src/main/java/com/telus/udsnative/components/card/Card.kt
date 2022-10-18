@@ -6,9 +6,18 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Paint
+import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.telus.udsnative.ThemeResolver
 import com.telus.udsnative.components.card.models.CustomPadding
+import com.telus.udsnative.models.ComponentResolver
 
 
 /**
@@ -23,47 +32,84 @@ fun Card(
     modifier: Modifier = Modifier,
     customInnerContentPadding: CustomPadding? = null,
     cardTokens: CardTokens? = null,
-    variant: CardVariant = CardVariant(background = Background.Default, padding = Padding.Default),
+    variant: CardVariant = CardVariant(),
     content: @Composable () -> Unit
 ) {
 
-    val tokenResolver = CardTokenResolver()
-    val tokens = cardTokens ?: tokenResolver.resolveTokens(variant)
+    val componentResolver = ThemeResolver.resolve<CardTokens>(component = "Card")
 
-    /**
-     * Using BoxWithConstraints to allow for adapting content to display in a row
-     * or a column depending on maxwidth. Currently we only display content in a row
-     * but have the ability to change that to a column when needed
-     */
-    BoxWithConstraints(
-        modifier = modifier
-    ) {
-        androidx.compose.material.Card(
-            modifier = Modifier
-                .border(
-                    width = tokens.borderWidth!!,
-                    color = tokens.borderColor!!,
-                    shape = RoundedCornerShape(tokens.borderRadius!!)
-                ),
-            shape = RoundedCornerShape(tokens.borderRadius!!),
-            backgroundColor = tokens.backgroundColor!!
-        ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(
-                        start = customInnerContentPadding?.start ?: tokens.paddingLeft!!,
-                        top = customInnerContentPadding?.top ?: tokens.paddingTop!!,
-                        end = customInnerContentPadding?.end ?: tokens.paddingLeft!!,
-                        bottom = customInnerContentPadding?.bottom ?: tokens.paddingBottom!!
-                    )
-            ) {
-                content()
-            }
-        }
+    if (componentResolver !is ComponentResolver<CardTokens>) {
+        return
     }
 
+    val appearance = CardAppearance(variant = variant).asMap()
+    val tokens = cardTokens ?: componentResolver.resolve(appearance = appearance) ?: return
 
+    androidx.compose.material.Card(
+        modifier = modifier
+            .border(
+                width = tokens.borderWidth,
+                color = tokens.borderColor.color,
+                shape = RoundedCornerShape(tokens.borderRadius)
+            )
+            .advancedShadow(
+                color = tokens.shadow.color.color,
+                cornersRadius = tokens.shadow.spread,
+                shadowBlurRadius = tokens.shadow.blur,
+                offsetX = tokens.shadow.offsetX,
+                offsetY = tokens.shadow.offsetY
+
+
+            ),
+        shape = RoundedCornerShape(tokens.borderRadius),
+        backgroundColor = tokens.backgroundColor.color
+    ) {
+        Column (
+            modifier = Modifier
+                .padding(
+                    start = customInnerContentPadding?.start ?: tokens.paddingLeft,
+                    top = customInnerContentPadding?.top ?: tokens.paddingTop,
+                    end = customInnerContentPadding?.end ?: tokens.paddingLeft,
+                    bottom = customInnerContentPadding?.bottom ?: tokens.paddingBottom
+                )
+        ) {
+            content()
+        }
+    }
+}
+
+fun Modifier.advancedShadow(
+    color: Color = Color.Black,
+    alpha: Float = .3f,
+    cornersRadius: Dp = 0.dp,
+    shadowBlurRadius: Dp = 0.dp,
+    offsetY: Dp = 0.dp,
+    offsetX: Dp = 0.dp
+) = drawBehind {
+
+    val shadowColor = color.copy(alpha = alpha).toArgb()
+    val transparentColor = color.copy(alpha = 0f).toArgb()
+
+    drawIntoCanvas {
+        val paint = Paint()
+        val frameworkPaint = paint.asFrameworkPaint()
+        frameworkPaint.color = transparentColor
+        frameworkPaint.setShadowLayer(
+            shadowBlurRadius.toPx(),
+            offsetX.toPx(),
+            offsetY.toPx(),
+            shadowColor
+        )
+        it.drawRoundRect(
+            0f,
+            0f,
+            this.size.width,
+            this.size.height,
+            cornersRadius.toPx(),
+            cornersRadius.toPx(),
+            paint
+        )
+    }
 }
 
 @Preview
@@ -86,7 +132,7 @@ fun CardAlternativePreview() {
         modifier = Modifier
             .width(300.dp)
             .height(200.dp),
-        variant = CardVariant(background = Background.Alternative, padding = Padding.Narrow)
+        variant = CardVariant(background = Background.alternative, padding = Padding.narrow)
     ) {
         Text(text = "content1")
         Text(text = "content2")
@@ -101,7 +147,7 @@ fun CardAlternativeCustomPaddingPreview() {
             .width(300.dp)
             .height(200.dp),
         customInnerContentPadding = CustomPadding(start = 50.dp),
-        variant = CardVariant(background = Background.Alternative, padding = Padding.Custom)
+        variant = CardVariant(background = Background.alternative, padding = Padding.default)
     ) {
         Text(text = "content1")
         Text(text = "content2")

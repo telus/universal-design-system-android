@@ -1,0 +1,180 @@
+{
+  "ProgressBar": {
+    "appearances": {
+      "inactive": {
+        "type": "state",
+        "values": [true]
+      },
+      "negative": {
+        "type": "variant",
+        "values": [true]
+      }
+    },
+    "rules": [
+      {
+        "if": {
+          "inactive": true
+        },
+        "tokens": {
+          "backgroundColor": "#B2B9BF",
+          "gradient": null,
+          "outlineColor": "#2C2E30"
+        }
+      },
+      {
+        "if": {
+          "negative": true
+        },
+        "tokens": {
+          "backgroundColor": "#C12335",
+          "gradient": null,
+          "outlineColor": "#C12335"
+        }
+      }
+    ],
+    "tokens": {
+      "backgroundColor": "#2B8000",
+      "borderRadius": 12,
+      "gradient": {
+        "description": "Green Gradient",
+        "value": {
+          "angle": 135,
+          "stops": [
+            {
+              "color": "rgb(0, 120, 74)",
+              "hint": 0.75
+            },
+            {
+              "color": "rgb(102, 204, 0)"
+            }
+          ],
+          "type": "linear"
+        }
+      },
+      "outlineColor": "#2B8000",
+      "outlineWidth": 1
+    }
+  },
+  "Card": {
+    "appearances": {
+      "background": {
+        "type": "variant",
+        "values": ["alternative"]
+      },
+      "padding": {
+        "type": "variant",
+        "values": ["narrow", "intermediate", "compact", "custom"]
+      },
+      "viewport": "{appearances.system.viewport}"
+    },
+    "rules": [
+      {
+        "if": {
+          "background": "alternative"
+        },
+        "tokens": {
+          "backgroundColor": "#d1cfcf"
+        }
+      },
+      {
+        "if": {
+          "viewport": ["md", "lg", "xl"]
+        },
+        "tokens": {
+          "paddingBottom": 48,
+          "paddingLeft": 32,
+          "paddingRight": 32,
+          "paddingTop": 48
+        }
+      },
+      {
+        "if": {
+          "padding": "narrow"
+        },
+        "tokens": {
+          "paddingBottom": 24,
+          "paddingLeft": 16,
+          "paddingRight": 16,
+          "paddingTop": 24
+        }
+      },
+      {
+        "if": {
+          "padding": "narrow",
+          "viewport": ["md", "lg", "xl"]
+        },
+        "tokens": {
+          "paddingBottom": 32,
+          "paddingLeft": 16,
+          "paddingRight": 16,
+          "paddingTop": 32
+        }
+      },
+      {
+        "if": {
+          "padding": "intermediate"
+        },
+        "tokens": {
+          "paddingBottom": 24,
+          "paddingLeft": 24,
+          "paddingRight": 24,
+          "paddingTop": 24
+        }
+      },
+      {
+        "if": {
+          "padding": "intermediate",
+          "viewport": ["md", "lg", "xl"]
+        },
+        "tokens": {
+          "paddingBottom": 32,
+          "paddingLeft": 32,
+          "paddingRight": 32,
+          "paddingTop": 32
+        }
+      },
+      {
+        "if": {
+          "padding": "compact"
+        },
+        "tokens": {
+          "paddingBottom": 16,
+          "paddingLeft": 16,
+          "paddingRight": 16,
+          "paddingTop": 16
+        }
+      },
+      {
+        "if": {
+          "padding": "custom"
+        },
+        "tokens": {
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0
+        }
+      }
+    ],
+    "tokens": {
+      "backgroundColor": "#FFFFFF",
+      "borderColor": "#E3E6E8",
+      "borderRadius": 6,
+      "borderWidth": 1,
+      "flex": 1,
+      "minWidth": null,
+      "paddingBottom": 32,
+      "paddingLeft": 24,
+      "paddingRight": 24,
+      "paddingTop": 32,
+      "shadow": {
+        "blur": 6,
+        "color": "rgb(5, 111, 120)",
+        "inset": false,
+        "offsetX": 0,
+        "offsetY": 0,
+        "spread": 2
+      }
+    }
+  }
+}

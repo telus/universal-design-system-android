@@ -1,14 +1,14 @@
 package com.telus.udsnative.components.card
 
-import com.telus.udsnative.components.Variant
+import com.telus.udsnative.models.Variant
 
 
 enum class Background {
-    Default, Alternative, Subtle, Grid
+    default, alternative, subtle, grid
 }
 
 enum class Padding {
-    Default, Narrow, Intermediate, Compact, Custom
+    default, narrow, intermediate, compact, custom
 }
 
-data class CardVariant(val background: Background = Background.Default, val padding: Padding = Padding.Default): Variant
+data class CardVariant(val background: Background = Background.default, val padding: Padding = Padding.default): Variant

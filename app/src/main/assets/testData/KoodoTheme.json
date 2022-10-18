@@ -1,0 +1,78 @@
+{
+  "ProgressBar": {
+    "appearances": {
+      "inactive": {
+        "description":
+        "Prevents an interactive component from being interacted with and applies accessibility attributes to indicate to the user that this component cannot be used.",
+        "values": [true],
+        "type": "state"
+      },
+      "negative": {
+        "type": "variant",
+        "values": [true]
+      }
+    },
+    "rules": [
+      {
+        "if": {
+          "inactive": true
+        },
+        "tokens": {
+          "backgroundColor": "rgb(102, 102, 102)",
+          "outlineColor": "rgb(102, 102, 102)"
+        }
+      },
+      {
+        "if": {
+          "negative": true
+        },
+        "tokens": {
+          "backgroundColor": "rgb(184, 55, 62)",
+          "outlineColor": "rgb(184, 55, 62)"
+        }
+      }
+    ],
+    "tokens": {
+      "backgroundColor": "rgb(1, 107, 106)",
+      "borderRadius": 12,
+      "gradient": null,
+      "outlineColor": "rgb(1, 72, 71)",
+      "outlineWidth": 1
+    }
+  },
+  "Card": {
+    "appearances": {},
+    "rules": [],
+    "tokens": {
+      "backgroundColor": "rgb(249, 246, 165)",
+      "borderColor": null,
+      "borderRadius": 0,
+      "borderWidth": 0,
+      "flex": 1,
+      "minWidth": 0,
+      "paddingBottom": 16,
+      "paddingLeft": 16,
+      "paddingRight": 16,
+      "paddingTop": 16,
+      "shadow": null
+    }
+  },
+    "Card": {
+        "appearances": {},
+        "rules": [],
+        "tokens": {
+            "backgroundColor": "rgb(249, 246, 165)",
+            "borderColor": null,
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "flex": 1,
+            "minWidth": 0,
+            "paddingBottom": 16,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 16,
+            "shadow": null
+        }
+    }
+}
+
