@@ -14,7 +14,7 @@ data class ComponentResolver<T: Tokens>(
     @Transient
     var tokensCache: TokensCache?
 ) {
-    inline fun <reified T: Tokens> resolve(appearance: Map<String, Any>): T? {
+    inline fun <reified T: Tokens> resolve(appearance: Map<String, Any?>): T? {
         if (tokensCache == null) tokensCache = TokensCache()
 
         var finalRawTokens = rawTokens

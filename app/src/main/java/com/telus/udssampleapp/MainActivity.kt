@@ -85,6 +85,21 @@ class MainActivity : AppCompatActivity() {
                         Text(text = "Reset", color = Color.White)
                     }
                 }
+
+                Column(
+                    Modifier.padding(horizontal = 16.dp)
+                ) {
+                    Text(
+                        "Button",
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+
+                    com.telus.udsnative.components.button.Button(
+                        text = "Default Button",
+                        onClick = {}
+                    )
+                }
             }
         }
     }

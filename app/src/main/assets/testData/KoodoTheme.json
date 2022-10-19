@@ -56,6 +56,208 @@
       "paddingTop": 16,
       "shadow": null
     }
+  },
+  "Button": {
+    "appearances": {
+      "clear": {
+        "description": "Gives a button borders and a transparent background",
+        "type": "variant",
+        "values": [true]
+      },
+      "focus": "{appearances.Button.focus}",
+      "hover": "{appearances.Button.hover}",
+      "inactive": "{appearances.Button.inactive}",
+      "pressed": "{appearances.Button.pressed}",
+      "rank": {
+        "description": "Prominence of the button. Use the default (\"primary\") button style for the main action on a page or in a form, and \"secondary\" style for secondary actions.",
+        "type": "variant",
+        "values": ["secondary"]
+      },
+      "rounded": {
+        "description": "Gives a button \"pill-style\" rounded sides",
+        "type": "variant",
+        "values": [true]
+      },
+      "selected": "{appearances.Button.selected}"
+    },
+    "rules": [
+      {
+        "if": {
+          "rounded": true
+        },
+        "tokens": {
+          "borderRadius": 32
+        }
+      },
+      {
+        "if": {
+          "clear": true
+        },
+        "tokens": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderColor": "rgb(1, 107, 106)",
+          "borderWidth": 2,
+          "color": "rgb(1, 107, 106)"
+        }
+      },
+      {
+        "if": {
+          "hover": true
+        },
+        "tokens": {
+          "backgroundColor": "rgb(1, 72, 71)",
+          "borderColor": "rgb(1, 72, 71)",
+          "color": "rgb(255, 255, 255)"
+        }
+      },
+      {
+        "if": {
+          "clear": true,
+          "hover": true
+        },
+        "tokens": {
+          "backgroundColor": "rgb(1, 107, 106)",
+          "borderWidth": 0
+        }
+      },
+      {
+        "if": {
+          "pressed": true
+        },
+        "tokens": {
+          "backgroundColor": "rgb(1, 107, 106)",
+          "borderColor": "rgb(1, 107, 106)",
+          "color": "rgb(255, 255, 255)"
+        }
+      },
+      {
+        "if": {
+          "focus": true
+        },
+        "tokens": {
+          "outerBorderColor": "rgb(1, 107, 106)"
+        }
+      },
+      {
+        "if": {
+          "rank": "secondary"
+        },
+        "tokens": {
+          "backgroundColor": "rgb(0, 161, 219)",
+          "borderColor": "rgb(0, 161, 219)",
+          "color": "rgb(255, 255, 255)"
+        }
+      },
+      {
+        "if": {
+          "clear": true,
+          "rank": "secondary"
+        },
+        "tokens": {
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderColor": "rgb(0, 161, 219)",
+          "color": "rgb(0, 161, 219)"
+        }
+      },
+      {
+        "if": {
+          "hover": true,
+          "rank": "secondary"
+        },
+        "tokens": {
+          "backgroundColor": "rgb(0, 131, 179)",
+          "borderColor": "rgb(0, 131, 179)",
+          "color": "rgb(255, 255, 255)"
+        }
+      },
+      {
+        "if": {
+          "pressed": true,
+          "rank": "secondary"
+        },
+        "tokens": {
+          "backgroundColor": "rgb(195, 239, 255)",
+          "borderColor": "rgb(195, 239, 255)",
+          "color": "rgb(255, 255, 255)"
+        }
+      },
+      {
+        "if": {
+          "focus": true,
+          "rank": "secondary"
+        },
+        "tokens": {
+          "outerBorderColor": "rgb(0, 161, 219)"
+        }
+      },
+      {
+        "if": {
+          "focus": true,
+          "pressed": true,
+          "rank": "secondary"
+        },
+        "tokens": {
+          "outerBorderColor": "rgb(195, 239, 255)"
+        }
+      },
+      {
+        "if": {
+          "inactive": true
+        },
+        "tokens": {
+          "opacity": 0.3
+        }
+      },
+      {
+        "if": {
+          "selected": true
+        },
+        "tokens": {
+          "opacity": 0.8,
+          "outerBorderColor": "rgb(1, 107, 106)",
+          "outerBorderGap": 1,
+          "outerBorderWidth": 4
+        }
+      },
+      {
+        "if": {
+          "focus": true,
+          "selected": true
+        },
+        "tokens": {
+          "outerBorderGap": 2
+        }
+      }
+    ],
+    "tokens": {
+      "alignSelf": "{system.flexAlign.flexStart}",
+      "backgroundColor": "rgb(1, 107, 106)",
+      "borderColor": "rgb(255, 255, 255)",
+      "borderRadius": 4,
+      "borderWidth": 0,
+      "color": "rgb(255, 255, 255)",
+      "fontName": "StagSans",
+      "fontSize": 16,
+      "fontWeight": 600,
+      "icon": null,
+      "iconSize": 24,
+      "iconSpace": 2,
+      "lineHeight": 1.5,
+      "minWidth": null,
+      "opacity": 1.0,
+      "outerBackgroundColor": "rgba(0, 0, 0, 0)",
+      "outerBorderColor": "rgb(255, 255, 255)",
+      "outerBorderGap": 2,
+      "outerBorderWidth": 2,
+      "paddingBottom": 8,
+      "paddingLeft": 24,
+      "paddingRight": 24,
+      "paddingTop": 8,
+      "shadow": null,
+      "textAlign": "center",
+      "textLine": "none",
+      "textLineStyle": "solid",
+      "width": "none"
+    }
   }
 }
-

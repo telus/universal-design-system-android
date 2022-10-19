@@ -169,12 +169,413 @@
       "paddingTop": 32,
       "shadow": {
         "blur": 6,
-        "color": "rgb(5 111 120)",
+        "color": "rgb(5, 111, 120)",
         "inset": false,
         "offsetX": 0,
         "offsetY": 0,
         "spread": 2
       }
+    }
+  },
+  "Button": {
+    "appearances": {
+      "danger": {
+        "description": "Indicates a suser action that is destructive and will result in loss of information or cause significant monetary charges. Limit the use of the danger button whenever possible.",
+        "type": "variant",
+        "values": [true]
+      },
+      "focus": "{appearances.Button.focus}",
+      "hover": "{appearances.Button.hover}",
+      "inactive": "{appearances.Button.inactive}",
+      "inverse": {
+        "description": "Use inverse buttons on darker backgrounds. High and low priority buttons, and danger buttons, are available in inverse.",
+        "type": "variant",
+        "values": [true]
+      },
+      "pressed": "{appearances.Button.pressed}",
+      "priority": {
+        "description": "Indicates the importance of the call-to-action. Limit the amount of high priority buttons on a page to prioritize meaningful user flows. Low priority styles are applied by default.",
+        "type": "variant",
+        "values": ["high", "low"]
+      },
+      "size": {
+        "type": "variant",
+        "values": ["small"]
+      },
+      "text": {
+        "description": "Text variant visually deprioritize the button styles",
+        "type": "variant",
+        "values": [true]
+      },
+      "width": {
+        "description": "Available in default or full-width. Default-width expands based on content Full-width expands to width of the container.",
+        "type": "variant",
+        "values": ["full"]
+      }
+    },
+    "rules": [
+      {
+        "if": {
+          "hover": true
+        },
+        "tokens": {
+          "borderWidth": 3
+        }
+      },
+      {
+        "if": {
+          "priority": "high"
+        },
+        "tokens": {
+          "backgroundColor": "#2B8000",
+          "borderWidth": 0,
+          "color": "#FFFFFF"
+        }
+      },
+      {
+        "if": {
+          "hover": true,
+          "priority": "high"
+        },
+        "tokens": {
+          "backgroundColor": "#1F5C09"
+        }
+      },
+      {
+        "if": {
+          "pressed": true
+        },
+        "tokens": {
+          "backgroundColor": "#163E06",
+          "borderWidth": 0,
+          "color": "#FFFFFF"
+        }
+      },
+      {
+        "if": {
+          "focus": true
+        },
+        "tokens": {
+          "outerBorderColor": "#2B8000"
+        }
+      },
+      {
+        "if": {
+          "focus": true,
+          "pressed": true
+        },
+        "tokens": {
+          "outerBorderColor": "#163E06"
+        }
+      },
+      {
+        "if": {
+          "inverse": true
+        },
+        "tokens": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderColor": "#FFFFFF",
+          "color": "#FFFFFF"
+        }
+      },
+      {
+        "if": {
+          "inverse": true,
+          "priority": "high"
+        },
+        "tokens": {
+          "backgroundColor": "#FFFFFF",
+          "color": "#414547"
+        }
+      },
+      {
+        "if": {
+          "hover": true,
+          "inverse": true,
+          "priority": "high"
+        },
+        "tokens": {
+          "backgroundColor": "rgba(255, 255, 255, 0.8)"
+        }
+      },
+      {
+        "if": {
+          "inverse": true,
+          "pressed": true
+        },
+        "tokens": {
+          "backgroundColor": "rgba(255, 255, 255, 0.6)",
+          "color": "#414547"
+        }
+      },
+      {
+        "if": {
+          "focus": true,
+          "inverse": true
+        },
+        "tokens": {
+          "outerBorderColor": "#FFFFFF"
+        }
+      },
+      {
+        "if": {
+          "danger": true,
+          "priority": null
+        },
+        "tokens": {
+          "borderColor": "#E12339",
+          "color": "#E12339"
+        }
+      },
+      {
+        "if": {
+          "danger": true,
+          "inverse": true,
+          "priority": null
+        },
+        "tokens": {
+          "backgroundColor": "#FFFFFF"
+        }
+      },
+      {
+        "if": {
+          "danger": true,
+          "focus": true,
+          "priority": null
+        },
+        "tokens": {
+          "outerBorderColor": "#E12339"
+        }
+      },
+      {
+        "if": {
+          "danger": true,
+          "pressed": true,
+          "priority": null
+        },
+        "tokens": {
+          "backgroundColor": "#C12335",
+          "color": "#FFFFFF"
+        }
+      },
+      {
+        "if": {
+          "danger": true,
+          "focus": true,
+          "pressed": true,
+          "priority": null
+        },
+        "tokens": {
+          "outerBorderColor": "#C12335"
+        }
+      },
+      {
+        "if": {
+          "width": "full"
+        },
+        "tokens": {
+          "width": "{system.size.full}"
+        }
+      },
+      {
+        "if": {
+          "size": "small"
+        },
+        "tokens": {
+          "minWidth": 0,
+          "paddingBottom": 4,
+          "paddingTop": 4
+        }
+      },
+      {
+        "description": "Buttons should not be disabled or set as inactive. Use inline (on blur) error messaging to provide feedback when the form is invalid. In exceptional instances where disabled buttons are needed, it must be clear to the user why the button is disabled and what they need to do to enable it.",
+        "if": {
+          "inactive": true
+        },
+        "tokens": {
+          "backgroundColor": "#B2B9BF",
+          "borderWidth": 0,
+          "color": "#FFFFFF"
+        }
+      },
+      {
+        "if": {
+          "inactive": true,
+          "inverse": true
+        },
+        "tokens": {
+          "backgroundColor": "rgba(255, 255, 255, 0.6)",
+          "color": "#414547"
+        }
+      },
+      {
+        "if": {
+          "text": true
+        },
+        "tokens": {
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderColor": "rgba(0, 0, 0, 0)",
+          "borderWidth": 0,
+          "minWidth": 0,
+          "outerBorderColor": "rgba(0, 0, 0, 0)",
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "textLine": "underline"
+        }
+      },
+      {
+        "if": {
+          "priority": "high",
+          "text": true
+        },
+        "tokens": {
+          "color": "#2B8000"
+        }
+      },
+      {
+        "if": {
+          "priority": "low",
+          "text": true
+        },
+        "tokens": {
+          "color": "#414547"
+        }
+      },
+      {
+        "if": {
+          "focus": true,
+          "text": true
+        },
+        "tokens": {
+          "borderRadius": 0,
+          "color": "#2B8000",
+          "outerBorderColor": "#2B8000"
+        }
+      },
+      {
+        "if": {
+          "pressed": true,
+          "text": true
+        },
+        "tokens": {
+          "borderColor": "rgba(0, 0, 0, 0)",
+          "color": "#163E06",
+          "outerBorderColor": "rgba(0, 0, 0, 0)",
+          "textLine": "none"
+        }
+      },
+      {
+        "if": {
+          "focus": true,
+          "text": true
+        },
+        "tokens": {
+          "borderColor": "rgba(0, 0, 0, 0)",
+          "color": "#2B8000",
+          "outerBorderColor": "#2B8000"
+        }
+      },
+      {
+        "if": {
+          "focus": true,
+          "pressed": true,
+          "text": true
+        },
+        "tokens": {
+          "borderColor": "rgba(0, 0, 0, 0)",
+          "color": "#163E06",
+          "outerBorderColor": "#163E06",
+          "textLine": "none"
+        }
+      },
+      {
+        "if": {
+          "inactive": true,
+          "text": true
+        },
+        "tokens": {
+          "borderColor": "rgba(0, 0, 0, 0)",
+          "color": "#B2B9BF",
+          "outerBorderColor": "rgba(0, 0, 0, 0)",
+          "textLine": "none"
+        }
+      },
+      {
+        "if": {
+          "inverse": true,
+          "text": true
+        },
+        "tokens": {
+          "borderRadius": "0",
+          "color": "#FFFFFF"
+        }
+      },
+      {
+        "if": {
+          "focus": true,
+          "inverse": true,
+          "text": true
+        },
+        "tokens": {
+          "borderColor": "rgba(0, 0, 0, 0)",
+          "outerBorderColor": "#FFFFFF"
+        }
+      },
+      {
+        "if": {
+          "focus": true,
+          "inverse": true,
+          "pressed": true,
+          "text": true
+        },
+        "tokens": {
+          "borderColor": "rgba(0, 0, 0, 0)",
+          "color": "#B2B9BF",
+          "outerBorderColor": "#B2B9BF"
+        }
+      },
+      {
+        "if": {
+          "inactive": true,
+          "inverse": true,
+          "text": true
+        },
+        "tokens": {
+          "borderColor": "rgba(0, 0, 0, 0)",
+          "color": "#B2B9BF",
+          "outerBorderColor": "rgba(0, 0, 0, 0)"
+        }
+      }
+    ],
+    "tokens": {
+      "alignSelf": "flexStart",
+      "backgroundColor": "#FFFFFF",
+      "borderColor": "#2B8000",
+      "borderRadius": 32,
+      "borderWidth": 1,
+      "color": "#2B8000",
+      "fontName": "HelveticaNow",
+      "fontSize": 16,
+      "fontWeight": 700,
+      "icon": null,
+      "iconSize": 24,
+      "iconSpace": 2,
+      "lineHeight": 1.5,
+      "minWidth": 144,
+      "opacity": 1.0,
+      "outerBackgroundColor": "rgba(0, 0, 0, 0)",
+      "outerBorderColor": "rgba(0, 0, 0, 0)",
+      "outerBorderGap": 2,
+      "outerBorderWidth": 2,
+      "paddingBottom": 12,
+      "paddingLeft": 32,
+      "paddingRight": 32,
+      "paddingTop": 12,
+      "shadow": null,
+      "textAlign": "center",
+      "textLine": "none",
+      "textLineStyle": "solid",
+      "width": "none"
     }
   }
 }
