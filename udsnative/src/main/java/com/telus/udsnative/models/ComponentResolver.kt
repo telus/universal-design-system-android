@@ -25,7 +25,14 @@ data class ComponentResolver<T: Tokens>(
             return cachedState as? T
         } else {
             for (rule in rules) {
-                if (rule.conditions.all { appearance[it.name] != null && appearance[it.name] == it.value }) {
+                if (rule.conditions
+                        .all {
+                            when {
+                                appearance[it.name] == null && it.value == null -> true
+                                else -> appearance[it.name] != null && appearance[it.name] == it.value
+                            }
+                        }
+                ) {
                     finalRawTokens = finalRawTokens + rule.tokens // overwrite duplicate keys with values from rule.tokens
                 }
             }

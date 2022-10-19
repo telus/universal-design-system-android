@@ -12,6 +12,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.telus.udsnative.components.button.ButtonPriority
+import com.telus.udsnative.components.button.ButtonVariant
 import com.telus.udsnative.components.progressbar.ProgressBar
 import com.telus.udsnative.components.progressbar.ProgressBarVariant
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -97,6 +99,42 @@ class MainActivity : AppCompatActivity() {
 
                     com.telus.udsnative.components.button.Button(
                         text = "Default Button",
+                        onClick = {}
+                    )
+
+                    com.telus.udsnative.components.button.Button(
+                        text = "Danger Button",
+                        variant = ButtonVariant(danger = true),
+                        onClick = {}
+                    )
+
+                    com.telus.udsnative.components.button.Button(
+                        text = "Inverse Button",
+                        variant = ButtonVariant(inverse = true),
+                        onClick = {}
+                    )
+
+                    com.telus.udsnative.components.button.Button(
+                        text = "High Priority Inverse Button",
+                        variant = ButtonVariant(priority = ButtonPriority.High, inverse = true),
+                        onClick = {}
+                    )
+
+                    com.telus.udsnative.components.button.Button(
+                        text = "High Priority Button",
+                        variant = ButtonVariant(priority = ButtonPriority.High),
+                        onClick = {}
+                    )
+
+                    com.telus.udsnative.components.button.Button(
+                        text = "Low Priority Text Button",
+                        variant = ButtonVariant(priority = ButtonPriority.Low, text = true),
+                        onClick = {}
+                    )
+
+                    com.telus.udsnative.components.button.Button(
+                        text = "High Priority Text Button",
+                        variant = ButtonVariant(priority = ButtonPriority.High, text = true),
                         onClick = {}
                     )
                 }

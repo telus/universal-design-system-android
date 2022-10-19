@@ -1,18 +1,27 @@
 package com.telus.udsnative.components.button
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.indication
+import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.PressInteraction
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.RowScope
-import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Icon
+import androidx.compose.material.Text
+import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import com.telus.udsnative.ThemeResolver
-import com.telus.udsnative.components.progressbar.ProgressBarTokens
-import com.telus.udsnative.components.progressbar.ProgressBarVariant
-import kotlinx.coroutines.flow.MutableStateFlow
+import com.telus.udsnative.utility.getResourceId
+import kotlinx.coroutines.flow.collect
 
 /**
  * @param modifier: Separate modifier to provide more customization of Button such as size, padding, etc.
@@ -28,15 +37,46 @@ fun Button(
     state: ButtonState = ButtonState.Normal,
     onClick: () -> Unit
 ) {
+
+    /**
+     * Creating a click state observable that will override the ButtonState of Appearance to "Pressed" when button is clicked
+     */
+    val interactionSource = remember { MutableInteractionSource() }
+    val isPressed by interactionSource.collectIsPressedAsState()
+    val buttonState = if(isPressed) ButtonState.Pressed else state
+
+    /**
+     * Generating tokens from the variant provided
+     */
     val resolver = ThemeResolver.resolve<ButtonTokens>(component = "Button")
-    val appearance = ButtonAppearance(variant = variant, state = state)
+    val appearance = ButtonAppearance(variant = variant, state = buttonState)
     val tokens = buttonTokens ?: resolver.resolve(appearance = appearance.asMap()) ?: return
 
-    androidx.compose.material.Button(
+    /**
+     * prepare icon if it exists within tokens
+     */
+    val iconResourceId = getResourceId(tokens.icon)
+
+
+    Button(
         onClick = onClick,
-        modifier = modifier,
+        modifier = modifier
+            .indication(
+                interactionSource = interactionSource,
+                indication = null
+            ),
+        interactionSource = interactionSource,
+        colors = ButtonDefaults.buttonColors(
+            backgroundColor = tokens.backgroundColor.color
+        ),
+        shape = RoundedCornerShape(tokens.borderRadius),
+        border = BorderStroke(tokens.borderWidth, tokens.borderColor.color),
         enabled = appearance.state != ButtonState.Inactive
         ) {
+
+        if(iconResourceId != null && tokens.iconPosition == IconPosition.Left) {
+            Image(painter = painterResource(id = iconResourceId), contentDescription = "")
+        }
         Text(
             text = text,
             fontSize = tokens.fontSize,

@@ -15,11 +15,11 @@ data class ButtonTokens(
     val fontName: String,
     val fontSize: TextUnit,
     val icon: String?,
-//    val iconSize: Dp?,
+    val iconSize: Int?, //Gson having trouble deserializing Dp Optional so using Int instead
     val iconSpace: Int?,
     val iconPosition: IconPosition?,
-//    val lineHeight: Dp?,
-//    val minWidth: Dp?,
+    val lineHeight: Int?, //Gson having trouble deserializing Dp Optional so using Int instead
+    val minWidth: Int?, //Gson having trouble deserializing Dp Optional so using Int instead
     val opacity: Dp,
     val outerBackgroundColor: UDSColor,
     val outerBorderColor: UDSColor,
