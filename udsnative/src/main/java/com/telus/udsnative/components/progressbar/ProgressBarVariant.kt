@@ -1,5 +1,5 @@
 package com.telus.udsnative.components.progressbar
 
-import com.telus.udsnative.components.Variant
+import com.telus.udsnative.models.Variant
 
-data class ProgressBarVariant(val inactive: Boolean = false, val negative: Boolean = false) : Variant
+data class ProgressBarVariant(val negative: Boolean = false): Variant
