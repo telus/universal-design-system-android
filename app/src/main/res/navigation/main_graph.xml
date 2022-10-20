@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/componentSelectorFragment">
+
+    <fragment
+        android:id="@+id/componentSelectorFragment"
+        android:name="com.telus.udssampleapp.scenes.ComponentSelectorFragment"
+        android:label="ComponentSelectorFragment" >
+        <action
+            android:id="@+id/viewProgressBar"
+            app:destination="@id/progressBarFragment" />
+        <action
+            android:id="@+id/viewCard"
+            app:destination="@id/cardFragment" />
+        <action
+            android:id="@+id/viewButton"
+            app:destination="@id/buttonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/progressBarFragment"
+        android:name="com.telus.udssampleapp.scenes.ProgressBarFragment"
+        android:label="ProgressBarFragment" />
+    <fragment
+        android:id="@+id/cardFragment"
+        android:name="com.telus.udssampleapp.scenes.CardFragment"
+        android:label="CardFragment" />
+    <fragment
+        android:id="@+id/buttonFragment"
+        android:name="com.telus.udssampleapp.scenes.ButtonFragment"
+        android:label="ButtonFragment" />
+</navigation>
