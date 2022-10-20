@@ -56,23 +56,6 @@
       "paddingTop": 16,
       "shadow": null
     }
-  },
-    "Card": {
-        "appearances": {},
-        "rules": [],
-        "tokens": {
-            "backgroundColor": "rgb(249, 246, 165)",
-            "borderColor": null,
-            "borderRadius": 0,
-            "borderWidth": 0,
-            "flex": 1,
-            "minWidth": 0,
-            "paddingBottom": 16,
-            "paddingLeft": 16,
-            "paddingRight": 16,
-            "paddingTop": 16,
-            "shadow": null
-        }
-    }
+  }
 }
 
