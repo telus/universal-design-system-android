@@ -1,33 +1,30 @@
 package com.telus.udsnative.components.button
 
 import androidx.compose.foundation.*
-import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.interaction.PressInteraction
 import androidx.compose.foundation.interaction.collectIsPressedAsState
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Icon
 import androidx.compose.material.Text
-import androidx.compose.material.ripple.rememberRipple
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.telus.udsnative.ThemeResolver
 import com.telus.udsnative.utility.getResourceId
-import kotlinx.coroutines.flow.collect
 
 /**
  * @param modifier: Separate modifier to provide more customization of Button such as size, padding, etc.
  * @param buttonTokens: The list of tokens for Button to override the look and feel of the button. This value overrides any tokens provided via the resolver.
  * @param variant: ButtonVariant types to display. A default variant is used if one is not provided
+ * @param state:
  */
 @Composable
 fun Button(
@@ -110,12 +107,7 @@ fun Button(
                 text = text,
                 fontSize = tokens.fontSize,
                 color = tokens.color.color,
-//                textDecoration = TextDecoration.combine(
-//                    listOf(
-//                        TextDecoration.Underline,
-//                        TextDecoration.LineThrough
-//                    )
-//                )
+                textDecoration = tokens.textLine.textDecoration
             )
 
             if(iconResourceId != null && tokens.iconPosition == IconPosition.Right) {

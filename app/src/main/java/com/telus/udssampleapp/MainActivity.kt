@@ -182,7 +182,7 @@ val buttonTokens = ButtonTokens(
     paddingLeft = 32.dp,
     paddingRight = 32.dp,
     paddingTop = 12.dp,
-    textAlign = TextAlignment("center")
-//textLine= .underline,
-//textLineStyle= .none
+    textAlign = TextAlignment("center"),
+    textLine= TextLine("none"),
+    textLineStyle= "none"
 )

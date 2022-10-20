@@ -1,18 +1,16 @@
 package com.telus.udsnative.components.button
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.ui.Alignment
 import com.google.gson.JsonDeserializationContext
 import com.google.gson.JsonDeserializer
 import com.google.gson.JsonElement
 import com.google.gson.JsonParseException
-import com.telus.udsnative.models.UDSColor
-import com.telus.udsnative.utility.AlignmentUtils
+import com.telus.udsnative.utility.TextAlignmentUtils
 import java.lang.reflect.Type
 
 data class TextAlignment(
     val textAlign: String,
-    val alignment: Alignment.Horizontal = AlignmentUtils.toArrangement(textAlign)
+    val alignment: Alignment.Horizontal = TextAlignmentUtils.toArrangement(textAlign)
 )
 
 class TextAlignmentDeserializer : JsonDeserializer<TextAlignment> {

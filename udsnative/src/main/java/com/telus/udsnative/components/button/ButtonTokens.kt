@@ -3,7 +3,6 @@ package com.telus.udsnative.components.button
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
-import com.telus.udsnative.models.PaletteGradient
 import com.telus.udsnative.models.Tokens
 import com.telus.udsnative.models.UDSColor
 
@@ -32,13 +31,9 @@ data class ButtonTokens(
     val paddingTop: Dp = 0.dp,
 //    val shadow: Shadow?,
     val textAlign: TextAlignment?,
-//    val textLine: TextLine,
-//    val textLineStyle: TextLineStyle
-): Tokens {
-//    var padding: EdgeInsets {
-//        EdgeInsets(top: paddingTop, leading: paddingLeft, bottom: paddingBottom, trailing: paddingRight)
-//    }
-}
+    val textLine: TextLine,
+    val textLineStyle: String //TODO change to class that is android compatable
+): Tokens
 
 enum class IconPosition {
     Left,
