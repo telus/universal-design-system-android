@@ -110,7 +110,7 @@ class ButtonFragment : Fragment() {
                         )
 
                         Button(
-                            text = "High Priority Text Button",
+                            text = "Custom Button",
                             modifier = Modifier.fillMaxWidth(),
                             buttonTokens = buttonTokens,
                             onClick = {}
