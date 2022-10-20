@@ -2,6 +2,8 @@ package com.telus.udsnative
 
 import com.google.gson.*
 import com.google.gson.reflect.TypeToken
+import com.telus.udsnative.components.button.TextAlignment
+import com.telus.udsnative.components.button.TextAlignmentDeserializer
 import com.telus.udsnative.models.Tokens
 import com.telus.udsnative.models.UDSColor
 import com.telus.udsnative.components.progressbar.UDSColorDeserializer
@@ -17,6 +19,7 @@ object ThemeResolver {
         .serializeNulls()
         .registerTypeAdapter(Rule::class.java, RuleDeserializer())
         .registerTypeAdapter(UDSColor::class.java, UDSColorDeserializer())
+        .registerTypeAdapter(TextAlignment::class.java, TextAlignmentDeserializer())
         .create()
 
     fun setup(jsonString: String) {

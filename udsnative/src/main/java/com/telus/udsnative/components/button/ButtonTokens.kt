@@ -2,6 +2,7 @@ package com.telus.udsnative.components.button
 
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.dp
 import com.telus.udsnative.models.PaletteGradient
 import com.telus.udsnative.models.Tokens
 import com.telus.udsnative.models.UDSColor
@@ -18,19 +19,19 @@ data class ButtonTokens(
     val iconSize: Int?, //Gson having trouble deserializing Dp Optional so using Int instead
     val iconSpace: Int?,
     val iconPosition: IconPosition?,
-    val lineHeight: Int?, //Gson having trouble deserializing Dp Optional so using Int instead
-    val minWidth: Int?, //Gson having trouble deserializing Dp Optional so using Int instead
+    val lineHeight: Float?, //Gson having trouble deserializing Dp Optional so using Int instead
+    val minWidth: Int? = null, //Gson having trouble deserializing Dp Optional so using Int instead
     val opacity: Dp,
     val outerBackgroundColor: UDSColor,
     val outerBorderColor: UDSColor,
     val outerBorderGap: Dp,
     val outerBorderWidth: Dp,
-    val paddingBottom: Dp,
-    val paddingLeft: Dp,
-    val paddingRight: Dp,
-    val paddingTop: Dp,
+    val paddingBottom: Dp = 0.dp,
+    val paddingLeft: Dp = 0.dp,
+    val paddingRight: Dp = 0.dp,
+    val paddingTop: Dp = 0.dp,
 //    val shadow: Shadow?,
-//    val textAlign: TextAlignment?,
+    val textAlign: TextAlignment?,
 //    val textLine: TextLine,
 //    val textLineStyle: TextLineStyle
 ): Tokens {

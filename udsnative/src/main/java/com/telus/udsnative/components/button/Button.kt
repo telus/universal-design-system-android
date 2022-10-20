@@ -1,13 +1,11 @@
 package com.telus.udsnative.components.button
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.indication
+import androidx.compose.foundation.*
 import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.PressInteraction
 import androidx.compose.foundation.interaction.collectIsPressedAsState
-import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
@@ -15,9 +13,12 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import com.telus.udsnative.ThemeResolver
 import com.telus.udsnative.utility.getResourceId
@@ -57,30 +58,71 @@ fun Button(
      */
     val iconResourceId = getResourceId(tokens.icon)
 
+    Box(modifier = Modifier
+        .border(
+            shape = RoundedCornerShape(tokens.borderRadius),
+            width = tokens.outerBorderWidth,
+            color = tokens.outerBorderColor.color
 
-    Button(
-        onClick = onClick,
-        modifier = modifier
-            .indication(
-                interactionSource = interactionSource,
-                indication = null
-            ),
-        interactionSource = interactionSource,
-        colors = ButtonDefaults.buttonColors(
-            backgroundColor = tokens.backgroundColor.color
-        ),
-        shape = RoundedCornerShape(tokens.borderRadius),
-        border = BorderStroke(tokens.borderWidth, tokens.borderColor.color),
-        enabled = appearance.state != ButtonState.Inactive
+        )
+    ) {
+        //initializing button content styles
+        val contentSpacing = tokens.iconSpace?.dp ?: 0.dp
+        val contentAlignment = tokens.textAlign?.alignment ?: Alignment.CenterHorizontally
+
+        Row(
+            modifier = modifier
+                .clickable(
+                    interactionSource = interactionSource,
+                    indication = null,
+                    onClick = onClick,
+                    enabled = appearance.state != ButtonState.Inactive
+                )
+                .padding(2.dp + tokens.outerBorderGap)
+                .indication(
+                    interactionSource = interactionSource,
+                    indication = null
+                )
+                .background(
+                    color = tokens.backgroundColor.color,
+                    shape = RoundedCornerShape(tokens.borderRadius)
+                )
+                .border(
+                    shape = RoundedCornerShape(tokens.borderRadius),
+                    width = tokens.borderWidth,
+                    color = tokens.borderColor.color
+                )
+                .clip(shape = RoundedCornerShape(tokens.borderRadius))
+                .padding(start = tokens.paddingLeft, top = tokens.paddingTop, end = tokens.paddingRight, bottom = tokens.paddingBottom),
+            horizontalArrangement = Arrangement.spacedBy(
+                space = contentSpacing,
+                alignment = contentAlignment
+            )
         ) {
 
-        if(iconResourceId != null && tokens.iconPosition == IconPosition.Left) {
-            Image(painter = painterResource(id = iconResourceId), contentDescription = "")
+            if(iconResourceId != null && tokens.iconPosition == IconPosition.Left) {
+                Image(
+                    painter = painterResource(id = iconResourceId),
+                    contentDescription = "") //TODO need ot include contentDescription for accessibility
+            }
+
+            Text(
+                text = text,
+                fontSize = tokens.fontSize,
+                color = tokens.color.color,
+//                textDecoration = TextDecoration.combine(
+//                    listOf(
+//                        TextDecoration.Underline,
+//                        TextDecoration.LineThrough
+//                    )
+//                )
+            )
+
+            if(iconResourceId != null && tokens.iconPosition == IconPosition.Right) {
+                Image(
+                    painter = painterResource(id = iconResourceId),
+                    contentDescription = "") //TODO need ot include contentDescription for accessibility
+            }
         }
-        Text(
-            text = text,
-            fontSize = tokens.fontSize,
-            color = tokens.color.color
-        )
     }
 }

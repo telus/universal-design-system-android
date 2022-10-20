@@ -4,6 +4,7 @@ import android.content.res.Resources
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.ui.Modifier
@@ -12,10 +13,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.telus.udsnative.components.button.ButtonPriority
-import com.telus.udsnative.components.button.ButtonVariant
+import com.telus.udsnative.components.button.*
 import com.telus.udsnative.components.progressbar.ProgressBar
 import com.telus.udsnative.components.progressbar.ProgressBarVariant
+import com.telus.udsnative.models.UDSColor
 import kotlinx.coroutines.flow.MutableStateFlow
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +29,8 @@ class MainActivity : AppCompatActivity() {
             Column(
                 modifier = Modifier
                     .padding(top = 16.dp)
-                    .fillMaxSize(),
+                    .fillMaxSize()
+                    .background(Color.Black),
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
                 Text(
@@ -93,48 +95,63 @@ class MainActivity : AppCompatActivity() {
                 ) {
                     Text(
                         "Button",
+                        modifier = Modifier.fillMaxWidth(),
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold
                     )
 
-                    com.telus.udsnative.components.button.Button(
+                    Button(
                         text = "Default Button",
+                        modifier = Modifier.fillMaxWidth(),
                         onClick = {}
                     )
 
-                    com.telus.udsnative.components.button.Button(
+                    Button(
                         text = "Danger Button",
+                        modifier = Modifier.fillMaxWidth(),
                         variant = ButtonVariant(danger = true),
                         onClick = {}
                     )
 
-                    com.telus.udsnative.components.button.Button(
+                    Button(
                         text = "Inverse Button",
+                        modifier = Modifier.fillMaxWidth(),
                         variant = ButtonVariant(inverse = true),
                         onClick = {}
                     )
 
-                    com.telus.udsnative.components.button.Button(
+                    Button(
                         text = "High Priority Inverse Button",
+                        modifier = Modifier.fillMaxWidth(),
                         variant = ButtonVariant(priority = ButtonPriority.High, inverse = true),
                         onClick = {}
                     )
 
-                    com.telus.udsnative.components.button.Button(
+                    Button(
                         text = "High Priority Button",
+                        modifier = Modifier.fillMaxWidth(),
                         variant = ButtonVariant(priority = ButtonPriority.High),
                         onClick = {}
                     )
 
-                    com.telus.udsnative.components.button.Button(
+                    Button(
                         text = "Low Priority Text Button",
+                        modifier = Modifier.fillMaxWidth(),
                         variant = ButtonVariant(priority = ButtonPriority.Low, text = true),
                         onClick = {}
                     )
 
-                    com.telus.udsnative.components.button.Button(
+                    Button(
                         text = "High Priority Text Button",
+                        modifier = Modifier.fillMaxWidth(),
                         variant = ButtonVariant(priority = ButtonPriority.High, text = true),
+                        onClick = {}
+                    )
+
+                    Button(
+                        text = "High Priority Text Button",
+                        modifier = Modifier.fillMaxWidth(),
+                        buttonTokens = buttonTokens,
                         onClick = {}
                     )
                 }
@@ -142,3 +159,30 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+val buttonTokens = ButtonTokens(
+    backgroundColor = UDSColor("#ffffff"),
+    borderColor = UDSColor("#00ff00"),
+    borderRadius = 32.dp,
+    borderWidth = 1.dp,
+    color = UDSColor("#000000"),
+    fontName = "SF Pro",
+    fontSize = 14.sp,
+    icon = "example-icon",
+    iconSize = 12,
+    iconSpace = 12,
+    iconPosition = IconPosition.Right,
+    lineHeight = 1f,
+    opacity = 1.dp,
+    outerBackgroundColor = UDSColor("#00ffffff"),
+    outerBorderColor = UDSColor("#00ff00"),
+    outerBorderGap = 2.dp,
+    outerBorderWidth = 2.dp,
+    paddingBottom = 12.dp,
+    paddingLeft = 32.dp,
+    paddingRight = 32.dp,
+    paddingTop = 12.dp,
+    textAlign = TextAlignment("center")
+//textLine= .underline,
+//textLineStyle= .none
+)
