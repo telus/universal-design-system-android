@@ -577,5 +577,429 @@
       "textLineStyle": "solid",
       "width": "none"
     }
-  }
+  },
+  "Typography": {
+      "appearances": {
+        "bold": {
+          "description": "Sets the font weight, to bold on some body text styles. Does not change accessibility properties.",
+          "type": "variant",
+          "values": [true]
+        },
+        "colour": {
+          "description": "Each typography variant has a default color, and at least a secondary color variant. In exceptional cases where a different colour is needed,\n  use the tokens prop.",
+          "type": "variant",
+          "values": ["secondary", "tertiary"]
+        },
+        "compact": {
+          "description": "Reduces line height on some body text styles. For data-rich content, not for flow content",
+          "type": "variant",
+          "values": [true]
+        },
+        "inverse": {
+          "description": "Styles the link white for use on dark backgrounds.",
+          "type": "variant",
+          "values": [true]
+        },
+        "size": {
+          "description": "Styles text as body or heading text with a given size. Smaller numbers indicate larger sizes,\n\"display\" headings are larger than \"h\" headings. Default is medium size body text. Does not change\naccessibility or SEO-related properties; use the heading prop if text should be treated semantically as a heading.",
+          "type": "variant",
+          "values": [
+            "micro",
+            "small",
+            "large",
+            "eyebrow",
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "display1",
+            "display2"
+          ]
+        },
+        "viewport": "{appearances.system.viewport}"
+      },
+      "rules": [
+        {
+          "if": {
+            "colour": "secondary"
+          },
+          "tokens": {
+            "color": "#414547"
+          }
+        },
+        {
+          "if": {
+            "size": ["display1", "display2", "h1", "h2", "h3"]
+          },
+          "tokens": {
+            "color": "#4B286D"
+          }
+        },
+        {
+          "if": {
+            "colour": "secondary",
+            "size": ["display1", "display2", "h1", "h2", "h3"]
+          },
+          "tokens": {
+            "color": "#2C2E30"
+          }
+        },
+        {
+          "if": {
+            "colour": "tertiary",
+            "size": "h6"
+          },
+          "tokens": {
+            "color": "#676E73"
+          }
+        },
+        {
+          "if": {
+            "size": "eyebrow"
+          },
+          "tokens": {
+            "color": "#414547"
+          }
+        },
+        {
+          "if": {
+            "colour": "secondary",
+            "size": "eyebrow"
+          },
+          "tokens": {
+            "color": "#7C53A5"
+          }
+        },
+        {
+          "if": {
+            "inverse": true
+          },
+          "tokens": {
+            "color": "#FFFFFF"
+          }
+        },
+        {
+          "if": {
+            "size": "display1"
+          },
+          "tokens": {
+            "fontName": "Helvetica Light",
+            "fontSize": 40,
+            "fontWeight": 300,
+            "letterSpacing": -0.035,
+            "lineHeight": 1.2
+          }
+        },
+        {
+          "if": {
+            "size": "display1",
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "fontSize": 64,
+            "lineHeight": 1.125
+          }
+        },
+        {
+          "if": {
+            "size": "display2"
+          },
+          "tokens": {
+            "fontName": "Helvetica",
+            "fontSize": 36,
+            "fontWeight": 400,
+            "letterSpacing": -0.035,
+            "lineHeight": 1.22222222222
+          }
+        },
+        {
+          "if": {
+            "size": "display2",
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "fontName": "Helvetica Light",
+            "fontSize": 56,
+            "fontWeight": 300,
+            "letterSpacing": -0.039,
+            "lineHeight": 1.14285714286
+          }
+        },
+        {
+          "if": {
+            "size": "h1"
+          },
+          "tokens": {
+            "fontSize": 28,
+            "letterSpacing": -0.017,
+            "lineHeight": 1.28571428571
+          }
+        },
+        {
+          "if": {
+            "size": "h1",
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "fontName": "Helvetica Light",
+            "fontSize": 40,
+            "fontWeight": 300,
+            "letterSpacing": -0.035,
+            "lineHeight": 1.2
+          }
+        },
+        {
+          "if": {
+            "size": "h2"
+          },
+          "tokens": {
+            "fontName": "Helvetica",
+            "fontSize": 24,
+            "fontWeight": 400,
+            "lineHeight": 1.33333333333
+          }
+        },
+        {
+          "if": {
+            "size": "h2",
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "fontSize": 28,
+            "letterSpacing": -0.017,
+            "lineHeight": 1.28571428571
+          }
+        },
+        {
+          "if": {
+            "size": "h3"
+          },
+          "tokens": {
+            "fontName": "Helvetica",
+            "fontSize": 20,
+            "fontWeight": 500,
+            "lineHeight": 1.4
+          }
+        },
+        {
+          "if": {
+            "size": "h3",
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "fontSize": 24,
+            "lineHeight": 1.33333333333
+          }
+        },
+        {
+          "if": {
+            "size": "h4"
+          },
+          "tokens": {
+            "fontName": "Helvetica",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "lineHeight": 1.5
+          }
+        },
+        {
+          "if": {
+            "size": "h5"
+          },
+          "tokens": {
+            "fontName": "Helvetica",
+            "fontSize": 14,
+            "fontWeight": 500,
+            "lineHeight": 1.28571428571
+          }
+        },
+        {
+          "if": {
+            "size": "h6"
+          },
+          "tokens": {
+            "fontName": "Helvetica Bold",
+            "fontSize": 12,
+            "fontWeight": 700,
+            "lineHeight": 1.33333333333
+          }
+        },
+        {
+          "if": {
+            "size": "large"
+          },
+          "tokens": {
+            "fontSize": 20,
+            "lineHeight": 1.6
+          }
+        },
+        {
+          "if": {
+            "compact": true,
+            "size": "large"
+          },
+          "tokens": {
+            "lineHeight": 1.2
+          }
+        },
+        {
+          "description": "The compact line height for the 'default' font size, but doesn't apply for any other styles",
+          "if": {
+            "compact": true,
+            "size": null
+          },
+          "tokens": {
+            "lineHeight": 1.25
+          }
+        },
+        {
+          "if": {
+            "size": "small"
+          },
+          "tokens": {
+            "fontSize": 14,
+            "lineHeight": 1.42857142857
+          }
+        },
+        {
+          "if": {
+            "compact": true,
+            "size": "small"
+          },
+          "tokens": {
+            "lineHeight": 1.14285714286
+          }
+        },
+        {
+          "if": {
+            "size": "micro"
+          },
+          "tokens": {
+            "fontName": "Helvetica",
+            "fontSize": 12,
+            "fontWeight": 500,
+            "lineHeight": 1.33333333333
+          }
+        },
+        {
+          "if": {
+            "size": "eyebrow"
+          },
+          "tokens": {
+            "fontName": "Helvetica Bold",
+            "fontSize": 14,
+            "fontWeight": 700,
+            "lineHeight": 1.28571428571,
+            "textTransform": "uppercase"
+          }
+        },
+        {
+          "description": "Please only bold single words while using with headings",
+          "if": {
+            "bold": true
+          },
+          "tokens": {
+            "fontName": "Helvetica Bold",
+            "fontWeight": 700
+          }
+        },
+        {
+          "if": {
+            "bold": true,
+            "size": "display1"
+          },
+          "tokens": {
+            "fontName": "Helvetica",
+            "fontWeight": 400
+          }
+        },
+        {
+          "if": {
+            "bold": true,
+            "size": ["display2"],
+            "viewport": ["xs", "sm", "md"]
+          },
+          "tokens": {
+            "fontName": "Helvetica",
+            "fontWeight": 500
+          }
+        },
+        {
+          "if": {
+            "bold": true,
+            "size": ["display2"],
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "fontName": "Helvetica",
+            "fontWeight": 400
+          }
+        },
+        {
+          "if": {
+            "bold": true,
+            "size": "h1",
+            "viewport": ["xs", "sm", "md"]
+          },
+          "tokens": {
+            "fontName": "Helvetica",
+            "fontWeight": 500
+          }
+        },
+        {
+          "if": {
+            "bold": true,
+            "size": "h1",
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "fontName": "Helvetica",
+            "fontWeight": 400
+          }
+        },
+        {
+          "if": {
+            "bold": true,
+            "size": "h2"
+          },
+          "tokens": {
+            "fontName": "Helvetica",
+            "fontWeight": 500
+          }
+        },
+        {
+          "if": {
+            "bold": true,
+            "size": "h3"
+          },
+          "tokens": {
+            "fontName": "Helvetica Bold",
+            "fontWeight": 700
+          }
+        },
+        {
+          "if": {
+            "bold": true,
+            "size": ["h4", "h5", "h6"],
+            "viewport": ["xs", "sm", "md"]
+          },
+          "tokens": {
+            "fontName": "Helvetica Bold",
+            "fontWeight": 700
+          }
+        }
+      ],
+      "tokens": {
+        "color": "#2C2E30",
+        "fontName": "Helvetica",
+        "fontScaleCap": 64,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "letterSpacing": 0,
+        "lineHeight": 1.5,
+        "textTransform": "none"
+      }
+    }
 }
