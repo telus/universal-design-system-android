@@ -3,6 +3,8 @@ package com.telus.udsnative.components.typography
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.sp
 import com.telus.udsnative.ThemeResolver
 
 
@@ -23,11 +25,34 @@ fun Typography(
     /**
      * Generating tokens from the variant provided
      */
-    val resolver = ThemeResolver.resolve<TypographyTokens>(component = "Button")
+    val resolver = ThemeResolver.resolve<TypographyTokens>(component = "Typography")
     val appearance = TypographyAppearance(variant = variant)
     val tokens = typographyTokens ?: resolver.resolve(appearance = appearance.asMap()) ?: return
 
-    Text(text = text)
+    val fontSize = if (tokens.fontScaleCap != null && tokens.fontSize.sp > tokens.fontScaleCap.sp) {
+        tokens.fontScaleCap.sp
+    } else {
+        tokens.fontSize.sp
+    }
+
+    val textToDisplay = if(tokens.textTransform == TextTransform.uppercase) {
+        text.uppercase()
+    } else {
+        text
+    }
+
+    Text(
+        modifier = modifier,
+        text = textToDisplay,
+        style = TextStyle(
+            fontSize = fontSize,
+            color = tokens.color.color,
+            letterSpacing = tokens.letterSpacing.sp,
+            lineHeight = tokens.lineHeight.sp,
+            fontWeight = tokens.fontName?.fontWeight
+        )
+
+    )
 
 
 }

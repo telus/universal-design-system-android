@@ -9,6 +9,8 @@ import com.telus.udsnative.components.button.TextLineDeserializer
 import com.telus.udsnative.models.Tokens
 import com.telus.udsnative.models.UDSColor
 import com.telus.udsnative.components.progressbar.UDSColorDeserializer
+import com.telus.udsnative.components.typography.TypographyFontName
+import com.telus.udsnative.components.typography.TypographyFontNameDeserializer
 import com.telus.udsnative.models.ComponentResolver
 import com.telus.udsnative.models.Rule
 import com.telus.udsnative.models.RuleDeserializer
@@ -23,6 +25,7 @@ object ThemeResolver {
         .registerTypeAdapter(UDSColor::class.java, UDSColorDeserializer())
         .registerTypeAdapter(TextAlignment::class.java, TextAlignmentDeserializer())
         .registerTypeAdapter(TextLine::class.java, TextLineDeserializer())
+        .registerTypeAdapter(TypographyFontName::class.java, TypographyFontNameDeserializer())
         .create()
 
     fun setup(jsonString: String) {

@@ -57,7 +57,7 @@ class ComponentSelectorFragment: Fragment() {
                         onClick = {
                             findNavController().navigate(R.id.viewTypography)
                         }) {
-                        Text(text = "typography")
+                        Text(text = "Typography")
                     }
                 }
             }

@@ -2,7 +2,7 @@ package com.telus.udsnative.components.typography
 
 
 
-data class TextTransform(
-    val textTransform: String,
-
-)
+enum class TextTransform {
+    none,
+    uppercase
+}

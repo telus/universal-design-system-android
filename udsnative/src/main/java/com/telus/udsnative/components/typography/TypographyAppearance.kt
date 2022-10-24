@@ -11,9 +11,9 @@ class TypographyAppearance(variant: TypographyVariant) : Appearance {
 
     override fun asMap(): Map<String, Any?>  = mapOf(
         "bold" to variant.bold,
-        "color" to variant.colour,
+        "colour" to variant.colour.name,
         "compact" to variant.compact,
         "inverse" to variant.inverse,
-        "size" to variant.size
+        "size" to variant.size.name
     )
 }
