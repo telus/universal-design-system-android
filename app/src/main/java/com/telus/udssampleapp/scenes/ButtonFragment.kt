@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.Modifier
@@ -39,6 +40,7 @@ class ButtonFragment : Fragment() {
         paddingLeft = 32.dp,
         paddingRight = 32.dp,
         paddingTop = 12.dp,
+        shadow = null,
         textAlign = TextAlignment("center"),
         textLine= TextLine("none"),
         textLineStyle= "none"
@@ -113,6 +115,14 @@ class ButtonFragment : Fragment() {
                             text = "Custom Button",
                             modifier = Modifier.fillMaxWidth(),
                             buttonTokens = buttonTokens,
+                            onClick = {}
+                        )
+
+                        Button(
+                            text =  "Inactive Button",
+                            modifier = Modifier.fillMaxWidth(),
+                            variant = ButtonVariant(priority = ButtonPriority.High),
+                            state = ButtonState.Inactive,
                             onClick = {}
                         )
                     }

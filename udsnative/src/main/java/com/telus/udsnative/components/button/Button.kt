@@ -18,13 +18,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.telus.udsnative.ThemeResolver
+import com.telus.udsnative.utility.advancedShadow
 import com.telus.udsnative.utility.getResourceId
 
 /**
+ * @param text: The text displayed on the button
  * @param modifier: Separate modifier to provide more customization of Button such as size, padding, etc.
  * @param buttonTokens: The list of tokens for Button to override the look and feel of the button. This value overrides any tokens provided via the resolver.
  * @param variant: ButtonVariant types to display. A default variant is used if one is not provided
- * @param state:
+ * @param state: The state of the button.  Either Inactive or Normal.  When inactive, the click action on button is ignored
+ * @param onClick: the action taken when the button is clicked.
  */
 @Composable
 fun Button(
@@ -55,14 +58,23 @@ fun Button(
      */
     val iconResourceId = getResourceId(tokens.icon)
 
-    Box(modifier = Modifier
-        .border(
-            shape = RoundedCornerShape(tokens.borderRadius),
-            width = tokens.outerBorderWidth,
-            color = tokens.outerBorderColor.color
+    var boxModifier = Modifier.border(
+        shape = RoundedCornerShape(tokens.borderRadius),
+        width = tokens.outerBorderWidth,
+        color = tokens.outerBorderColor.color
+    )
 
+    if(tokens.shadow != null) {
+        boxModifier = boxModifier.advancedShadow(
+            color = tokens.shadow.color.color,
+            cornersRadius = tokens.shadow.spread,
+            shadowBlurRadius = tokens.shadow.blur,
+            offsetX = tokens.shadow.offsetX,
+            offsetY = tokens.shadow.offsetY
         )
-    ) {
+    }
+
+    Box(modifier = boxModifier) {
         //initializing button content styles
         val contentSpacing = tokens.iconSpace?.dp ?: 0.dp
         val contentAlignment = tokens.textAlign?.alignment ?: Alignment.CenterHorizontally

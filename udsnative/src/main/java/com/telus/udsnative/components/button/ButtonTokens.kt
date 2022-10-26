@@ -3,6 +3,7 @@ package com.telus.udsnative.components.button
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import com.telus.udsnative.components.card.models.Shadow
 import com.telus.udsnative.models.Tokens
 import com.telus.udsnative.models.UDSColor
 
@@ -29,7 +30,7 @@ data class ButtonTokens(
     val paddingLeft: Dp = 0.dp,
     val paddingRight: Dp = 0.dp,
     val paddingTop: Dp = 0.dp,
-//    val shadow: Shadow?,
+    val shadow: Shadow?,
     val textAlign: TextAlignment?,
     val textLine: TextLine,
     val textLineStyle: String //TODO change to class that is android compatable
