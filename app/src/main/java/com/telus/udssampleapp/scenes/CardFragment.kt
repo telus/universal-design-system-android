@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
@@ -30,7 +29,6 @@ class CardFragment : Fragment() {
         paddingRight = 16.dp,
         paddingTop = 16.dp,
         shadow = Shadow(0.dp, UDSColor("#00ff00"), false, 0.dp, 0.dp, 0.dp)
-
     )
 
     override fun onCreateView(
@@ -106,4 +104,5 @@ class CardFragment : Fragment() {
         }
     }
 }
+
 
