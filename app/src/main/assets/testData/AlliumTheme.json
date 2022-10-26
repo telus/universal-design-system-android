@@ -169,7 +169,7 @@
       "paddingTop": 32,
       "shadow": {
         "blur": 6,
-        "color": "rgb(5 111 120)",
+        "color": "rgb(5, 111, 120)",
         "inset": false,
         "offsetX": 0,
         "offsetY": 0,
