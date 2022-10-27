@@ -39,6 +39,7 @@ class ButtonFragment : Fragment() {
         paddingLeft = 32.dp,
         paddingRight = 32.dp,
         paddingTop = 12.dp,
+        shadow = null,
         textAlign = TextAlignment("center"),
         textLine= TextLine("none"),
         textLineStyle= "none"
@@ -113,6 +114,13 @@ class ButtonFragment : Fragment() {
                             text = "Custom Button",
                             modifier = Modifier.fillMaxWidth(),
                             buttonTokens = buttonTokens,
+                            onClick = {}
+                        )
+                        Button(
+                            text =  "Inactive Button",
+                            modifier = Modifier.fillMaxWidth(),
+                            variant = ButtonVariant(priority = ButtonPriority.High),
+                            state = ButtonState.Inactive,
                             onClick = {}
                         )
                     }

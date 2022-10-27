@@ -43,9 +43,6 @@ data class ComponentResolver<T: Tokens>(
                                     }
                                     else -> appearance[it.name] != null && appearance[it.name] == it.value
                                 }
-
-
-
                             }
                         }
                 ) {
