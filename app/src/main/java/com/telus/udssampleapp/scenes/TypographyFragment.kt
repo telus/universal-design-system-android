@@ -49,16 +49,21 @@ class TypographyFragment : Fragment() {
                         )
                     }
 
+                    Column(modifier = Modifier
+                        .padding(start = 16.dp)
+                        .fillMaxWidth()) {
 
-                    enumValues<TypographySize>().forEach {
-                        Typography(
-                            text = it.name,
-                            variant = TypographyVariant(
-                                colour = TypographyColor.secondary,
-                                size = it
+                        enumValues<TypographySize>().forEach {
+                            Typography(
+                                text = it.name,
+                                variant = TypographyVariant(
+                                    colour = TypographyColor.secondary,
+                                    size = it
+                                )
                             )
-                        )
+                        }
                     }
+
 
                     Column(
                         modifier = Modifier
@@ -75,6 +80,7 @@ class TypographyFragment : Fragment() {
                         )
 
                         Typography(
+                            modifier = Modifier.padding(start = 16.dp),
                             text = "Bold Inverse Tertiary Large",
                             variant = TypographyVariant(
                                 bold = true,
@@ -85,6 +91,7 @@ class TypographyFragment : Fragment() {
                         )
 
                         Typography(
+                            modifier = Modifier.padding(start = 16.dp),
                             text = "Custom Tokens",
                             typographyTokens = TypographyTokens(
                                 color = UDSColor("#0000FF", Color.Blue),
