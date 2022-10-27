@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
@@ -18,6 +17,19 @@ import com.telus.udsnative.components.card.models.Shadow
 import com.telus.udsnative.models.UDSColor
 
 class CardFragment : Fragment() {
+
+    private val cardTokens = CardTokens(
+        backgroundColor = UDSColor("#000000"),
+        borderColor = UDSColor("#ff0000"),
+        borderRadius = 16.dp,
+        borderWidth = 1.dp,
+        minWidth = 100.dp,
+        paddingBottom = 16.dp,
+        paddingLeft = 16.dp,
+        paddingRight = 16.dp,
+        paddingTop = 16.dp,
+        shadow = Shadow(0.dp, UDSColor("#00ff00"), false, 0.dp, 0.dp, 0.dp)
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -76,19 +88,7 @@ class CardFragment : Fragment() {
                     Card(
                         modifier = Modifier
                             .padding(horizontal = 16.dp),
-                        cardTokens = CardTokens(
-                            backgroundColor = UDSColor("#000000"),
-                            borderColor = UDSColor("#ff0000"),
-                            borderRadius = 16.dp,
-                            borderWidth = 1.dp,
-                            minWidth = 100.dp,
-                            paddingBottom = 16.dp,
-                            paddingLeft = 16.dp,
-                            paddingRight = 16.dp,
-                            paddingTop = 16.dp,
-                            shadow = Shadow(0.dp, UDSColor("#00ff00"), false, 0.dp, 0.dp, 0.dp)
-
-                        )
+                        cardTokens = cardTokens
                     ) {
                         Text(
                             text = "Custom Padding Card",
@@ -100,8 +100,9 @@ class CardFragment : Fragment() {
                         )
                     }
                 }
-
             }
         }
     }
 }
+
+

@@ -28,18 +28,29 @@ class ComponentSelectorFragment: Fragment() {
                     .padding(16.dp)
                 ) {
 
-                    Button(onClick = {
+                    Button(
+                        modifier = Modifier.fillMaxWidth(),
+                        onClick = {
                         findNavController().navigate(R.id.viewProgressBar)
                     }) {
                         Text(text = "ProgressBar")
                     }
 
-                    Button(onClick = {
+                    Button(
+                        modifier = Modifier.fillMaxWidth(),
+                        onClick = {
                         findNavController().navigate(R.id.viewCard)
                     }) {
                         Text(text = "Card")
                     }
 
+                    Button(
+                        modifier = Modifier.fillMaxWidth(),
+                        onClick = {
+                            findNavController().navigate(R.id.viewButton)
+                        }) {
+                        Text(text = "Button")
+                    }
                 }
             }
         }

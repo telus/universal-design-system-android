@@ -11,7 +11,7 @@ class ProgressBarAppearance(variant: ProgressBarVariant, inactive: Boolean): App
         negative = variant.negative
     }
 
-    override fun asMap(): Map<String, Any> = mapOf(
+    override fun asMap(): Map<String, Any?> = mapOf(
         "inactive" to inactive,
         "negative" to negative
     )

@@ -14,6 +14,9 @@
         <action
             android:id="@+id/viewCard"
             app:destination="@id/cardFragment" />
+        <action
+            android:id="@+id/viewButton"
+            app:destination="@id/buttonFragment" />
     </fragment>
     <fragment
         android:id="@+id/progressBarFragment"
@@ -23,4 +26,8 @@
         android:id="@+id/cardFragment"
         android:name="com.telus.udssampleapp.scenes.CardFragment"
         android:label="CardFragment" />
+    <fragment
+        android:id="@+id/buttonFragment"
+        android:name="com.telus.udssampleapp.scenes.ButtonFragment"
+        android:label="ButtonFragment" />
 </navigation>

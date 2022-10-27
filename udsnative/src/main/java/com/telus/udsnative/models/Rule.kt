@@ -12,7 +12,7 @@ data class Rule(
 
 data class Condition(
     val name: String,
-    val value: Any
+    val value: Any?
 )
 
 class RuleDeserializer: JsonDeserializer<Rule> {

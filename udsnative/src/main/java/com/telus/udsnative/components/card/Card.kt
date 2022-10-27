@@ -79,8 +79,6 @@ fun Card(
     }
 }
 
-
-
 @Preview
 @Composable
 fun CardDefaultPreview() {

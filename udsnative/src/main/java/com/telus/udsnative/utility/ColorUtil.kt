@@ -20,9 +20,8 @@ object ColorUtil {
         val red = list[1]?.value?.toIntOrNull() ?: 0
         val green = list[2]?.value?.toIntOrNull() ?: 0
         val blue = list[3]?.value?.toIntOrNull() ?: 0
-        val alpha = list[4]?.value?.toIntOrNull() ?: 0
+        val alpha = list[4]?.value?.toIntOrNull() ?: 1
 
-        // Adding alpha is currently breaking gradients so temporarily removing it
-        return Color(red = red, green = green, blue = blue)
+        return Color(red = red, green = green, blue = blue).copy(alpha = alpha.toFloat())
     }
 }
