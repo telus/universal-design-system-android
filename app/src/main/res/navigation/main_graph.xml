@@ -17,6 +17,9 @@
         <action
             android:id="@+id/viewButton"
             app:destination="@id/buttonFragment" />
+        <action
+            android:id="@+id/viewTypography"
+            app:destination="@id/typographyFragment2" />
     </fragment>
     <fragment
         android:id="@+id/progressBarFragment"
@@ -30,4 +33,8 @@
         android:id="@+id/buttonFragment"
         android:name="com.telus.udssampleapp.scenes.ButtonFragment"
         android:label="ButtonFragment" />
+    <fragment
+        android:id="@+id/typographyFragment2"
+        android:name="com.telus.udssampleapp.scenes.TypographyFragment"
+        android:label="TypographyFragment" />
 </navigation>

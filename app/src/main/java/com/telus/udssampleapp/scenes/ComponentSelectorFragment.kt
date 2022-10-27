@@ -51,6 +51,14 @@ class ComponentSelectorFragment: Fragment() {
                         }) {
                         Text(text = "Button")
                     }
+
+                    Button(
+                        modifier = Modifier.fillMaxWidth(),
+                        onClick = {
+                            findNavController().navigate(R.id.viewTypography)
+                        }) {
+                        Text(text = "Typography")
+                    }
                 }
             }
         }

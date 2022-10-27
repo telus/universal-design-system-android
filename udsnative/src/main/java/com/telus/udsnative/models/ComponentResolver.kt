@@ -28,8 +28,21 @@ data class ComponentResolver<T: Tokens>(
                 if (rule.conditions
                         .all {
                             when {
+                                /**
+                                 * The value of the rule could be null but still exist as a condition. So we need to check if the rule exist
+                                 * within the Component's appearance and apply he proper token values
+                                 */
                                 appearance[it.name] == null && it.value == null -> true
-                                else -> appearance[it.name] != null && appearance[it.name] == it.value
+                                else -> when (it.value) {
+                                    /**
+                                     * A condition may return a list of possible appearances instead of just a single appearance. In this case we should
+                                     * parse the condition as an array and see if the appearance exists within the list
+                                     */
+                                    is ArrayList<*> -> {
+                                        it.value.contains(appearance[it.name])
+                                    }
+                                    else -> appearance[it.name] != null && appearance[it.name] == it.value
+                                }
                             }
                         }
                 ) {

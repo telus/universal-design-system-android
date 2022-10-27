@@ -57,7 +57,6 @@ fun Button(
      * prepare icon if it exists within tokens
      */
     val iconResourceId = getResourceId(tokens.icon)
-
     var boxModifier = Modifier.border(
         shape = RoundedCornerShape(tokens.borderRadius),
         width = tokens.outerBorderWidth,
@@ -75,6 +74,7 @@ fun Button(
     }
 
     Box(modifier = boxModifier) {
+
         //initializing button content styles
         val contentSpacing = tokens.iconSpace?.dp ?: 0.dp
         val contentAlignment = tokens.textAlign?.alignment ?: Alignment.CenterHorizontally
