@@ -4,6 +4,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.telus.udsnative.ThemeResolver
 
@@ -41,6 +42,12 @@ fun Typography(
         text
     }
 
+    val fontWeight = if(tokens.fontWeight != null) {
+        FontWeight(tokens.fontWeight)
+    } else {
+        FontWeight.Normal
+    }
+
     Text(
         modifier = modifier,
         text = textToDisplay,
@@ -49,7 +56,7 @@ fun Typography(
             color = tokens.color.color,
             letterSpacing = tokens.letterSpacing.sp,
             lineHeight = tokens.lineHeight.sp,
-            fontWeight = tokens.fontName?.fontWeight
+            fontWeight = fontWeight
         )
 
     )

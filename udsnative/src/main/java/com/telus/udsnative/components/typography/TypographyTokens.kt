@@ -12,6 +12,7 @@ data class TypographyTokens(
     val color: UDSColor,
     val fontName: TypographyFontName?,
     val fontSize: Int,
+    val fontWeight: Int?,
     val fontScaleCap: Int?,
     val letterSpacing: Double,
     val lineHeight: Double,

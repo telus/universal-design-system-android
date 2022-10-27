@@ -90,6 +90,7 @@ class TypographyFragment : Fragment() {
                                 color = UDSColor("#0000FF", Color.Blue),
                                 fontSize = 32,
                                 fontScaleCap = 64,
+                                fontWeight = 400,
                                 letterSpacing = 8.0,
                                 lineHeight = 32.0,
                                 textTransform = TextTransform.uppercase,
