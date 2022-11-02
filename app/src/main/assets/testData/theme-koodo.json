@@ -1,0 +1,4651 @@
+{
+  "components": {
+    "ActivityIndicator": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "color": {
+          "red": 0.00392,
+          "green": 0.28235,
+          "blue": 0.27843,
+          "alpha": 1
+        },
+        "size": 40,
+        "thickness": 4
+      }
+    },
+    "Box": {
+      "appearances": {
+        "background": {
+          "description": "Background colour of box. Transparent if not specified.",
+          "values": ["light", "lightest", "black"]
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "background": "lightest"
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "background": "light"
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.93725,
+              "green": 0.93725,
+              "blue": 0.93725,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "background": "black"
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            }
+          }
+        }
+      ],
+      "tokens": {
+        "backgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        }
+      }
+    },
+    "Button": {
+      "appearances": {
+        "clear": {
+          "description": "Gives a button borders and a transparent background",
+          "type": "variant",
+          "values": [true]
+        },
+        "inactive": {
+          "description": "Prevents an interactive component from being interacted with and applies accessibility attributes to indicate to the user that this component cannot be used.",
+          "values": [true],
+          "type": "state"
+        },
+        "pressed": {
+          "description": "Applies while an interactive component is being physically pressed. Most visible on touchscreen taps; in React Native Web, this is visible on web mouse clicks only if the pressable is held down.",
+          "values": [true],
+          "type": "state"
+        },
+        "rank": {
+          "description": "Prominence of the button. Use the default (\"primary\") button style for the main action on a page or in a form, and \"secondary\" style for secondary actions.",
+          "type": "variant",
+          "values": ["secondary"]
+        },
+        "rounded": {
+          "description": "Gives a button \"pill-style\" rounded sides",
+          "type": "variant",
+          "values": [true]
+        },
+        "selected": {
+          "description": "Applies while an interactive component is the currently selected one in a set of states or components, for example a button in a `ButtonGroup`.",
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "rounded": true
+          },
+          "tokens": {
+            "borderRadius": 32
+          }
+        },
+        {
+          "if": {
+            "clear": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "borderColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "borderWidth": 2,
+            "color": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "pressed": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "borderColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "color": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "rank": "secondary"
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0,
+              "green": 0.63137,
+              "blue": 0.85882,
+              "alpha": 1
+            },
+            "borderColor": {
+              "red": 0,
+              "green": 0.63137,
+              "blue": 0.85882,
+              "alpha": 1
+            },
+            "color": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "clear": true,
+            "rank": "secondary"
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            },
+            "borderColor": {
+              "red": 0,
+              "green": 0.63137,
+              "blue": 0.85882,
+              "alpha": 1
+            },
+            "color": {
+              "red": 0,
+              "green": 0.63137,
+              "blue": 0.85882,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "pressed": true,
+            "rank": "secondary"
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.76471,
+              "green": 0.93725,
+              "blue": 1,
+              "alpha": 1
+            },
+            "borderColor": {
+              "red": 0.76471,
+              "green": 0.93725,
+              "blue": 1,
+              "alpha": 1
+            },
+            "color": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "inactive": true
+          },
+          "tokens": {
+            "opacity": 0.3
+          }
+        },
+        {
+          "if": {
+            "selected": true
+          },
+          "tokens": {
+            "opacity": 0.8,
+            "outerBorderColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "outerBorderGap": 1,
+            "outerBorderWidth": 4
+          }
+        }
+      ],
+      "tokens": {
+        "alignSelf": "flex-start",
+        "backgroundColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "borderColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "borderRadius": 4,
+        "borderWidth": 0,
+        "color": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "fontName": "StagSans",
+        "fontSize": 16,
+        "fontWeight": 600,
+        "icon": null,
+        "iconSize": 24,
+        "iconSpace": 2,
+        "lineHeight": 1.5,
+        "minWidth": 0,
+        "opacity": 1,
+        "outerBackgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "outerBorderGap": 2,
+        "outerBorderWidth": 2,
+        "paddingBottom": 8,
+        "paddingLeft": 24,
+        "paddingRight": 24,
+        "paddingTop": 8,
+        "shadow": null,
+        "textAlign": "center",
+        "textLine": "none",
+        "textLineStyle": "solid",
+        "width": null
+      }
+    },
+    "ButtonDropdown": {
+      "appearances": {
+        "inactive": {
+          "description": "Prevents an interactive component from being interacted with and applies accessibility attributes to indicate to the user that this component cannot be used.",
+          "values": [true],
+          "type": "state"
+        },
+        "open": {
+          "description": "Applies when a ButtonDropdown is open.",
+          "values": [true],
+          "type": "state"
+        },
+        "pressed": {
+          "description": "Applies while an interactive component is being physically pressed. Most visible on touchscreen taps; in React Native Web, this is visible on web mouse clicks only if the pressable is held down.",
+          "values": [true],
+          "type": "state"
+        },
+        "selected": {
+          "description": "Applies while an interactive component is the currently selected one in a set of states or components, for example a button in a `ButtonGroup`.",
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "open": true
+          },
+          "tokens": {
+            "icon": "PaletteIconChevronUp"
+          }
+        },
+        {
+          "if": {
+            "pressed": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "borderColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "color": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "selected": true
+          },
+          "tokens": {
+            "opacity": 0.8,
+            "outerBorderColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "outerBorderGap": 1,
+            "outerBorderWidth": 4
+          }
+        },
+        {
+          "if": {
+            "inactive": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.4,
+              "green": 0.4,
+              "blue": 0.4,
+              "alpha": 1
+            },
+            "borderWidth": 0,
+            "color": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            },
+            "iconColor": {
+              "red": 0.4,
+              "green": 0.4,
+              "blue": 0.4,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "selected": true
+          },
+          "tokens": {
+            "opacity": 0.8,
+            "outerBorderColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "outerBorderGap": 1,
+            "outerBorderWidth": 4
+          }
+        }
+      ],
+      "tokens": {
+        "alignSelf": "flex-start",
+        "backgroundColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "borderColor": {
+          "red": 0.00392,
+          "green": 0.28235,
+          "blue": 0.27843,
+          "alpha": 1
+        },
+        "borderRadius": 4,
+        "borderWidth": 0,
+        "color": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "fontName": "StagSans",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "icon": "PaletteIconChevronDown",
+        "iconAlignSelf": "center",
+        "iconBackground": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "iconBorderRadius": 32,
+        "iconColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "iconPadding": 4,
+        "iconPosition": "right",
+        "iconSize": 20,
+        "iconSpace": 3,
+        "iconTranslateX": 0,
+        "iconTranslateY": 0,
+        "lineHeight": 1.5,
+        "minWidth": 0,
+        "opacity": 1,
+        "outerBackgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderGap": 2,
+        "outerBorderWidth": 2,
+        "paddingBottom": 8,
+        "paddingLeft": 24,
+        "paddingRight": 16,
+        "paddingTop": 8,
+        "shadow": null,
+        "textAlign": "center",
+        "width": null
+      }
+    },
+    "ButtonGroup": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "alignItems": "center",
+        "direction": "row",
+        "fieldSpace": 2,
+        "flexGrow": 0,
+        "flexShrink": 0,
+        "justifyContent": "flex-start",
+        "space": 3
+      }
+    },
+    "ButtonGroupItem": {
+      "appearances": {
+        "inactive": {
+          "description": "Prevents an interactive component from being interacted with and applies accessibility attributes to indicate to the user that this component cannot be used.",
+          "values": [true],
+          "type": "state"
+        },
+        "pressed": {
+          "description": "Applies while an interactive component is being physically pressed. Most visible on touchscreen taps; in React Native Web, this is visible on web mouse clicks only if the pressable is held down.",
+          "values": [true],
+          "type": "state"
+        },
+        "selected": {
+          "description": "Applies while an interactive component is the currently selected one in a set of states or components, for example a button in a `ButtonGroup`.",
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "pressed": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "borderColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "color": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "selected": true
+          },
+          "tokens": {
+            "opacity": 0.8,
+            "outerBorderColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "outerBorderGap": 1,
+            "outerBorderWidth": 4
+          }
+        },
+        {
+          "if": {
+            "inactive": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.4,
+              "green": 0.4,
+              "blue": 0.4,
+              "alpha": 1
+            },
+            "borderWidth": 0,
+            "color": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "selected": true
+          },
+          "tokens": {
+            "opacity": 0.8,
+            "outerBorderColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "outerBorderGap": 1,
+            "outerBorderWidth": 4
+          }
+        }
+      ],
+      "tokens": {
+        "alignSelf": "flex-start",
+        "backgroundColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "borderColor": {
+          "red": 0.00392,
+          "green": 0.28235,
+          "blue": 0.27843,
+          "alpha": 1
+        },
+        "borderRadius": 4,
+        "borderWidth": 0,
+        "color": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "fontName": "StagSans",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "lineHeight": 1.5,
+        "minWidth": 0,
+        "opacity": 1,
+        "outerBackgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderGap": 2,
+        "outerBorderWidth": 2,
+        "paddingBottom": 8,
+        "paddingLeft": 24,
+        "paddingRight": 24,
+        "paddingTop": 8,
+        "shadow": null,
+        "textAlign": "center",
+        "width": null
+      }
+    },
+    "Card": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "backgroundColor": {
+          "red": 0.97647,
+          "green": 0.96471,
+          "blue": 0.64706,
+          "alpha": 1
+        },
+        "borderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borderRadius": 0,
+        "borderWidth": 0,
+        "flex": 1,
+        "minWidth": null,
+        "paddingBottom": 16,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 16,
+        "shadow": null
+      }
+    },
+    "Carousel": {
+      "appearances": {
+        "viewport": {
+          "description": "The size label for the current screen viewport based on the current screen width",
+          "values": ["xs", "sm", "md", "lg", "xl"],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "viewport": ["xs", "sm"]
+          },
+          "tokens": {
+            "showPanelTabs": false,
+            "showPreviousNextNavigation": false,
+            "thumbnailSize": 48
+          }
+        }
+      ],
+      "tokens": {
+        "nextIcon": "PaletteIconChevronRight",
+        "previousIcon": "PaletteIconChevronLeft",
+        "showPanelNavigation": true,
+        "showPanelTabs": true,
+        "showPreviousNextNavigation": true,
+        "spaceBetweenSlideAndPanelNavigation": 32,
+        "spaceBetweenSlideAndPreviousNextNavigation": 24,
+        "thumbnailBorderColor": {
+          "red": 0.97647,
+          "green": 0.96471,
+          "blue": 0.64706,
+          "alpha": 1
+        },
+        "thumbnailBorderRadius": 4,
+        "thumbnailBorderWidth": 1,
+        "thumbnailContainerPaddingTop": 24,
+        "thumbnailMargin": 4,
+        "thumbnailPadding": 8,
+        "thumbnailSelectedBorderColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "thumbnailSelectedBorderWidth": 2,
+        "thumbnailSize": 64
+      }
+    },
+    "CarouselTabsPanelItem": {
+      "appearances": {
+        "inactive": {
+          "description": "Prevents an interactive component from being interacted with and applies accessibility attributes to indicate to the user that this component cannot be used.",
+          "values": [true],
+          "type": "state"
+        },
+        "pressed": {
+          "description": "Applies while an interactive component is being physically pressed. Most visible on touchscreen taps; in React Native Web, this is visible on web mouse clicks only if the pressable is held down.",
+          "values": [true],
+          "type": "state"
+        },
+        "selected": {
+          "description": "Applies while an interactive component is the currently selected one in a set of states or components, for example a button in a `ButtonGroup`.",
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "pressed": true
+          },
+          "tokens": {
+            "borderBottomColor": {
+              "red": 0.00392,
+              "green": 0.28235,
+              "blue": 0.27843,
+              "alpha": 1
+            },
+            "borderBottomWidth": 2,
+            "color": {
+              "red": 0.00392,
+              "green": 0.28235,
+              "blue": 0.27843,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "inactive": true
+          },
+          "tokens": {
+            "borderBottomColor": {
+              "red": 0.78824,
+              "green": 0.78431,
+              "blue": 0.78431,
+              "alpha": 1
+            },
+            "borderBottomWidth": 4,
+            "color": {
+              "red": 0.78824,
+              "green": 0.78431,
+              "blue": 0.78431,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "selected": true
+          },
+          "tokens": {
+            "borderBottomColor": {
+              "red": 0.78824,
+              "green": 0.78431,
+              "blue": 0.78431,
+              "alpha": 1
+            },
+            "borderBottomWidth": 2,
+            "color": {
+              "red": 0.78824,
+              "green": 0.78431,
+              "blue": 0.78431,
+              "alpha": 1
+            },
+            "fontName": "StagSans",
+            "fontWeight": 400
+          }
+        }
+      ],
+      "tokens": {
+        "alignItems": "flex-start",
+        "borderBottomColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borderBottomStyle": "solid",
+        "borderBottomWidth": 1,
+        "color": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "flex": 1,
+        "fontName": "StagSans",
+        "fontScaleCap": 64,
+        "fontSize": 14,
+        "fontWeight": 400,
+        "justifyContent": "flex-start",
+        "letterSpacing": 0,
+        "lineHeight": 1.1,
+        "paddingBottom": 16,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingTop": 0
+      }
+    },
+    "Checkbox": {
+      "appearances": {
+        "checked": {
+          "description": "Corresponds to a selected state for a checkbox or radio",
+          "values": [true],
+          "type": "state"
+        },
+        "error": {
+          "values": [true],
+          "type": "state"
+        },
+        "inactive": {
+          "description": "Prevents an interactive component from being interacted with and applies accessibility attributes to indicate to the user that this component cannot be used.",
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [],
+      "tokens": {
+        "containerBackgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "feedbackMarginBottom": 0,
+        "feedbackMarginTop": 0,
+        "feedbackPosition": "bottom",
+        "icon": "PaletteIconCheck",
+        "iconBackgroundColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "iconColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "iconSize": 16,
+        "inputBackgroundColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "inputBorderColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "inputBorderRadius": 0,
+        "inputBorderWidth": 2,
+        "inputHeight": 20,
+        "inputOutlineColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "inputOutlineWidth": 0,
+        "inputShadow": null,
+        "inputWidth": 20,
+        "labelColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
+        },
+        "labelFontName": "StagSans",
+        "labelFontSize": 16,
+        "labelFontWeight": 400,
+        "labelLineHeight": 1.5,
+        "labelMarginLeft": 8
+      }
+    },
+    "CheckboxGroup": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "fieldSpace": 2,
+        "space": 2
+      }
+    },
+    "ChevronLink": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "iconDisplace": 4,
+        "iconSize": 24,
+        "iconSpace": 0,
+        "leftIcon": "PaletteIconChevronLeft",
+        "rightIcon": "PaletteIconChevronRight",
+        "textLine": "none"
+      }
+    },
+    "Divider": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "color": {
+          "red": 0.78824,
+          "green": 0.78431,
+          "blue": 0.78431,
+          "alpha": 1
+        },
+        "width": 1
+      }
+    },
+    "ExpandCollapse": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "borderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borderStyle": "solid",
+        "borderWidth": 0
+      }
+    },
+    "ExpandCollapseControl": {
+      "appearances": {
+        "expanded": {
+          "description": "Applies when an ExpandCollapse panel is open and the content inside is visible",
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "expanded": true
+          },
+          "tokens": {
+            "icon": "PaletteIconChevronUp"
+          }
+        }
+      ],
+      "tokens": {
+        "backgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borderWidth": 0,
+        "icon": "PaletteIconChevronDown",
+        "iconColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "iconGap": 16,
+        "iconPosition": "left",
+        "iconSize": 16,
+        "justifyContent": "flex-start",
+        "paddingBottom": 16,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 16,
+        "verticalAlign": "middle"
+      }
+    },
+    "ExpandCollapsePanel": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "collapseDuration": 250,
+        "contentPaddingBottom": 16,
+        "contentPaddingLeft": 48,
+        "contentPaddingRight": 16,
+        "contentPaddingTop": 0,
+        "expandDuration": 300
+      }
+    },
+    "Feedback": {
+      "appearances": {
+        "icon": {
+          "type": "variant",
+          "values": [true]
+        },
+        "validation": {
+          "description": "Validation states for form inputs",
+          "values": ["error", "success"],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "validation": "success"
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.75686,
+              "green": 0.94902,
+              "blue": 0.9098,
+              "alpha": 1
+            },
+            "borderColor": {
+              "red": 0.75686,
+              "green": 0.94902,
+              "blue": 0.9098,
+              "alpha": 1
+            },
+            "color": {
+              "red": 0.1451,
+              "green": 0.5451,
+              "blue": 0.04314,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "validation": "error"
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.98039,
+              "green": 0.90196,
+              "blue": 0.95686,
+              "alpha": 1
+            },
+            "borderColor": {
+              "red": 0.98039,
+              "green": 0.90196,
+              "blue": 0.95686,
+              "alpha": 1
+            },
+            "color": {
+              "red": 0.87451,
+              "green": 0.23922,
+              "blue": 0.04706,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "icon": true,
+            "validation": "success"
+          },
+          "tokens": {
+            "icon": "PaletteIconCheckCircledFilled",
+            "iconColor": {
+              "red": 0.1451,
+              "green": 0.5451,
+              "blue": 0.04314,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "icon": true,
+            "validation": "error"
+          },
+          "tokens": {
+            "icon": "PaletteIconExclamationTriangle",
+            "iconColor": {
+              "red": 0.87451,
+              "green": 0.23922,
+              "blue": 0.04706,
+              "alpha": 1
+            }
+          }
+        }
+      ],
+      "tokens": {
+        "backgroundColor": {
+          "red": 0.93725,
+          "green": 0.93725,
+          "blue": 0.93725,
+          "alpha": 1
+        },
+        "borderColor": {
+          "red": 0.78824,
+          "green": 0.78431,
+          "blue": 0.78431,
+          "alpha": 1
+        },
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "color": {
+          "red": 0.34902,
+          "green": 0.34902,
+          "blue": 0.34902,
+          "alpha": 1
+        },
+        "contentFontSize": 14,
+        "fontName": "StagSans",
+        "fontWeight": 400,
+        "icon": null,
+        "iconColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "iconGap": 8,
+        "iconSize": 24,
+        "lineHeight": 1.5,
+        "paddingBottom": 10,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 10,
+        "space": 2,
+        "titleFontSize": 16
+      }
+    },
+    "HorizontalScrollButton": {
+      "appearances": {
+        "pressed": {
+          "description": "Applies while an interactive component is being physically pressed. Most visible on touchscreen taps; in React Native Web, this is visible on web mouse clicks only if the pressable is held down.",
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "pressed": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "borderColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "iconColor": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        }
+      ],
+      "tokens": {
+        "backgroundColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "borderColor": {
+          "red": 0.78824,
+          "green": 0.78431,
+          "blue": 0.78431,
+          "alpha": 1
+        },
+        "borderRadius": 32,
+        "borderWidth": 1,
+        "iconColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "iconScale": 1,
+        "iconSize": 16,
+        "iconTranslateX": 0,
+        "iconTranslateY": 0,
+        "outerBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderGap": 0,
+        "outerBorderWidth": 0,
+        "padding": 8,
+        "shadow": null
+      }
+    },
+    "Icon": {
+      "appearances": {
+        "colour": {
+          "type": "variant",
+          "values": ["primary", "secondary", "black", "white"]
+        },
+        "size": {
+          "type": "variant",
+          "values": ["small"]
+        },
+        "status": {
+          "description": "Uses icon colour to communicate meaning to the user",
+          "type": "variant",
+          "values": ["success", "error"]
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "size": "small"
+          },
+          "tokens": {
+            "size": 20
+          }
+        },
+        {
+          "if": {
+            "colour": "primary"
+          },
+          "tokens": {
+            "color": {
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "colour": "secondary"
+          },
+          "tokens": {
+            "color": {
+              "red": 0,
+              "green": 0.63137,
+              "blue": 0.85882,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "colour": "black"
+          },
+          "tokens": {
+            "color": {
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "colour": "white"
+          },
+          "tokens": {
+            "color": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "status": "success"
+          },
+          "tokens": {
+            "color": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "status": "error"
+          },
+          "tokens": {
+            "color": {
+              "red": 0.93333,
+              "green": 0.17255,
+              "blue": 0.4549,
+              "alpha": 1
+            }
+          }
+        }
+      ],
+      "tokens": {
+        "color": {
+          "red": 0.4,
+          "green": 0.4,
+          "blue": 0.4,
+          "alpha": 1
+        },
+        "scale": 1,
+        "size": 24,
+        "translateX": 0,
+        "translateY": 0
+      }
+    },
+    "IconButton": {
+      "appearances": {
+        "inactive": {
+          "description": "Prevents an interactive component from being interacted with and applies accessibility attributes to indicate to the user that this component cannot be used.",
+          "values": [true],
+          "type": "state"
+        },
+        "pressed": {
+          "description": "Applies while an interactive component is being physically pressed. Most visible on touchscreen taps; in React Native Web, this is visible on web mouse clicks only if the pressable is held down.",
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [],
+      "tokens": {
+        "backgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borderColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "borderRadius": 99999999999999,
+        "borderWidth": 1,
+        "iconColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "iconScale": 1,
+        "iconSize": 24,
+        "iconTranslateX": 0,
+        "iconTranslateY": 0,
+        "outerBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderGap": 0,
+        "outerBorderWidth": 0,
+        "padding": 4,
+        "shadow": null
+      }
+    },
+    "InputLabel": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "color": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
+        },
+        "fontName": "StagSans",
+        "fontSize": 16,
+        "fontWeight": 700,
+        "gap": 8,
+        "hintColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
+        },
+        "hintFontName": "StagSans",
+        "hintFontSize": 14,
+        "hintFontWeight": 400,
+        "hintLineHeight": 1.4,
+        "lineHeight": 1.4
+      }
+    },
+    "InputSupports": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "space": 1
+      }
+    },
+    "Link": {
+      "appearances": {
+        "iconPosition": {
+          "description": "Theme styles to be applied to icon links depending on where the icon is in relation to the link text",
+          "values": ["left", "right"],
+          "type": "state"
+        },
+        "rank": {
+          "description": "Prominence of the link.",
+          "type": "variant",
+          "values": ["secondary"]
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "iconPosition": "left"
+          },
+          "tokens": {
+            "iconSpace": 2
+          }
+        },
+        {
+          "if": {
+            "rank": "secondary"
+          },
+          "tokens": {
+            "color": {
+              "red": 0,
+              "green": 0.63137,
+              "blue": 0.85882,
+              "alpha": 1
+            }
+          }
+        }
+      ],
+      "tokens": {
+        "alignSelf": "flex-start",
+        "blockFontName": "StagSans",
+        "blockFontSize": 16,
+        "blockFontWeight": 600,
+        "blockLineHeight": 1.5,
+        "borderRadius": 4,
+        "color": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "icon": null,
+        "iconSize": 24,
+        "iconSpace": 1,
+        "iconTranslateX": 0,
+        "iconTranslateY": 0,
+        "outerBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderGap": 0,
+        "outerBorderOutline": "none",
+        "outerBorderWidth": 0,
+        "textLine": "underline",
+        "textLineStyle": "solid"
+      }
+    },
+    "List": {
+      "appearances": {
+        "compact": {
+          "description": "Reduces line height on some body text styles. For data-rich content, not for flow content",
+          "type": "variant",
+          "values": [true]
+        },
+        "size": {
+          "description": "Text sizes for block links; similar but not always identical to Typography sizes.",
+          "type": "variant",
+          "values": ["large", "small"]
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "size": "large"
+          },
+          "tokens": {
+            "itemFontSize": 20,
+            "itemLineHeight": 1.4,
+            "listGutter": 16
+          }
+        },
+        {
+          "if": {
+            "size": "small"
+          },
+          "tokens": {
+            "itemFontSize": 14,
+            "listGutter": 10
+          }
+        },
+        {
+          "if": {
+            "compact": true
+          },
+          "tokens": {
+            "itemLineHeight": 1.2
+          }
+        },
+        {
+          "if": {
+            "compact": true,
+            "size": "small"
+          },
+          "tokens": {
+            "itemLineHeight": 1.1
+          }
+        },
+        {
+          "if": {
+            "compact": true,
+            "size": "large"
+          },
+          "tokens": {
+            "itemLineHeight": 1.3
+          }
+        }
+      ],
+      "tokens": {
+        "dividerColor": {
+          "red": 0.78824,
+          "green": 0.78431,
+          "blue": 0.78431,
+          "alpha": 1
+        },
+        "dividerSize": 1,
+        "iconMarginTop": 4,
+        "interItemMargin": 8,
+        "interItemMarginWithDivider": 16,
+        "itemBulletColor": {
+          "red": 0.48627,
+          "green": 0.07451,
+          "blue": 0.4,
+          "alpha": 1
+        },
+        "itemBulletContainerAlign": "center",
+        "itemBulletContainerWidth": 16,
+        "itemBulletHeight": 4,
+        "itemBulletWidth": 4,
+        "itemFontName": "StagSans",
+        "itemFontSize": 16,
+        "itemFontWeight": 600,
+        "itemIconColor": {
+          "red": 0.48627,
+          "green": 0.07451,
+          "blue": 0.4,
+          "alpha": 1
+        },
+        "itemIconSize": 16,
+        "itemLineHeight": 1.3,
+        "listGutter": 10
+      }
+    },
+    "Modal": {
+      "appearances": {
+        "maxWidth": {
+          "description": "Whether a modal should expand responsively to the maximum of 8 layout columns width",
+          "values": [true],
+          "type": "state"
+        },
+        "viewport": {
+          "description": "The size label for the current screen viewport based on the current screen width",
+          "values": ["xs", "sm", "md", "lg", "xl"],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "viewport": ["xs", "sm"]
+          },
+          "tokens": {
+            "height": "100%"
+          }
+        },
+        {
+          "if": {
+            "viewport": ["md", "lg", "xl"]
+          },
+          "tokens": {
+            "containerPaddingBottom": 32,
+            "containerPaddingTop": 32,
+            "maxWidth": 576
+          }
+        },
+        {
+          "if": {
+            "maxWidth": true,
+            "viewport": ["md", "lg", "xl"]
+          },
+          "tokens": {
+            "containerPaddingLeft": 16,
+            "containerPaddingRight": 16,
+            "maxWidth": "66.67%"
+          }
+        }
+      ],
+      "tokens": {
+        "backdropColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
+        },
+        "backdropOpacity": 0.5,
+        "backgroundColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "borderRadius": 4,
+        "closeIcon": "PaletteIconTimes",
+        "closeIconColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
+        },
+        "closeIconSize": 24,
+        "closePadding": 4,
+        "containerPaddingBottom": 0,
+        "containerPaddingLeft": 0,
+        "containerPaddingRight": 0,
+        "containerPaddingTop": 0,
+        "height": null,
+        "maxWidth": "100%",
+        "paddingBottom": 16,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 16,
+        "shadow": {
+          "inset": false,
+          "offsetX": 0,
+          "offsetY": 0,
+          "blur": 0,
+          "spread": 0,
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 0
+          }
+        }
+      }
+    },
+    "Notification": {
+      "appearances": {
+        "style": {
+          "values": ["success", "warning", "error"],
+          "type": "state"
+        },
+        "system": {
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "system": true
+          },
+          "tokens": {
+            "iconGap": 12,
+            "paddingBottom": 16,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 16
+          }
+        },
+        {
+          "if": {
+            "style": "success"
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.75686,
+              "green": 0.94902,
+              "blue": 0.9098,
+              "alpha": 1
+            },
+            "icon": "PaletteIconCheckCircledFilled",
+            "iconColor": {
+              "red": 0.1451,
+              "green": 0.5451,
+              "blue": 0.04314,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "style": "warning"
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.99608,
+              "green": 0.93333,
+              "blue": 0.78039,
+              "alpha": 1
+            },
+            "icon": "PaletteIconExclamationTriangle",
+            "iconColor": {
+              "red": 0.98431,
+              "green": 0.68627,
+              "blue": 0.20392,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "style": "error"
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.97255,
+              "green": 0.86667,
+              "blue": 0.8902,
+              "alpha": 1
+            },
+            "icon": "PaletteIconExclamationOctagon",
+            "iconColor": {
+              "red": 0.87451,
+              "green": 0.23922,
+              "blue": 0.04706,
+              "alpha": 1
+            }
+          }
+        }
+      ],
+      "tokens": {
+        "backgroundColor": {
+          "red": 0.93725,
+          "green": 0.93725,
+          "blue": 0.93725,
+          "alpha": 1
+        },
+        "borderBottomWidth": 0,
+        "borderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borderLeftWidth": 0,
+        "borderRadius": 0,
+        "borderRightWidth": 0,
+        "borderTopWidth": 0,
+        "color": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
+        },
+        "dismissButtonGap": 16,
+        "dismissIcon": "PaletteIconTimes",
+        "dismissIconColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
+        },
+        "dismissIconSize": 16,
+        "fontName": "StagSans",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "icon": null,
+        "iconColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "iconGap": 16,
+        "iconSize": 24,
+        "lineHeight": 1.5,
+        "paddingBottom": 12,
+        "paddingLeft": 12,
+        "paddingRight": 12,
+        "paddingTop": 12
+      }
+    },
+    "Pagination": {
+      "appearances": {
+        "viewport": {
+          "description": "The size label for the current screen viewport based on the current screen width",
+          "values": ["xs", "sm", "md", "lg", "xl"],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "viewport": ["md", "lg", "xl"]
+          },
+          "tokens": {
+            "truncateAbove": 6
+          }
+        }
+      ],
+      "tokens": {
+        "color": {
+          "red": 0.4,
+          "green": 0.4,
+          "blue": 0.4,
+          "alpha": 1
+        },
+        "fontName": "StagSans",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "gap": 2,
+        "lineHeight": 1.5,
+        "truncateAbove": 4
+      }
+    },
+    "PaginationPageButton": {
+      "appearances": {
+        "pressed": {
+          "description": "Applies while an interactive component is being physically pressed. Most visible on touchscreen taps; in React Native Web, this is visible on web mouse clicks only if the pressable is held down.",
+          "values": [true],
+          "type": "state"
+        },
+        "selected": {
+          "description": "Applies while an interactive component is the currently selected one in a set of states or components, for example a button in a `ButtonGroup`.",
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "selected": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.4,
+              "green": 0.4,
+              "blue": 0.4,
+              "alpha": 1
+            },
+            "color": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            },
+            "textLine": "none"
+          }
+        },
+        {
+          "if": {
+            "pressed": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.4,
+              "green": 0.4,
+              "blue": 0.4,
+              "alpha": 1
+            },
+            "color": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        }
+      ],
+      "tokens": {
+        "backgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borderRadius": 32,
+        "borderWidth": 1,
+        "color": {
+          "red": 0.4,
+          "green": 0.4,
+          "blue": 0.4,
+          "alpha": 1
+        },
+        "fontName": "StagSans",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "outerBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderGap": 4,
+        "outerBorderWidth": 4,
+        "paddingBottom": 4,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 4,
+        "textAlign": "center",
+        "textLine": "underline",
+        "width": 32
+      }
+    },
+    "PaginationSideButton": {
+      "appearances": {
+        "compact": {
+          "values": [true],
+          "description": "Determines if the \"Next\" and \"Previous\" labels should be omitted",
+          "type": "state"
+        },
+        "direction": {
+          "values": ["previous", "next"],
+          "description": "Determines which way does the button navigate in Pagination's context",
+          "type": "state"
+        },
+        "pressed": {
+          "description": "Applies while an interactive component is being physically pressed. Most visible on touchscreen taps; in React Native Web, this is visible on web mouse clicks only if the pressable is held down.",
+          "values": [true],
+          "type": "state"
+        },
+        "selected": {
+          "description": "Applies while an interactive component is the currently selected one in a set of states or components, for example a button in a `ButtonGroup`.",
+          "values": [true],
+          "type": "state"
+        },
+        "viewport": {
+          "description": "The size label for the current screen viewport based on the current screen width",
+          "values": ["xs", "sm", "md", "lg", "xl"],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "compact": true
+          },
+          "tokens": {
+            "displayLabel": false
+          }
+        },
+        {
+          "if": {
+            "viewport": ["xs", "sm"]
+          },
+          "tokens": {
+            "borderRadius": 32,
+            "displayLabel": false,
+            "paddingBottom": 4,
+            "paddingTop": 4,
+            "width": 32
+          }
+        },
+        {
+          "if": {
+            "selected": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.4,
+              "green": 0.4,
+              "blue": 0.4,
+              "alpha": 1
+            },
+            "color": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            },
+            "textLine": "none"
+          }
+        },
+        {
+          "if": {
+            "pressed": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.4,
+              "green": 0.4,
+              "blue": 0.4,
+              "alpha": 1
+            },
+            "color": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "direction": "previous"
+          },
+          "tokens": {
+            "icon": "PaletteIconChevronLeft"
+          }
+        },
+        {
+          "if": {
+            "direction": "next"
+          },
+          "tokens": {
+            "icon": "PaletteIconChevronRight"
+          }
+        }
+      ],
+      "tokens": {
+        "backgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "color": {
+          "red": 0.4,
+          "green": 0.4,
+          "blue": 0.4,
+          "alpha": 1
+        },
+        "displayLabel": true,
+        "fontName": "StagSans",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "icon": null,
+        "iconDisplace": 0,
+        "iconSize": 14,
+        "lineHeight": 1.5,
+        "outerBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "paddingBottom": 10,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 10,
+        "textAlign": "center",
+        "textLine": "underline",
+        "width": null
+      }
+    },
+    "Progress": {
+      "appearances": {
+        "size": {
+          "type": "variant",
+          "values": ["mini"]
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "size": "mini"
+          },
+          "tokens": {
+            "height": 8
+          }
+        }
+      ],
+      "tokens": {
+        "backgroundColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "borderColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "borderRadius": 12,
+        "borderWidth": 1,
+        "height": 16
+      }
+    },
+    "ProgressBar": {
+      "appearances": {
+        "inactive": {
+          "description": "Prevents an interactive component from being interacted with and applies accessibility attributes to indicate to the user that this component cannot be used.",
+          "values": [true],
+          "type": "state"
+        },
+        "negative": {
+          "type": "variant",
+          "values": [true]
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "inactive": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.4,
+              "green": 0.4,
+              "blue": 0.4,
+              "alpha": 1
+            },
+            "outlineColor": {
+              "red": 0.4,
+              "green": 0.4,
+              "blue": 0.4,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "negative": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.72157,
+              "green": 0.21569,
+              "blue": 0.24314,
+              "alpha": 1
+            },
+            "outlineColor": {
+              "red": 0.72157,
+              "green": 0.21569,
+              "blue": 0.24314,
+              "alpha": 1
+            }
+          }
+        }
+      ],
+      "tokens": {
+        "backgroundColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "borderRadius": 12,
+        "gradient": null,
+        "outlineColor": {
+          "red": 0.00392,
+          "green": 0.28235,
+          "blue": 0.27843,
+          "alpha": 1
+        },
+        "outlineWidth": 1
+      }
+    },
+    "QuickLinks": {
+      "appearances": {
+        "viewport": {
+          "description": "The size label for the current screen viewport based on the current screen width",
+          "values": ["xs", "sm", "md", "lg", "xl"],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "viewport": ["md", "lg", "xl"]
+          },
+          "tokens": {
+            "card": false,
+            "dividers": true,
+            "list": false
+          }
+        }
+      ],
+      "tokens": {
+        "card": true,
+        "dividers": true,
+        "list": true,
+        "stackGap": 2,
+        "stackJustify": "center",
+        "stackSpace": 4
+      }
+    },
+    "QuickLinksButton": {
+      "appearances": {
+        "pressed": {
+          "description": "Applies while an interactive component is being physically pressed. Most visible on touchscreen taps; in React Native Web, this is visible on web mouse clicks only if the pressable is held down.",
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "pressed": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "borderColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "color": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        }
+      ],
+      "tokens": {
+        "alignSelf": "flex-start",
+        "backgroundColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "borderColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "borderRadius": 4,
+        "borderWidth": 0,
+        "color": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "fontName": "StagSans",
+        "fontSize": 16,
+        "fontWeight": 600,
+        "icon": null,
+        "iconColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "iconSize": 24,
+        "iconSpace": 2,
+        "lineHeight": 1.5,
+        "minWidth": 0,
+        "opacity": 1,
+        "outerBackgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "outerBorderGap": 2,
+        "outerBorderWidth": 2,
+        "paddingBottom": 8,
+        "paddingLeft": 24,
+        "paddingRight": 24,
+        "paddingTop": 8,
+        "shadow": null,
+        "textAlign": "center",
+        "width": null
+      }
+    },
+    "QuickLinksCard": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "backgroundColor": {
+          "red": 0.97647,
+          "green": 0.96471,
+          "blue": 0.64706,
+          "alpha": 1
+        },
+        "borderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borderRadius": 0,
+        "borderWidth": 0,
+        "flex": 1,
+        "minWidth": null,
+        "paddingBottom": 16,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 16,
+        "shadow": null
+      }
+    },
+    "QuickLinksList": {
+      "appearances": {
+        "pressed": {
+          "description": "Applies while an interactive component is being physically pressed. Most visible on touchscreen taps; in React Native Web, this is visible on web mouse clicks only if the pressable is held down.",
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "pressed": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            }
+          }
+        }
+      ],
+      "tokens": {
+        "backgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "dividerColor": {
+          "red": 0.78824,
+          "green": 0.78431,
+          "blue": 0.78431,
+          "alpha": 1
+        },
+        "dividerSize": 1,
+        "iconMarginTop": 4,
+        "interItemMargin": null,
+        "interItemMarginWithDivider": null,
+        "itemBulletColor": {
+          "red": 0.48627,
+          "green": 0.07451,
+          "blue": 0.4,
+          "alpha": 1
+        },
+        "itemBulletContainerAlign": "center",
+        "itemBulletContainerWidth": 16,
+        "itemBulletHeight": 4,
+        "itemBulletWidth": 4,
+        "itemFontName": "StagSans",
+        "itemFontSize": 16,
+        "itemFontWeight": 600,
+        "itemIconColor": {
+          "red": 0.48627,
+          "green": 0.07451,
+          "blue": 0.4,
+          "alpha": 1
+        },
+        "itemIconSize": 16,
+        "itemLineHeight": 1.3,
+        "listGutter": 10,
+        "paddingBottom": 8,
+        "paddingLeft": 12,
+        "paddingRight": 12,
+        "paddingTop": 8
+      }
+    },
+    "Radio": {
+      "appearances": {
+        "checked": {
+          "description": "Corresponds to a selected state for a checkbox or radio",
+          "values": [true],
+          "type": "state"
+        },
+        "error": {
+          "values": [true],
+          "type": "state"
+        },
+        "inactive": {
+          "description": "Prevents an interactive component from being interacted with and applies accessibility attributes to indicate to the user that this component cannot be used.",
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [],
+      "tokens": {
+        "checkedBackgroundColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "checkedSize": 12,
+        "containerBackgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "containerBorderRadius": 0,
+        "containerOpacity": 1,
+        "containerPaddingBottom": 0,
+        "containerPaddingLeft": 0,
+        "containerPaddingRight": 0,
+        "containerPaddingTop": 0,
+        "containerShadow": null,
+        "descriptionFontSize": 14,
+        "descriptionLineHeight": 1.4,
+        "descriptionMarginLeft": null,
+        "inputBackgroundColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "inputBorderColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "inputBorderWidth": 2,
+        "inputOutlineColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "inputOutlineWidth": 0,
+        "inputSize": 20,
+        "labelColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
+        },
+        "labelFontName": "StagSans",
+        "labelFontSize": 16,
+        "labelFontWeight": 400,
+        "labelLineHeight": 1.5,
+        "labelMarginLeft": 8,
+        "outerBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderGap": 0,
+        "outerBorderWidth": 0
+      }
+    },
+    "RadioCard": {
+      "appearances": {
+        "checked": {
+          "description": "Corresponds to a selected state for a checkbox or radio",
+          "values": [true],
+          "type": "state"
+        },
+        "error": {
+          "values": [true],
+          "type": "state"
+        },
+        "inactive": {
+          "description": "Prevents an interactive component from being interacted with and applies accessibility attributes to indicate to the user that this component cannot be used.",
+          "values": [true],
+          "type": "state"
+        },
+        "pressed": {
+          "description": "Applies while an interactive component is being physically pressed. Most visible on touchscreen taps; in React Native Web, this is visible on web mouse clicks only if the pressable is held down.",
+          "values": [true],
+          "type": "state"
+        },
+        "viewport": {
+          "description": "The size label for the current screen viewport based on the current screen width",
+          "values": ["xs", "sm", "md", "lg", "xl"],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "fontSize": 24,
+            "lineHeight": 1.3,
+            "paddingBottom": 24,
+            "paddingLeft": 16,
+            "paddingRight": 24,
+            "paddingTop": 16
+          }
+        },
+        {
+          "description": "Pressed state matches hover state plus light grey background",
+          "if": {
+            "pressed": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.93725,
+              "green": 0.93725,
+              "blue": 0.93725,
+              "alpha": 1
+            },
+            "outerBorderColor": {
+              "red": 0.93725,
+              "green": 0.93725,
+              "blue": 0.93725,
+              "alpha": 1
+            },
+            "outerBorderWidth": 2,
+            "radioInputBorderColor": {
+              "red": 0.00392,
+              "green": 0.28235,
+              "blue": 0.27843,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "inactive": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.93725,
+              "green": 0.93725,
+              "blue": 0.93725,
+              "alpha": 1
+            },
+            "borderColor": {
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "color": {
+              "red": 0.4,
+              "green": 0.4,
+              "blue": 0.4,
+              "alpha": 1
+            },
+            "radioInputBackgroundColor": {
+              "red": 0.93725,
+              "green": 0.93725,
+              "blue": 0.93725,
+              "alpha": 1
+            },
+            "radioInputBorderColor": {
+              "red": 0.78824,
+              "green": 0.78431,
+              "blue": 0.78431,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "error": true
+          },
+          "tokens": {
+            "borderColor": {
+              "red": 0.87451,
+              "green": 0.23922,
+              "blue": 0.04706,
+              "alpha": 1
+            },
+            "color": {
+              "red": 0.87451,
+              "green": 0.23922,
+              "blue": 0.04706,
+              "alpha": 1
+            },
+            "radioInputBorderColor": {
+              "red": 0.87451,
+              "green": 0.23922,
+              "blue": 0.04706,
+              "alpha": 1
+            }
+          }
+        }
+      ],
+      "tokens": {
+        "backgroundColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "borderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
+        },
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "color": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
+        },
+        "contentSpace": 2,
+        "flex": 1,
+        "fontName": "StagSans",
+        "fontSize": 20,
+        "fontWeight": 700,
+        "letterSpacing": 0,
+        "lineHeight": 1.4,
+        "minWidth": 120,
+        "outerBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderGap": 0,
+        "outerBorderWidth": 0,
+        "paddingBottom": 16,
+        "paddingLeft": 10,
+        "paddingRight": 16,
+        "paddingTop": 16,
+        "radioCheckedBackgroundColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "radioCheckedSize": 12,
+        "radioInputBackgroundColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "radioInputBorderColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "radioInputBorderWidth": 2,
+        "radioInputOutlineColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "radioInputOutlineWidth": 0,
+        "radioInputSize": 20,
+        "radioOuterBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "radioOuterBorderGap": 0,
+        "radioOuterBorderWidth": 0,
+        "radioSpace": 2,
+        "shadow": null,
+        "textTransform": "none"
+      }
+    },
+    "RadioCardGroup": {
+      "appearances": {
+        "viewport": {
+          "description": "The size label for the current screen viewport based on the current screen width",
+          "values": ["xs", "sm", "md", "lg", "xl"],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "direction": "column"
+          }
+        }
+      ],
+      "tokens": {
+        "direction": "row",
+        "fieldSpace": 2,
+        "space": 2
+      }
+    },
+    "RadioGroup": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "fieldSpace": 2,
+        "space": 2
+      }
+    },
+    "Search": {
+      "appearances": {
+        "focus": {
+          "description": "Focus states for some input elements are well supported across web, RN, ios and android",
+          "values": [true],
+          "type": "state"
+        },
+        "inactive": {
+          "description": "Prevents an interactive component from being interacted with and applies accessibility attributes to indicate to the user that this component cannot be used.",
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "focus": true,
+            "inactive": null
+          },
+          "tokens": {
+            "borderColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "borderWidth": 2
+          }
+        },
+        {
+          "if": {
+            "inactive": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.93725,
+              "green": 0.93725,
+              "blue": 0.93725,
+              "alpha": 1
+            },
+            "borderColor": {
+              "red": 0.93725,
+              "green": 0.93725,
+              "blue": 0.93725,
+              "alpha": 1
+            }
+          }
+        }
+      ],
+      "tokens": {
+        "backgroundColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "borderColor": {
+          "red": 0.78824,
+          "green": 0.78431,
+          "blue": 0.78431,
+          "alpha": 1
+        },
+        "borderRadius": 32,
+        "borderWidth": 1,
+        "buttonsGap": 1,
+        "clearButtonIcon": "PaletteIconTimes",
+        "color": {
+          "red": 0.4,
+          "green": 0.4,
+          "blue": 0.4,
+          "alpha": 1
+        },
+        "fontName": "StagSans",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "lineHeight": 1.5,
+        "outerBackgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderRadius": 32,
+        "outerBorderWidth": 2,
+        "paddingBottom": 10,
+        "paddingLeft": 24,
+        "paddingRight": 4,
+        "paddingTop": 10,
+        "placeholderColor": {
+          "red": 0.4,
+          "green": 0.4,
+          "blue": 0.4,
+          "alpha": 1
+        },
+        "submitButtonIcon": "PaletteIconSpyglass"
+      }
+    },
+    "SearchButton": {
+      "appearances": {
+        "inactive": {
+          "description": "Prevents an interactive component from being interacted with and applies accessibility attributes to indicate to the user that this component cannot be used.",
+          "values": [true],
+          "type": "state"
+        },
+        "pressed": {
+          "description": "Applies while an interactive component is being physically pressed. Most visible on touchscreen taps; in React Native Web, this is visible on web mouse clicks only if the pressable is held down.",
+          "values": [true],
+          "type": "state"
+        },
+        "priority": {
+          "description": "",
+          "type": "variant",
+          "values": ["high"]
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "priority": "high"
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "iconColor": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "pressed": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "borderColor": {
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "borderWidth": 0,
+            "iconColor": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "inactive": true
+          },
+          "tokens": {
+            "opacity": 0.3
+          }
+        }
+      ],
+      "tokens": {
+        "backgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borderRadius": 32,
+        "borderWidth": 0,
+        "iconColor": {
+          "red": 0.4,
+          "green": 0.4,
+          "blue": 0.4,
+          "alpha": 1
+        },
+        "iconSize": 20,
+        "opacity": 1,
+        "paddingBottom": 8,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 8,
+        "shadow": null
+      }
+    },
+    "Select": {
+      "appearances": {
+        "focus": {
+          "description": "Focus states for some input elements are well supported across web, RN, ios and android",
+          "values": [true],
+          "type": "state"
+        },
+        "inactive": {
+          "description": "Prevents an interactive component from being interacted with and applies accessibility attributes to indicate to the user that this component cannot be used.",
+          "values": [true],
+          "type": "state"
+        },
+        "validation": {
+          "description": "Validation states for form inputs",
+          "values": ["error", "success"],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "validation": "success"
+          },
+          "tokens": {
+            "borderColor": {
+              "red": 0.1451,
+              "green": 0.5451,
+              "blue": 0.04314,
+              "alpha": 1
+            },
+            "validationIcon": "PaletteIconCheckCircledFilled",
+            "validationIconColor": {
+              "red": 0.1451,
+              "green": 0.5451,
+              "blue": 0.04314,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "validation": "error"
+          },
+          "tokens": {
+            "borderColor": {
+              "red": 0.87451,
+              "green": 0.23922,
+              "blue": 0.04706,
+              "alpha": 1
+            },
+            "validationIcon": "PaletteIconTimes",
+            "validationIconColor": {
+              "red": 0.87451,
+              "green": 0.23922,
+              "blue": 0.04706,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "focus": true
+          },
+          "tokens": {
+            "borderColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "borderWidth": 2,
+            "icon": null
+          }
+        },
+        {
+          "if": {
+            "inactive": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.93725,
+              "green": 0.93725,
+              "blue": 0.93725,
+              "alpha": 1
+            },
+            "borderColor": {
+              "red": 0.93725,
+              "green": 0.93725,
+              "blue": 0.93725,
+              "alpha": 1
+            }
+          }
+        }
+      ],
+      "tokens": {
+        "backgroundColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "borderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
+        },
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "color": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
+        },
+        "fontName": "StagSans",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "height": 48,
+        "icon": "PaletteIconChevronDown",
+        "iconColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
+        },
+        "iconSize": 24,
+        "outerBackgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderWidth": 2,
+        "paddingBottom": 10,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 10,
+        "validationIcon": null,
+        "validationIconColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "validationIconSize": 24
+      }
+    },
+    "SideNav": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "borderColor": {
+          "red": 0.78824,
+          "green": 0.78431,
+          "blue": 0.78431,
+          "alpha": 1
+        },
+        "borderStyle": "solid",
+        "borderWidth": 1
+      }
+    },
+    "SideNavItem": {
+      "appearances": {
+        "active": {
+          "description": "Used to mark currently active Item or and ItemGroup containing the currently active Item",
+          "values": [true, false],
+          "type": "state"
+        },
+        "expanded": {
+          "description": "Applies when an ExpandCollapse panel is open and the content inside is visible",
+          "values": [true],
+          "type": "state"
+        },
+        "type": {
+          "description": "`parent` being the toggle button for an ItemsGroup, and `child` an element of the ItemGroup",
+          "values": ["child", "parent"],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "active": true
+          },
+          "tokens": {
+            "accentBackgroundColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "backgroundColor": {
+              "red": 0.75686,
+              "green": 0.94902,
+              "blue": 0.9098,
+              "alpha": 1
+            },
+            "color": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "paddingLeft": 10
+          }
+        },
+        {
+          "if": {
+            "type": "child"
+          },
+          "tokens": {
+            "accentBackgroundColor": {
+              "red": 0.75686,
+              "green": 0.94902,
+              "blue": 0.9098,
+              "alpha": 1
+            },
+            "accentOffset": 16,
+            "borderWidth": 0,
+            "paddingLeft": 36
+          }
+        },
+        {
+          "if": {
+            "active": true,
+            "type": "parent"
+          },
+          "tokens": {
+            "paddingLeft": 10
+          }
+        },
+        {
+          "if": {
+            "active": true,
+            "expanded": true,
+            "type": "parent"
+          },
+          "tokens": {
+            "accentBackgroundColor": {
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "backgroundColor": {
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "color": {
+              "red": 0.4,
+              "green": 0.4,
+              "blue": 0.4,
+              "alpha": 1
+            },
+            "paddingLeft": 16
+          }
+        },
+        {
+          "if": {
+            "active": true,
+            "type": "child"
+          },
+          "tokens": {
+            "accentBackgroundColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "accentPadding": 16,
+            "backgroundColor": {
+              "red": 0.75686,
+              "green": 0.94902,
+              "blue": 0.9098,
+              "alpha": 1
+            },
+            "color": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            }
+          }
+        }
+      ],
+      "tokens": {
+        "accentBackgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "accentOffset": 0,
+        "accentPadding": 0,
+        "accentWidth": 4,
+        "backgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borderColor": {
+          "red": 0.78824,
+          "green": 0.78431,
+          "blue": 0.78431,
+          "alpha": 1
+        },
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "color": {
+          "red": 0.4,
+          "green": 0.4,
+          "blue": 0.4,
+          "alpha": 1
+        },
+        "fontName": "StagSans",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "justifyContent": "space-between",
+        "lineHeight": 1.5,
+        "paddingBottom": 16,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 16
+      }
+    },
+    "SideNavItemsGroup": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "collapseDuration": 250,
+        "contentPaddingBottom": 0,
+        "contentPaddingLeft": 0,
+        "contentPaddingRight": 0,
+        "contentPaddingTop": 0,
+        "expandDuration": 300,
+        "icon": null,
+        "iconColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "iconGap": 8,
+        "iconPosition": "right",
+        "iconSize": 10,
+        "justifyContent": "space-between",
+        "verticalAlign": "middle"
+      }
+    },
+    "Skeleton": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "baseWidth": 40,
+        "characters": 10,
+        "color": {
+          "red": 0.4,
+          "green": 0.4,
+          "blue": 0.4,
+          "alpha": 1
+        },
+        "radius": 99999999999999,
+        "size": 2,
+        "spaceBetweenLines": 4,
+        "squareRadius": 4
+      }
+    },
+    "SkipLink": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "backgroundColor": {
+          "red": 0.00392,
+          "green": 0.28235,
+          "blue": 0.27843,
+          "alpha": 1
+        },
+        "borderRadius": 12,
+        "color": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "outlineColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "outlineOffset": 0,
+        "outlineStyle": "solid",
+        "outlineWidth": 2,
+        "paddingHorizontal": 8,
+        "paddingVertical": 8
+      }
+    },
+    "StackView": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "alignItems": "stretch",
+        "flexGrow": 0,
+        "flexShrink": 0,
+        "justifyContent": "flex-start"
+      }
+    },
+    "StepTracker": {
+      "appearances": {
+        "viewport": {
+          "description": "The size label for the current screen viewport based on the current screen width",
+          "values": ["xs", "sm", "md", "lg", "xl"],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "showStepLabel": true,
+            "showStepTrackerLabel": false
+          }
+        }
+      ],
+      "tokens": {
+        "completedIcon": "PaletteIconCheck",
+        "completedIconColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "completedIconSize": 10,
+        "connectorColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "connectorCompletedColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "connectorCompletedHeight": 1,
+        "connectorHeight": 1,
+        "connectorMinWidth": 16,
+        "containerPaddingBottom": null,
+        "containerPaddingLeft": null,
+        "containerPaddingRight": null,
+        "containerPaddingTop": null,
+        "knobBackgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "knobBorderColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "knobBorderWidth": 1,
+        "knobCompletedBackgroundColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "knobCompletedBorderColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "knobCompletedPaddingLeft": 2,
+        "knobCompletedPaddingTop": 2,
+        "knobCurrentBackgroundColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "knobCurrentBorderColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "knobCurrentBorderWidth": 1,
+        "knobCurrentInnerColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "knobCurrentInnerSize": null,
+        "knobCurrentPaddingLeft": null,
+        "knobCurrentPaddingTop": null,
+        "knobSize": 15,
+        "labelColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "labelCurrentColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "labelCurrentFontName": "StagSans",
+        "labelCurrentFontWeight": 700,
+        "labelDirection": "row",
+        "labelFontName": "StagSans",
+        "labelFontSize": 16,
+        "labelFontWeight": 400,
+        "labelGap": 4,
+        "labelLineHeight": 1.5,
+        "labelMarginTop": 10,
+        "labelPaddingLeft": 16,
+        "labelPaddingRight": 16,
+        "showStepLabel": false,
+        "showStepName": true,
+        "showStepTrackerLabel": true
+      }
+    },
+    "Tabs": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "borderBottomColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borderBottomWidth": 0,
+        "buttonClearance": 32,
+        "gutter": 16,
+        "nextIcon": "PaletteIconChevronRight",
+        "previousIcon": "PaletteIconChevronLeft",
+        "space": 0
+      }
+    },
+    "TabsItem": {
+      "appearances": {
+        "selected": {
+          "description": "Applies while an interactive component is being physically pressed. Most visible on touchscreen taps; in React Native Web, this is visible on web mouse clicks only if the pressable is held down.",
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "selected": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "borderWidth": 0,
+            "color": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            },
+            "highlightColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "highlightTriangleSize": 8
+          }
+        }
+      ],
+      "tokens": {
+        "backgroundColor": {
+          "red": 0.93725,
+          "green": 0.93725,
+          "blue": 0.93725,
+          "alpha": 1
+        },
+        "borderColor": {
+          "red": 0.78824,
+          "green": 0.78431,
+          "blue": 0.78431,
+          "alpha": 1
+        },
+        "borderRadius": 0,
+        "borderWidth": 1,
+        "color": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
+        },
+        "fontName": "StagSans",
+        "fontScaleCap": 64,
+        "fontSize": 16,
+        "fontWeight": 700,
+        "highlightBarBorderRadius": 0,
+        "highlightBarBorderWidth": 0,
+        "highlightBarHeight": 0,
+        "highlightColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "highlightTriangleSize": 0,
+        "letterSpacing": 0,
+        "lineHeight": 1.1,
+        "maxWidth": null,
+        "paddingHorizontal": 16,
+        "paddingVertical": 16,
+        "space": 0,
+        "textAlign": "center",
+        "textTransform": "none"
+      }
+    },
+    "Tags": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "alignItems": "center",
+        "direction": "row",
+        "flexGrow": 0,
+        "flexShrink": 0,
+        "justifyContent": "flex-start",
+        "space": 3
+      }
+    },
+    "TagsItem": {
+      "appearances": {
+        "inactive": {
+          "description": "Prevents an interactive component from being interacted with and applies accessibility attributes to indicate to the user that this component cannot be used.",
+          "values": [true],
+          "type": "state"
+        },
+        "pressed": {
+          "description": "Applies while an interactive component is being physically pressed. Most visible on touchscreen taps; in React Native Web, this is visible on web mouse clicks only if the pressable is held down.",
+          "values": [true],
+          "type": "state"
+        },
+        "selected": {
+          "description": "Applies while an interactive component is the currently selected one in a set of states or components, for example a button in a `ButtonGroup`.",
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "pressed": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "borderColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "color": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "selected": true
+          },
+          "tokens": {
+            "icon": "PaletteIconCheckCircledFilled",
+            "opacity": 0.8,
+            "outerBorderColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "outerBorderGap": 1,
+            "outerBorderWidth": 4
+          }
+        },
+        {
+          "if": {
+            "inactive": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.4,
+              "green": 0.4,
+              "blue": 0.4,
+              "alpha": 1
+            },
+            "borderWidth": 0,
+            "color": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            },
+            "iconColor": {
+              "red": 0.4,
+              "green": 0.4,
+              "blue": 0.4,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "selected": true
+          },
+          "tokens": {
+            "opacity": 0.8,
+            "outerBorderColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "outerBorderGap": 1,
+            "outerBorderWidth": 4
+          }
+        }
+      ],
+      "tokens": {
+        "alignSelf": "center",
+        "backgroundColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "borderColor": {
+          "red": 0.00392,
+          "green": 0.28235,
+          "blue": 0.27843,
+          "alpha": 1
+        },
+        "borderRadius": 4,
+        "borderWidth": 0,
+        "color": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "fontName": "StagSans",
+        "fontSize": 14,
+        "fontWeight": 600,
+        "icon": "PaletteIconCheckCircledNotFilled",
+        "iconAlignSelf": "center",
+        "iconBackground": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "iconBorderRadius": 32,
+        "iconColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "iconPadding": 4,
+        "iconPosition": "right",
+        "iconSize": 20,
+        "iconSpace": 3,
+        "iconTranslateX": 0,
+        "iconTranslateY": 0,
+        "lineHeight": 1.5,
+        "minWidth": 0,
+        "opacity": 1,
+        "outerBackgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderGap": 2,
+        "outerBorderWidth": 2,
+        "paddingBottom": 8,
+        "paddingLeft": 24,
+        "paddingRight": 16,
+        "paddingTop": 8,
+        "shadow": null,
+        "textAlign": "center",
+        "width": null
+      }
+    },
+    "TextArea": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "maxLines": 4,
+        "minLines": 2
+      }
+    },
+    "TextInput": {
+      "appearances": {
+        "focus": {
+          "description": "Focus states for some input elements are well supported across web, RN, ios and android",
+          "values": [true],
+          "type": "state"
+        },
+        "inactive": {
+          "description": "Prevents an interactive component from being interacted with and applies accessibility attributes to indicate to the user that this component cannot be used.",
+          "values": [true],
+          "type": "state"
+        },
+        "validation": {
+          "description": "Validation states for form inputs",
+          "values": ["error", "success"],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "validation": "success"
+          },
+          "tokens": {
+            "borderColor": {
+              "red": 0.1451,
+              "green": 0.5451,
+              "blue": 0.04314,
+              "alpha": 1
+            },
+            "icon": "PaletteIconCheckCircledFilled",
+            "iconColor": {
+              "red": 0.1451,
+              "green": 0.5451,
+              "blue": 0.04314,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "validation": "error"
+          },
+          "tokens": {
+            "borderColor": {
+              "red": 0.87451,
+              "green": 0.23922,
+              "blue": 0.04706,
+              "alpha": 1
+            },
+            "icon": "PaletteIconTimes",
+            "iconColor": {
+              "red": 0.87451,
+              "green": 0.23922,
+              "blue": 0.04706,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "focus": true,
+            "inactive": null
+          },
+          "tokens": {
+            "borderColor": {
+              "red": 0.00392,
+              "green": 0.41961,
+              "blue": 0.41569,
+              "alpha": 1
+            },
+            "borderWidth": 2,
+            "icon": null
+          }
+        },
+        {
+          "if": {
+            "inactive": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.93725,
+              "green": 0.93725,
+              "blue": 0.93725,
+              "alpha": 1
+            },
+            "borderColor": {
+              "red": 0.93725,
+              "green": 0.93725,
+              "blue": 0.93725,
+              "alpha": 1
+            }
+          }
+        }
+      ],
+      "tokens": {
+        "backgroundColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "borderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
+        },
+        "borderRadius": 4,
+        "borderWidth": 1,
+        "buttonSize": 32,
+        "buttonsGap": 1,
+        "buttonsPaddingRight": 8,
+        "color": {
+          "red": 0.4,
+          "green": 0.4,
+          "blue": 0.4,
+          "alpha": 1
+        },
+        "fontName": "StagSans",
+        "fontSize": 16,
+        "fontWeight": 400,
+        "icon": null,
+        "iconColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "iconSize": 24,
+        "lineHeight": 1.5,
+        "outerBackgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderWidth": 2,
+        "paddingBottom": 10,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 10
+      }
+    },
+    "Timeline": {
+      "appearances": {
+        "horizontal": {
+          "description": "Use horizontal to display timeline horizontally.",
+          "type": "variant",
+          "values": [true]
+        },
+        "viewport": {
+          "description": "The size label for the current screen viewport based on the current screen width",
+          "values": ["xs", "sm", "md", "lg", "xl"],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "horizontal": true,
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "connectorHeight": 2,
+            "connectorWidth": "100%",
+            "itemContentMarginBottom": 0,
+            "itemContentMarginRight": 32,
+            "lineItemContainerDirection": "column",
+            "lineItemDirection": "row",
+            "lineItemMarginBottom": 24,
+            "lineItemMarginRight": 0,
+            "timelineContainerDirection": "row"
+          }
+        }
+      ],
+      "tokens": {
+        "connectorHeight": "100%",
+        "connectorWidth": 2,
+        "dotBorderWidth": 3,
+        "dotColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "dotWidth": 16,
+        "itemContentFlexSize": 1,
+        "itemContentMarginBottom": 32,
+        "itemContentMarginRight": 0,
+        "lineContainerFlexSize": 1,
+        "lineItemAlign": "center",
+        "lineItemContainerDirection": "row",
+        "lineItemDirection": "column",
+        "lineItemMarginBottom": 0,
+        "lineItemMarginRight": 24,
+        "timelineColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "timelineContainerDirection": "column"
+      }
+    },
+    "ToggleSwitch": {
+      "appearances": {
+        "inactive": {
+          "description": "Prevents an interactive component from being interacted with and applies accessibility attributes to indicate to the user that this component cannot be used.",
+          "values": [true],
+          "type": "state"
+        },
+        "pressed": {
+          "description": "Applies while an interactive component is being physically pressed. Most visible on touchscreen taps; in React Native Web, this is visible on web mouse clicks only if the pressable is held down.",
+          "values": [true],
+          "type": "state"
+        },
+        "selected": {
+          "description": "Applies while an interactive component is the currently selected one in a set of states or components, for example a button in a `ButtonGroup`.",
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "pressed": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.76471,
+              "green": 0.93725,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "selected": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0,
+              "green": 0.63137,
+              "blue": 0.85882,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "pressed": true,
+            "selected": true
+          },
+          "tokens": {
+            "backgroundColor": {
+              "red": 0.76471,
+              "green": 0.93725,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "inactive": true
+          },
+          "tokens": {
+            "opacity": 0.5
+          }
+        }
+      ],
+      "tokens": {
+        "alignSelf": "flex-start",
+        "backgroundColor": {
+          "red": 0.00392,
+          "green": 0.41961,
+          "blue": 0.41569,
+          "alpha": 1
+        },
+        "borderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "borderRadius": 4,
+        "borderWidth": 0,
+        "icon": null,
+        "iconColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "iconSize": 16,
+        "labelColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
+        },
+        "labelFontName": "StagSans",
+        "labelFontSize": 16,
+        "labelFontWeight": 400,
+        "labelLineHeight": 1.5,
+        "labelMarginLeft": 8,
+        "opacity": 1,
+        "outerBackgroundColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderGap": 0,
+        "outerBorderWidth": 0,
+        "paddingBottom": 4,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 4,
+        "shadow": null,
+        "switchBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "switchBorderRadius": 32,
+        "switchBorderWidth": 0,
+        "switchColor": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "switchShadow": null,
+        "switchSize": 24,
+        "trackBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "trackBorderRadius": 0,
+        "trackBorderWidth": 0,
+        "width": 64
+      }
+    },
+    "ToggleSwitchGroup": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "alignItems": "flex-start",
+        "direction": "column",
+        "fieldSpace": 2,
+        "flexGrow": 0,
+        "flexShrink": 0,
+        "justifyContent": "flex-start",
+        "space": 3
+      }
+    },
+    "Tooltip": {
+      "appearances": {},
+      "rules": [],
+      "tokens": {
+        "arrowBorderRadius": 0,
+        "arrowOffset": 4,
+        "arrowWidth": 8,
+        "backgroundColor": {
+          "red": 0.00392,
+          "green": 0.28235,
+          "blue": 0.27843,
+          "alpha": 1
+        },
+        "borderRadius": 4,
+        "color": {
+          "red": 1,
+          "green": 1,
+          "blue": 1,
+          "alpha": 1
+        },
+        "fontName": "StagSans",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 1.4,
+        "paddingBottom": 8,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 8,
+        "shadow": {
+          "inset": false,
+          "offsetX": 0,
+          "offsetY": 0,
+          "blur": 0,
+          "spread": 0,
+          "color": {
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 0
+          }
+        }
+      }
+    },
+    "TooltipButton": {
+      "appearances": {
+        "pressed": {
+          "description": "Applies while an interactive component is being physically pressed. Most visible on touchscreen taps; in React Native Web, this is visible on web mouse clicks only if the pressable is held down.",
+          "values": [true],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "pressed": true
+          },
+          "tokens": {
+            "iconColor": {
+              "red": 0.00392,
+              "green": 0.28235,
+              "blue": 0.27843,
+              "alpha": 1
+            }
+          }
+        }
+      ],
+      "tokens": {
+        "borderRadius": 32,
+        "icon": "PaletteIconInfo",
+        "iconColor": {
+          "red": 0.93333,
+          "green": 0.17255,
+          "blue": 0.4549,
+          "alpha": 1
+        },
+        "iconScale": 1,
+        "iconSize": 16,
+        "outerBorderColor": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 0
+        },
+        "outerBorderGap": 4,
+        "outerBorderWidth": 1,
+        "width": 16
+      }
+    },
+    "Typography": {
+      "appearances": {
+        "colour": {
+          "type": "variant",
+          "values": ["red"]
+        },
+        "inverse": {
+          "description": "Styles the link white for use on dark backgrounds.",
+          "type": "variant",
+          "values": [true]
+        },
+        "size": {
+          "type": "variant",
+          "values": ["small", "large", "h1", "h2", "h3", "h4", "display"]
+        },
+        "viewport": {
+          "description": "The size label for the current screen viewport based on the current screen width",
+          "values": ["xs", "sm", "md", "lg", "xl"],
+          "type": "state"
+        },
+        "weight": {
+          "description": "Sets the font weight, default is regular 400 weight. Does not change accessibility properties.",
+          "type": "variant",
+          "values": ["semibold", "bold"]
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "weight": "semibold"
+          },
+          "tokens": {
+            "fontName": "StagSans",
+            "fontWeight": 600
+          }
+        },
+        {
+          "if": {
+            "weight": "bold"
+          },
+          "tokens": {
+            "fontName": "StagSans",
+            "fontWeight": 700
+          }
+        },
+        {
+          "if": {
+            "size": "large"
+          },
+          "tokens": {
+            "fontSize": 20,
+            "lineHeight": 1.6
+          }
+        },
+        {
+          "if": {
+            "size": "small"
+          },
+          "tokens": {
+            "fontSize": 14,
+            "lineHeight": 1.4
+          }
+        },
+        {
+          "if": {
+            "size": "display"
+          },
+          "tokens": {
+            "fontName": "StagSans",
+            "fontSize": 48,
+            "fontWeight": 700,
+            "lineHeight": 1.2
+          }
+        },
+        {
+          "if": {
+            "size": "display",
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "fontSize": 64,
+            "lineHeight": 1.1
+          }
+        },
+        {
+          "if": {
+            "size": "h1"
+          },
+          "tokens": {
+            "fontName": "StagSans",
+            "fontSize": 44,
+            "fontWeight": 700,
+            "lineHeight": 1.2
+          }
+        },
+        {
+          "if": {
+            "size": "h1",
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "fontSize": 40,
+            "lineHeight": 1.1
+          }
+        },
+        {
+          "if": {
+            "size": "h2"
+          },
+          "tokens": {
+            "color": {
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fontName": "StagSans",
+            "fontSize": 28,
+            "fontWeight": 700,
+            "lineHeight": 1.3
+          }
+        },
+        {
+          "if": {
+            "size": "h2",
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "fontSize": 28
+          }
+        },
+        {
+          "if": {
+            "size": "h3"
+          },
+          "tokens": {
+            "fontName": "StagSans",
+            "fontSize": 20,
+            "fontWeight": 700,
+            "lineHeight": 1.4
+          }
+        },
+        {
+          "if": {
+            "size": "h3",
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "fontSize": 24,
+            "lineHeight": 1.3
+          }
+        },
+        {
+          "if": {
+            "size": "h4"
+          },
+          "tokens": {
+            "fontName": "StagSans",
+            "fontSize": 16,
+            "fontWeight": 700,
+            "lineHeight": 1.5
+          }
+        },
+        {
+          "if": {
+            "inverse": true
+          },
+          "tokens": {
+            "color": {
+              "red": 1,
+              "green": 1,
+              "blue": 1,
+              "alpha": 1
+            }
+          }
+        },
+        {
+          "if": {
+            "colour": "red"
+          },
+          "tokens": {
+            "color": {
+              "red": 0.87451,
+              "green": 0.23922,
+              "blue": 0.04706,
+              "alpha": 1
+            }
+          }
+        }
+      ],
+      "tokens": {
+        "color": {
+          "red": 0,
+          "green": 0,
+          "blue": 0,
+          "alpha": 1
+        },
+        "fontName": "StagSans",
+        "fontScaleCap": 64,
+        "fontSize": 16,
+        "fontWeight": 400,
+        "letterSpacing": 0,
+        "lineHeight": 1.5,
+        "textTransform": "none"
+      }
+    },
+    "spacingScale": {
+      "appearances": {
+        "space": {
+          "description": "Index of the intended position on the spacing scale",
+          "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+          "type": "state"
+        },
+        "viewport": {
+          "description": "The size label for the current screen viewport based on the current screen width",
+          "values": ["xs", "sm", "md", "lg", "xl"],
+          "type": "state"
+        }
+      },
+      "rules": [
+        {
+          "if": {
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "size": 120
+          }
+        },
+        {
+          "if": {
+            "space": 10
+          },
+          "tokens": {
+            "size": 80
+          }
+        },
+        {
+          "if": {
+            "space": 9
+          },
+          "tokens": {
+            "size": 64
+          }
+        },
+        {
+          "if": {
+            "space": 8
+          },
+          "tokens": {
+            "size": 48
+          }
+        },
+        {
+          "if": {
+            "space": 7
+          },
+          "tokens": {
+            "size": 40
+          }
+        },
+        {
+          "if": {
+            "space": 6
+          },
+          "tokens": {
+            "size": 36
+          }
+        },
+        {
+          "if": {
+            "space": 5
+          },
+          "tokens": {
+            "size": 32
+          }
+        },
+        {
+          "if": {
+            "space": 4
+          },
+          "tokens": {
+            "size": 24
+          }
+        },
+        {
+          "if": {
+            "space": 3
+          },
+          "tokens": {
+            "size": 16
+          }
+        },
+        {
+          "if": {
+            "space": 2
+          },
+          "tokens": {
+            "size": 8
+          }
+        },
+        {
+          "if": {
+            "space": 1
+          },
+          "tokens": {
+            "size": 4
+          }
+        },
+        {
+          "if": {
+            "space": 10,
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "size": 120
+          }
+        },
+        {
+          "if": {
+            "space": 9,
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "size": 96
+          }
+        },
+        {
+          "if": {
+            "space": 8,
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "size": 72
+          }
+        },
+        {
+          "if": {
+            "space": 7,
+            "viewport": ["lg", "xl"]
+          },
+          "tokens": {
+            "size": 64
+          }
+        },
+        {
+          "if": {
+            "space": 0
+          },
+          "tokens": {
+            "size": 0
+          }
+        }
+      ],
+      "tokens": {
+        "size": 96
+      }
+    }
+  },
+  "metadata": {
+    "themeTokensVersion": "2.7.0",
+    "name": "theme-koodo"
+  }
+}

@@ -15,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.telus.udsnative.ThemeResolver
@@ -93,7 +94,7 @@ fun Button(
                     indication = null
                 )
                 .background(
-                    color = tokens.backgroundColor.color,
+                    color = tokens.backgroundColor?.color ?: Color.Transparent,
                     shape = RoundedCornerShape(tokens.borderRadius)
                 )
                 .border(

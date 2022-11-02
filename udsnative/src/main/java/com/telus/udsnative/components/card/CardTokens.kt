@@ -7,14 +7,14 @@ import com.telus.udsnative.models.Tokens
 import com.telus.udsnative.models.UDSColor
 
 data class CardTokens(
-    var backgroundColor: UDSColor,
-    var borderColor: UDSColor,
-    var borderRadius: Dp,
-    var borderWidth: Dp,
-    var minWidth: Dp,
-    var paddingBottom: Dp,
-    var paddingLeft: Dp,
-    var paddingRight: Dp,
-    var paddingTop: Dp,
-    var shadow: Shadow
+    val backgroundColor: UDSColor,
+    val borderColor: UDSColor?,
+    val borderRadius: Dp,
+    val borderWidth: Dp,
+    val minWidth: Dp,
+    val paddingBottom: Dp,
+    val paddingLeft: Dp,
+    val paddingRight: Dp,
+    val paddingTop: Dp,
+    val shadow: Shadow?
 ): Tokens

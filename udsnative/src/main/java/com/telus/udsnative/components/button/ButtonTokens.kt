@@ -8,7 +8,7 @@ import com.telus.udsnative.models.Tokens
 import com.telus.udsnative.models.UDSColor
 
 data class ButtonTokens(
-    val backgroundColor: UDSColor,
+    val backgroundColor: UDSColor?,
     val borderColor: UDSColor,
     val borderRadius: Dp,
     val borderWidth: Dp,

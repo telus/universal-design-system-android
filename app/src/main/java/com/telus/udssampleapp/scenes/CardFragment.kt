@@ -19,8 +19,8 @@ import com.telus.udsnative.models.UDSColor
 class CardFragment : Fragment() {
 
     private val cardTokens = CardTokens(
-        backgroundColor = UDSColor("#000000"),
-        borderColor = UDSColor("#ff0000"),
+        backgroundColor = UDSColor(0f, 0f, 0f, 1f),
+        borderColor = UDSColor(1f, 0f, 0f, 1f),
         borderRadius = 16.dp,
         borderWidth = 1.dp,
         minWidth = 100.dp,
@@ -28,7 +28,7 @@ class CardFragment : Fragment() {
         paddingLeft = 16.dp,
         paddingRight = 16.dp,
         paddingTop = 16.dp,
-        shadow = Shadow(0.dp, UDSColor("#00ff00"), false, 0.dp, 0.dp, 0.dp)
+        shadow = Shadow(0.dp, UDSColor(0f, 1f, 0f, 1f), false, 0.dp, 0.dp, 0.dp)
     )
 
     override fun onCreateView(
@@ -76,7 +76,8 @@ class CardFragment : Fragment() {
                         customInnerContentPadding = CustomPadding(
                             start = 25.dp,
                             top = 25.dp,
-                            bottom = 25.dp
+                            bottom = 25.dp,
+                            end = 25.dp
                         )
                     ) {
                         Text(text = "Custom Padding Card")
