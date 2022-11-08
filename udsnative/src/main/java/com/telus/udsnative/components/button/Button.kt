@@ -94,7 +94,7 @@ fun Button(
                     indication = null
                 )
                 .background(
-                    color = tokens.backgroundColor?.color ?: Color.Transparent,
+                    color = tokens.backgroundColor.color,
                     shape = RoundedCornerShape(tokens.borderRadius)
                 )
                 .border(

@@ -49,7 +49,7 @@ fun Card(
     var cardModifier = modifier
         .border(
             width = tokens.borderWidth,
-            color = tokens.borderColor?.color ?: Color.Transparent,
+            color = tokens.borderColor.color,
             shape = RoundedCornerShape(tokens.borderRadius)
         )
 

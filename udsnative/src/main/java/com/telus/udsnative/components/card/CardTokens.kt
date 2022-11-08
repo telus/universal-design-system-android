@@ -8,7 +8,7 @@ import com.telus.udsnative.models.UDSColor
 
 data class CardTokens(
     val backgroundColor: UDSColor,
-    val borderColor: UDSColor?,
+    val borderColor: UDSColor,
     val borderRadius: Dp,
     val borderWidth: Dp,
     val minWidth: Dp,
