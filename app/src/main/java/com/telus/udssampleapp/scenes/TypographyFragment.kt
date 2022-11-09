@@ -94,7 +94,7 @@ class TypographyFragment : Fragment() {
                             modifier = Modifier.padding(start = 16.dp),
                             text = "Custom Tokens",
                             typographyTokens = TypographyTokens(
-                                color = UDSColor("#0000FF", Color.Blue),
+                                color = UDSColor(0f, 0f, 1f, 1f),
                                 fontSize = 32,
                                 fontScaleCap = 64,
                                 fontWeight = 400,

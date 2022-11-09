@@ -46,22 +46,25 @@ fun Card(
     val appearance = CardAppearance(variant = variant).asMap()
     val tokens = cardTokens ?: componentResolver.resolve(appearance = appearance) ?: return
 
+    var cardModifier = modifier
+        .border(
+            width = tokens.borderWidth,
+            color = tokens.borderColor.color,
+            shape = RoundedCornerShape(tokens.borderRadius)
+        )
+
+    if(tokens.shadow != null) {
+        cardModifier = cardModifier.advancedShadow(
+            color = tokens.shadow.color.color,
+            cornersRadius = tokens.shadow.spread,
+            shadowBlurRadius = tokens.shadow.blur,
+            offsetX = tokens.shadow.offsetX,
+            offsetY = tokens.shadow.offsetY
+        )
+    }
+
     androidx.compose.material.Card(
-        modifier = modifier
-            .border(
-                width = tokens.borderWidth,
-                color = tokens.borderColor.color,
-                shape = RoundedCornerShape(tokens.borderRadius)
-            )
-            .advancedShadow(
-                color = tokens.shadow.color.color,
-                cornersRadius = tokens.shadow.spread,
-                shadowBlurRadius = tokens.shadow.blur,
-                offsetX = tokens.shadow.offsetX,
-                offsetY = tokens.shadow.offsetY
-
-
-            ),
+        modifier = cardModifier,
         shape = RoundedCornerShape(tokens.borderRadius),
         backgroundColor = tokens.backgroundColor.color
     ) {

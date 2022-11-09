@@ -18,8 +18,9 @@ class App: Application() {
 }
 
 enum class TestTheme(val fileName: String) {
-    allium("AlliumTheme.json"),
-    koodo("KoodoTheme.json")
+    allium("theme-allium.json"),
+    koodo("theme-koodo.json"),
+    publicMobile("theme-public-mobile.json")
 }
 
 fun AssetManager.readAssetsFile(fileName: String): String = open(fileName).bufferedReader().use { it.readText() }

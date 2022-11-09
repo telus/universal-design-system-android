@@ -18,11 +18,11 @@ import com.telus.udsnative.models.UDSColor
 class ButtonFragment : Fragment() {
 
     private val buttonTokens = ButtonTokens(
-        backgroundColor = UDSColor("#ffffff"),
-        borderColor = UDSColor("#00ff00"),
+        backgroundColor = UDSColor(1f,1f,1f,1f),
+        borderColor = UDSColor(0f, 1f, 0f, 1f),
         borderRadius = 32.dp,
         borderWidth = 1.dp,
-        color = UDSColor("#000000"),
+        color = UDSColor(0f, 0f, 0f, 1f),
         fontName = "SF Pro",
         fontSize = 14.sp,
         icon = "example-icon",
@@ -31,8 +31,8 @@ class ButtonFragment : Fragment() {
         iconPosition = IconPosition.Right,
         lineHeight = 1f,
         opacity = 1.dp,
-        outerBackgroundColor = UDSColor("#00ffffff"),
-        outerBorderColor = UDSColor("#00ff00"),
+        outerBackgroundColor = UDSColor(1f,1f,1f, 0f),
+        outerBorderColor = UDSColor(0f, 1f, 0f, 1f),
         outerBorderGap = 2.dp,
         outerBorderWidth = 2.dp,
         paddingBottom = 12.dp,
