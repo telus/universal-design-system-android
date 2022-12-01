@@ -55,7 +55,6 @@ fun Typography(
             fontSize = fontSize,
             color = tokens.color.color,
             letterSpacing = tokens.letterSpacing.sp,
-            lineHeight = tokens.lineHeight.sp,
             fontWeight = fontWeight
         )
 
