@@ -67,14 +67,16 @@ dependencies {
 }
 
 //jitpack
-publishing {
-    publications {
-        release(MavenPublication) {
-            groupId = 'com.github.QuickChangeSpidey'
-            artifactId = 'universal-design-system-android'
-            version = '0.1.0'
-            afterEvaluate {
-                from components.release
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.QuickChangeSpidey'
+                artifactId = 'universal-design-system-android'
+                version = '0.1.0'
+                afterEvaluate {
+                    from components.release
+                }
             }
         }
     }
