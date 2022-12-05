@@ -11,4 +11,8 @@ enum class Padding {
     default, narrow, intermediate, compact, custom
 }
 
-data class CardVariant(val background: Background = Background.default, val padding: Padding = Padding.default): Variant
+enum class Viewport {
+    xs, sm, md, lg, xl
+}
+
+data class CardVariant(val background: Background = Background.default, val padding: Padding = Padding.default, val viewport: Viewport = Viewport.lg): Variant
