@@ -88,7 +88,7 @@ fun Button(
                     onClick = onClick,
                     enabled = appearance.state != ButtonState.Inactive
                 )
-                .padding(2.dp + tokens.outerBorderGap)
+                .padding(2.dp + tokens.outerBorderGap) //outer border padding
                 .indication(
                     interactionSource = interactionSource,
                     indication = null
@@ -103,7 +103,7 @@ fun Button(
                     color = tokens.borderColor.color
                 )
                 .clip(shape = RoundedCornerShape(tokens.borderRadius))
-                .padding(start = tokens.paddingLeft, top = tokens.paddingTop, end = tokens.paddingRight, bottom = tokens.paddingBottom),
+                .padding(start = tokens.paddingLeft, top = tokens.paddingTop +2.dp, end = tokens.paddingRight, bottom = tokens.paddingBottom + 2.dp), //inner button padding
             horizontalArrangement = Arrangement.spacedBy(
                 space = contentSpacing,
                 alignment = contentAlignment

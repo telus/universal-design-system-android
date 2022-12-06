@@ -7,6 +7,7 @@ data class TypographyVariant(
     val colour: TypographyColor = TypographyColor.default,
     val compact: Boolean = false,
     val inverse: Boolean = false,
-    val size: TypographySize = TypographySize.default
+    val size: TypographySize = TypographySize.default,
+    val viewport: TypographyViewport = TypographyViewport.lg
 
 ) : Variant

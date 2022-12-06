@@ -14,6 +14,7 @@ class TypographyAppearance(variant: TypographyVariant) : Appearance {
         "colour" to variant.colour.name,
         "compact" to variant.compact,
         "inverse" to variant.inverse,
-        "size" to variant.size.name
+        "size" to variant.size.name,
+        "viewport" to variant.viewport.name // Temporary hardcoded value until viewport is removed from theme file
     )
 }
