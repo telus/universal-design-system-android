@@ -30,6 +30,7 @@ fun Card(
     customInnerContentPadding: CustomPadding? = null,
     cardTokens: CardTokens? = null,
     variant: CardVariant = CardVariant(),
+    horizontalAlignment: Alignment.Horizontal = Alignment.Start,
     content: @Composable () -> Unit
 ) {
 
@@ -59,24 +60,21 @@ fun Card(
         )
     }
 
-    Box(
-        modifier = cardModifier
-            .clip(RoundedCornerShape(tokens.borderRadius))
-            .background(tokens.backgroundColor.color)
-    ) {
         Column (
-            modifier = Modifier
+            modifier = cardModifier
+                .clip(RoundedCornerShape(tokens.borderRadius))
+                .background(tokens.backgroundColor.color)
                 .padding(
                     start = customInnerContentPadding?.start ?: tokens.paddingLeft,
                     top = customInnerContentPadding?.top ?: tokens.paddingTop,
                     end = customInnerContentPadding?.end ?: tokens.paddingLeft,
                     bottom = customInnerContentPadding?.bottom ?: tokens.paddingBottom
                 ),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = horizontalAlignment
         ) {
             content()
         }
-    }
+
 }
 
 @Preview
